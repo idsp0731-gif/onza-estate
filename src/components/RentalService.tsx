@@ -6,8 +6,8 @@ import { getProperties, Property } from '@/lib/notion';
 const dummyRentals: Property[] = [
   { id: '1', name: 'リバーサイドアパート', area: '滋賀', price: 65000, layout: '1LDK', builtYear: 2020, station: '守山駅', walkMinutes: 5, images: [], published: true, recommended: false, type: '賃貸' },
   { id: '2', name: '京都ハイツ', area: '京都', price: 75000, layout: '2LDK', builtYear: 2019, station: '京都駅', walkMinutes: 10, images: [], published: true, recommended: false, type: '賃貸' },
-  { id: '3', name: '大阪レジデンス', area: '大阪', price: 85000, layout: '1K', builtYear: 2021, station: '梅田駅', walkMinutes: 8, images: [], published: true, recommended: false, type: '賃貸' },
-  { id: '4', name: '東京マンション', area: 'その他', price: 95000, layout: '2DK', builtYear: 2018, station: '東京駅', walkMinutes: 15, images: [], published: true, recommended: false, type: '賃貸' },
+  { id: '3', name: '大阪レジデンス', area: '守山', price: 85000, layout: '1K', builtYear: 2021, station: '梅田駅', walkMinutes: 8, images: [], published: true, recommended: false, type: '賃貸' },
+  { id: '4', name: '東京マンション', area: '草津', price: 95000, layout: '2DK', builtYear: 2018, station: '東京駅', walkMinutes: 15, images: [], published: true, recommended: false, type: '賃貸' },
 ];
 
 export default function RentalService() {
@@ -43,7 +43,7 @@ export default function RentalService() {
 
         <div className="flex justify-center mb-8">
           <div className="flex bg-white rounded-2xl shadow-sm p-1">
-            {['all', '滋賀', '京都', '大阪', 'その他'].map((area) => (
+            {['all', '守山', '草津', '大津', '京都'].map((area) => (
               <button
                 key={area}
                 onClick={() => setActiveArea(area)}
