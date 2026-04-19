@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://onza-estate.com/sitemap.xml
