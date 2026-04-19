@@ -3,7 +3,7 @@ export default function Hero() {
     <>
       <header className="bg-white py-4 px-4 border-b border-[#E5E9E8]">
         <div className="max-w-4xl mx-auto">
-          <img src="/logo.jpg" alt="ONZA Estate" className="h-10 w-auto" />
+          <img src="/logo.jpg" alt="ONZA Estate" style={{ height: '40px', width: 'auto' }} />
         </div>
       </header>
       <section
