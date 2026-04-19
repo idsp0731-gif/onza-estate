@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export default function About() {
   return (
     <section className="py-16 md:py-24">
@@ -8,13 +6,8 @@ export default function About() {
           不動産のことも、お金のことも、気軽に話せる場所でありたい。
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="aspect-[3/4] relative rounded-2xl overflow-hidden">
-            <Image
-              src="/representative.jpg"
-              alt="代表 飯田舜平"
-              fill
-              className="object-cover"
-            />
+          <div className="aspect-[3/4] rounded-2xl overflow-hidden">
+            <img src="/representative.jpg" alt="ONZA Estate代表 飯田舜平" className="w-full h-full object-cover" />
           </div>
           <div>
             <p className="text-lg font-light text-[#6B7280] mb-8 leading-relaxed">
