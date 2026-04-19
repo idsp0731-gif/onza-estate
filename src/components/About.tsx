@@ -9,7 +9,7 @@ export default function About() {
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="aspect-[3/4] bg-transparent rounded-2xl flex items-center justify-center">
-            <img src="/representative.jpg" alt="ONZA Estate代表 飯田舜平" style={{width:"240px",height:"300px",objectFit:"cover",objectPosition:"top"}} />
+            <img src="/representative.jpg" alt="ONZA Estate代表 飯田舜平" style={{width:"320px",height:"320px",objectFit:"cover",objectPosition:"top",borderRadius:"50%"}} />
           </div>
           <div>
             <p className="text-lg font-light text-[#6B7280] mb-8 leading-relaxed">
