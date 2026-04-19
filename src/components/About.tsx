@@ -8,8 +8,13 @@ export default function About() {
           不動産のことも、お金のことも、気軽に話せる場所でありたい。
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="aspect-[3/4] bg-gray-200 rounded-2xl flex items-center justify-center">
-            <span className="text-gray-500">代表写真</span>
+          <div className="aspect-[3/4] relative rounded-2xl overflow-hidden">
+            <Image
+              src="/representative.jpg"
+              alt="代表 飯田舜平"
+              fill
+              className="object-cover"
+            />
           </div>
           <div>
             <p className="text-lg font-light text-[#6B7280] mb-8 leading-relaxed">
