@@ -1,30 +1,16 @@
-import Image from 'next/image';
-
 export default function Hero() {
   return (
     <>
       <header className="bg-white py-4 px-4 border-b border-[#E5E9E8]">
         <div className="max-w-4xl mx-auto">
-          <Image
-            src="/logo.png"
-            alt="ONZA Estate"
-            width={200}
-            height={60}
-            className="h-10 w-auto"
-          />
+          <img src="/logo.jpg" alt="ONZA Estate" className="h-10 w-auto" />
         </div>
       </header>
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/hero.png"
-            alt="都市風景"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
+      <section
+        className="relative py-16 md:py-24 bg-cover bg-center"
+        style={{ backgroundImage: "url('/hero.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-2xl md:text-4xl font-light text-white mb-6">
             あなたの暮らしと、資産の未来を、いっしょに考えます。
