@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <>
-      <header className="bg-white py-1 px-4 border-b border-[#E5E9E8]">
+      <header className="bg-white px-4 border-b border-[#E5E9E8]">
         <div className="max-w-4xl mx-auto">
           <img src="/logo.jpg" alt="ONZA Estate" style={{height:"200px",width:"auto"}} />
         </div>
