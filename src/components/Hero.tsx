@@ -1,9 +1,9 @@
 export default function Hero() {
   return (
     <>
-      <header className="bg-white py-4 px-4 border-b border-[#E5E9E8]">
+      <header className="bg-white py-1 px-4 border-b border-[#E5E9E8]">
         <div className="max-w-4xl mx-auto">
-          <img src="/logo.jpg" alt="ONZA Estate" className="h-32 w-auto" />
+          <img src="/logo.jpg" alt="ONZA Estate" className="h-48 w-auto" />
         </div>
       </header>
       <section
@@ -24,11 +24,11 @@ export default function Hero() {
               href="https://lin.ee/mS1QHo1"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#06C755] text-white px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:opacity-90 transition-opacity"
+              className="bg-[#06C755] text-white px-6 py-1 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:opacity-90 transition-opacity"
             >
               LINEで気軽に相談する
             </a>
-            <button className="border border-white text-white px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] hover:bg-white hover:text-[#2C5F6E] transition-colors">
+            <button className="border border-white text-white px-6 py-1 rounded-2xl font-light text-lg min-h-[52px] hover:bg-white hover:text-[#2C5F6E] transition-colors">
               物件を探してみる
             </button>
           </div>
