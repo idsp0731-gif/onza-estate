@@ -13,6 +13,19 @@ export type Property = {
   type: string;
 };
 
+export type InvestmentProperty = {
+  id: string;
+  name: string;
+  area: string;
+  price: string;
+  station: string;
+  walkMinutes: number;
+  type: string;
+  yield: string;
+  thumbnail: string;
+  published: boolean;
+};
+
 export type BlogPost = {
   id: string;
   title: string;
@@ -108,6 +121,32 @@ export async function getProperties(): Promise<Property[]> {
       published: true,
       recommended: props['recommended']?.checkbox ?? false,
       type: props['type']?.select?.name ?? '',
+    };
+  });
+}
+
+export async function getInvestmentProperties(): Promise<InvestmentProperty[]> {
+  const results = await queryDatabase(process.env.NOTION_INVESTMENT_DB!, {
+    property: 'published',
+    checkbox: { equals: true },
+  });
+
+  return results.map((page: any) => {
+    const props = page.properties;
+    const stationRaw = props['station']?.rich_text?.[0]?.plain_text ?? '';
+    const { station, walkMinutes } = parseStation(stationRaw);
+
+    return {
+      id: page.id,
+      name: props['タイトル']?.title?.[0]?.plain_text ?? '',
+      area: props['area']?.select?.name ?? '',
+      price: props['price']?.rich_text?.[0]?.plain_text ?? '',
+      station,
+      walkMinutes,
+      type: props['type']?.select?.name ?? '',
+      yield: props['yield']?.rich_text?.[0]?.plain_text ?? '',
+      thumbnail: props['thumbnail']?.url ?? '',
+      published: true,
     };
   });
 }

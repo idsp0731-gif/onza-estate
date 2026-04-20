@@ -1,62 +1,14 @@
 import Image from 'next/image';
-import { getProperties, Property } from '@/lib/notion';
+import type { InvestmentProperty } from '@/lib/notion';
 
-const dummyProperties: Property[] = [
-  {
-    id: '1',
-    name: 'グランドメゾン京都駅前',
-    type: '投資用区分',
-    area: '京都',
-    price: 25000000,
-    layout: '1LDK',
-    builtYear: 2020,
-    station: '京都駅',
-    walkMinutes: 5,
-    images: ['/placeholder-property.jpg'],
-    published: true,
-    recommended: true,
-  },
-  {
-    id: '2',
-    name: 'シティタワー大阪',
-    type: '投資用区分',
-    area: '大阪',
-    price: 30000000,
-    layout: '2LDK',
-    builtYear: 2019,
-    station: '梅田駅',
-    walkMinutes: 8,
-    images: ['/placeholder-property.jpg'],
-    published: true,
-    recommended: true,
-  },
-  {
-    id: '3',
-    name: 'パークサイド守山',
-    type: '投資用区分',
-    area: '滋賀',
-    price: 20000000,
-    layout: '1K',
-    builtYear: 2021,
-    station: '守山駅',
-    walkMinutes: 3,
-    images: ['/placeholder-property.jpg'],
-    published: true,
-    recommended: true,
-  },
+const dummyProperties: InvestmentProperty[] = [
+  { id: '1', name: 'グランドメゾン京都駅前', type: '区分マンション', area: '京都', price: '2,500万円', station: '京都駅', walkMinutes: 5, yield: '5.2％', thumbnail: '', published: true },
+  { id: '2', name: 'シティタワー大阪', type: '区分マンション', area: '大阪', price: '3,000万円', station: '梅田駅', walkMinutes: 8, yield: '4.8％', thumbnail: '', published: true },
+  { id: '3', name: 'パークサイド守山', type: '区分マンション', area: '滋賀', price: '2,000万円', station: '守山駅', walkMinutes: 3, yield: '5.5％', thumbnail: '', published: true },
 ];
 
-export default async function RecommendedProperties() {
-  let properties: Property[] = dummyProperties;
-
-  try {
-    const notionProperties = await getProperties();
-    if (notionProperties.length > 0) {
-      properties = notionProperties.filter(p => p.type.includes('投資用') && p.recommended);
-    }
-  } catch (error) {
-    console.error('Failed to fetch properties from Notion:', error);
-  }
+export default function RecommendedProperties({ initialProperties = [] }: { initialProperties?: InvestmentProperty[] }) {
+  const properties = initialProperties.length > 0 ? initialProperties : dummyProperties;
 
   return (
     <section className="py-16 md:py-24">
@@ -67,8 +19,19 @@ export default async function RecommendedProperties() {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {properties.slice(0, 3).map((property) => (
             <div key={property.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <div className="aspect-[4/3] bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500">物件画像</span>
+              <div className="relative aspect-[4/3] bg-gray-200">
+                {property.thumbnail ? (
+                  <Image
+                    src={property.thumbnail}
+                    alt={property.name}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-gray-500 text-sm">物件画像</span>
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <span className="inline-block bg-[#2C5F6E] text-white px-3 py-1 rounded-full text-sm font-light mb-3">
@@ -77,9 +40,14 @@ export default async function RecommendedProperties() {
                 <h3 className="font-light mb-2">{property.name}</h3>
                 <p className="font-light text-[#6B7280] text-sm mb-1">{property.area}</p>
                 <p className="font-light text-[#6B7280] text-sm mb-3">
-                  {property.station} 徒歩{property.walkMinutes}分
+                  {property.station}{property.walkMinutes > 0 ? `　徒歩${property.walkMinutes}分` : ''}
                 </p>
-                <p className="font-light text-lg">{property.price.toLocaleString()}円</p>
+                <div className="flex items-end justify-between">
+                  <p className="font-light text-lg">{property.price}</p>
+                  {property.yield && (
+                    <p className="text-sm font-light text-[#2C5F6E]">表面利回り {property.yield}</p>
+                  )}
+                </div>
               </div>
             </div>
           ))}
