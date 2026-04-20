@@ -12,7 +12,11 @@ export default function Achievements() {
             <p className="font-light text-lg">対応エリア</p>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-6xl font-light text-[#2C5F6E] mb-2">3つ</div>
+            <div className="text-lg md:text-xl font-light text-[#2C5F6E] mb-2 leading-relaxed">
+              宅地建物取引士<br />
+              2級FP技能士<br />
+              賃貸不動産経営管理士
+            </div>
             <p className="font-light text-lg">保有資格</p>
           </div>
         </div>
