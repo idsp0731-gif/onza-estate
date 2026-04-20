@@ -45,7 +45,7 @@ export type BlogPost = {
 
 const NOTION_VERSION = '2022-06-28';
 
-async function queryDatabase(databaseId: string, filter?: object): Promise<any[]> {
+async function queryDatabase(databaseId: string, filter?: object, sorts?: object[]): Promise<any[]> {
   const res = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
     method: 'POST',
     headers: {
@@ -53,7 +53,7 @@ async function queryDatabase(databaseId: string, filter?: object): Promise<any[]
       'Notion-Version': NOTION_VERSION,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(filter ? { filter } : {}),
+    body: JSON.stringify({ ...(filter ? { filter } : {}), ...(sorts ? { sorts } : {}) }),
     next: { revalidate: 60 },
   });
 
@@ -169,10 +169,11 @@ export async function getInvestmentProperties(): Promise<InvestmentProperty[]> {
 export async function getBlogPosts(): Promise<BlogPost[]> {
   if (!process.env.NOTION_BLOG_DB) return [];
 
-  const results = await queryDatabase(process.env.NOTION_BLOG_DB, {
-    property: 'published',
-    checkbox: { equals: true },
-  });
+  const results = await queryDatabase(
+    process.env.NOTION_BLOG_DB,
+    { property: 'published', checkbox: { equals: true } },
+    [{ property: 'date', direction: 'descending' }]
+  );
 
   return results.map((page: any) => parseBlogPost(page));
 }
