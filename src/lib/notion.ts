@@ -120,6 +120,7 @@ export async function getProperties(): Promise<Property[]> {
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
       builtYear: props['builtYear']?.number ?? 0,
       images: [],
+      thumbnail: props['thumbnail']?.url ?? '',
       published: true,
       recommended: props['recommended']?.checkbox ?? false,
       type: props['type']?.select?.name ?? '',
