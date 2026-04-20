@@ -119,16 +119,44 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     checkbox: { equals: true },
   });
 
-  return results.map((page: any) => {
-    const props = page.properties;
-    return {
-      id: page.id,
-      title: props['タイトル']?.title?.[0]?.plain_text ?? props['名前']?.title?.[0]?.plain_text ?? '',
-      category: props['category']?.select?.name ?? '',
-      thumbnail: props['thumbnail']?.url ?? '/placeholder-article.jpg',
-      publishedAt: props['date']?.date?.start ?? '',
-      slug: props['slug']?.rich_text?.[0]?.plain_text ?? page.id,
-      published: true,
-    };
+  return results.map((page: any) => parseBlogPost(page));
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  if (!process.env.NOTION_BLOG_DB) return null;
+
+  const results = await queryDatabase(process.env.NOTION_BLOG_DB, {
+    property: 'slug',
+    rich_text: { equals: slug },
   });
+
+  if (results.length === 0) return null;
+  return parseBlogPost(results[0]);
+}
+
+export async function getPageBlocks(pageId: string): Promise<any[]> {
+  const res = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=100`, {
+    headers: {
+      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+      'Notion-Version': NOTION_VERSION,
+    },
+    next: { revalidate: 60 },
+  });
+
+  if (!res.ok) throw new Error(`Notion blocks API error ${res.status}`);
+  const data = await res.json();
+  return data.results ?? [];
+}
+
+function parseBlogPost(page: any): BlogPost {
+  const props = page.properties;
+  return {
+    id: page.id,
+    title: props['タイトル']?.title?.[0]?.plain_text ?? props['名前']?.title?.[0]?.plain_text ?? '',
+    category: props['category']?.select?.name ?? '',
+    thumbnail: props['thumbnail']?.url ?? '',
+    publishedAt: props['date']?.date?.start ?? '',
+    slug: props['slug']?.rich_text?.[0]?.plain_text ?? page.id,
+    published: true,
+  };
 }

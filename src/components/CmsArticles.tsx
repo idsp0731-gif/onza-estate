@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { BlogPost } from '@/lib/notion';
 
 const dummyArticles: BlogPost[] = [
@@ -49,7 +50,7 @@ export default function CmsArticles({ initialArticles = [] }: { initialArticles?
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {filteredArticles.map((article) => (
-            <div key={article.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <Link key={article.id} href={`/blog/${article.slug}`} className="bg-white rounded-2xl shadow-sm overflow-hidden block hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] bg-gray-200">
                 {article.thumbnail ? (
                   <Image
@@ -71,7 +72,7 @@ export default function CmsArticles({ initialArticles = [] }: { initialArticles?
                 <h3 className="font-light mb-2">{article.title}</h3>
                 <p className="font-light text-[#6B7280] text-sm">{article.publishedAt}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
