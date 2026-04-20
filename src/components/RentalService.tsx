@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getProperties, Property } from '@/lib/notion';
+;
 
 const dummyRentals: Property[] = [
   { id: '1', name: 'リバーサイドアパート', area: '滋賀', price: 65000, layout: '1LDK', builtYear: 2020, station: '守山駅', walkMinutes: 5, images: [], published: true, recommended: false, type: '賃貸' },
