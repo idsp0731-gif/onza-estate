@@ -140,27 +140,24 @@ function BlockRenderer({ blocks }: { blocks: any[] }) {
             );
 
           case 'heading_1':
-            // Notion H1 → サイト上はH2（ページタイトルがH1のため）
             return (
-              <h2 key={id} className="text-lg font-normal text-[#1F2937] mt-8 mb-1 border-l-4 border-[#2C5F6E] pl-3">
+              <h1 key={id} className="text-lg font-normal text-[#1F2937] mt-8 mb-1 border-l-4 border-[#2C5F6E] pl-3">
+                <RichText items={content.rich_text} />
+              </h1>
+            );
+
+          case 'heading_2':
+            return (
+              <h2 key={id} className="text-base font-normal text-[#2C5F6E] mt-6 mb-1">
                 <RichText items={content.rich_text} />
               </h2>
             );
 
-          case 'heading_2':
-            // Notion H2 → H3
+          case 'heading_3':
             return (
-              <h3 key={id} className="text-base font-normal text-[#2C5F6E] mt-6 mb-1">
+              <h3 key={id} className="text-sm font-normal text-[#374151] mt-4 mb-1 uppercase tracking-wide">
                 <RichText items={content.rich_text} />
               </h3>
-            );
-
-          case 'heading_3':
-            // Notion H3 → H4
-            return (
-              <h4 key={id} className="text-sm font-normal text-[#374151] mt-4 mb-1 uppercase tracking-wide">
-                <RichText items={content.rich_text} />
-              </h4>
             );
 
           case 'bulleted_list_item':
