@@ -6,12 +6,12 @@ import Link from 'next/link';
 import { BlogPost } from '@/lib/notion';
 
 const dummyArticles: BlogPost[] = [
-  { id: '1', title: '京都の不動産市況', category: '市況ニュース', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-04-01', slug: 'kyoto-market', published: true },
-  { id: '2', title: '大阪賃貸相場レポート', category: '賃貸物件情報', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-28', slug: 'osaka-rental', published: true },
-  { id: '3', title: '滋賀エリアの最新情報', category: '市況ニュース', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-25', slug: 'shiga-info', published: true },
-  { id: '4', title: '賃貸需要のトレンド', category: '賃貸物件情報', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-20', slug: 'rental-trend', published: true },
-  { id: '5', title: '投資用物件の市場動向', category: '市況ニュース', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-15', slug: 'investment-market', published: true },
-  { id: '6', title: 'ファミリー向け賃貸物件', category: '賃貸物件情報', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-10', slug: 'family-rental', published: true },
+  { id: '1', title: '京都の不動産市況', category: '市況ニュース', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-04-01', slug: 'kyoto-market', published: true, metadescription: '' },
+  { id: '2', title: '大阪賃貸相場レポート', category: '賃貸物件情報', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-28', slug: 'osaka-rental', published: true, metadescription: '' },
+  { id: '3', title: '滋賀エリアの最新情報', category: '市況ニュース', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-25', slug: 'shiga-info', published: true, metadescription: '' },
+  { id: '4', title: '賃貸需要のトレンド', category: '賃貸物件情報', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-20', slug: 'rental-trend', published: true, metadescription: '' },
+  { id: '5', title: '投資用物件の市場動向', category: '市況ニュース', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-15', slug: 'investment-market', published: true, metadescription: '' },
+  { id: '6', title: 'ファミリー向け賃貸物件', category: '賃貸物件情報', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-10', slug: 'family-rental', published: true, metadescription: '' },
 ];
 
 export default function CmsArticles({ initialArticles = [] }: { initialArticles?: BlogPost[] }) {

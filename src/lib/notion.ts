@@ -21,6 +21,7 @@ export type BlogPost = {
   publishedAt: string;
   slug: string;
   published: boolean;
+  metadescription: string;
 };
 
 const NOTION_VERSION = '2022-06-28';
@@ -158,5 +159,6 @@ function parseBlogPost(page: any): BlogPost {
     publishedAt: props['date']?.date?.start ?? '',
     slug: props['slug']?.rich_text?.[0]?.plain_text ?? page.id,
     published: true,
+    metadescription: props['metadescription']?.rich_text?.[0]?.plain_text ?? '',
   };
 }
