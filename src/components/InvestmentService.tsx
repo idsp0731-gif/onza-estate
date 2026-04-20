@@ -80,7 +80,9 @@ export default function InvestmentService() {
               LINEで相談してみる
             </a>
             <a
-              href="mailto:2005-wandy@sherpa.estate"
+              href="https://forms.gle/cFimysZM5Uv83GXA9"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-[#2C5F6E] text-[#2C5F6E] px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:bg-[#2C5F6E] hover:text-white transition-colors"
             >
               投資用資料を請求する

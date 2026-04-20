@@ -18,10 +18,12 @@ export default function LineCtaBanner2() {
             LINEで話しかけてみる
           </a>
           <a
-            href="mailto:2005-wandy@sherpa.estate"
+            href="https://forms.gle/XiTMKh6YdEM9qfSu9"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-[#2C5F6E] text-[#2C5F6E] px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:bg-[#2C5F6E] hover:text-white transition-colors"
           >
-            メールで問い合わせる
+            アンケートご回答で仲介手数料割引
           </a>
         </div>
         <p className="text-sm text-[#6B7280]">
