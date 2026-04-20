@@ -2,9 +2,9 @@ import Image from 'next/image';
 import type { InvestmentProperty } from '@/lib/notion';
 
 const dummyProperties: InvestmentProperty[] = [
-  { id: '1', name: 'グランドメゾン京都駅前', type: '区分マンション', area: '京都', price: '2,500万円', station: '京都駅', walkMinutes: 5, yield: '5.2％', layout: '1LDK', size: '40㎡', thumbnail: '', published: true },
-  { id: '2', name: 'シティタワー大阪', type: '区分マンション', area: '大阪', price: '3,000万円', station: '梅田駅', walkMinutes: 8, yield: '4.8％', layout: '1K', size: '30㎡', thumbnail: '', published: true },
-  { id: '3', name: 'パークサイド守山', type: '区分マンション', area: '滋賀', price: '2,000万円', station: '守山駅', walkMinutes: 3, yield: '5.5％', layout: '1LDK', size: '35㎡', thumbnail: '', published: true },
+  { id: '1', name: 'グランドメゾン京都駅前', type: '区分マンション', area: '京都', price: '2,500万円', station: '京都駅', walkMinutes: 5, yield: '5.2％', layout: '1LDK', size: '40㎡', builtdate: '2015年3月', thumbnail: '', published: true },
+  { id: '2', name: 'シティタワー大阪', type: '区分マンション', area: '大阪', price: '3,000万円', station: '梅田駅', walkMinutes: 8, yield: '4.8％', layout: '1K', size: '30㎡', builtdate: '2018年7月', thumbnail: '', published: true },
+  { id: '3', name: 'パークサイド守山', type: '区分マンション', area: '滋賀', price: '2,000万円', station: '守山駅', walkMinutes: 3, yield: '5.5％', layout: '1LDK', size: '35㎡', builtdate: '2012年11月', thumbnail: '', published: true },
 ];
 
 export default function RecommendedProperties({ initialProperties = [] }: { initialProperties?: InvestmentProperty[] }) {
@@ -42,9 +42,12 @@ export default function RecommendedProperties({ initialProperties = [] }: { init
                 <p className="font-light text-[#6B7280] text-sm mb-1">
                   {property.station}{property.walkMinutes > 0 ? `　徒歩${property.walkMinutes}分` : ''}
                 </p>
-                <p className="font-light text-[#6B7280] text-sm mb-3">
+                <p className="font-light text-[#6B7280] text-sm mb-1">
                   {property.layout}{property.size ? `　${property.size}` : ''}
                 </p>
+                {property.builtdate && (
+                  <p className="font-light text-[#6B7280] text-sm mb-3">築 {property.builtdate}</p>
+                )}
                 <div className="flex items-end justify-between">
                   <p className="font-light text-lg">{property.price}</p>
                   {property.yield && (

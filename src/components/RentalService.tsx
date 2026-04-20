@@ -11,6 +11,7 @@ type Property = {
   layout: string;
   size: string;
   builtYear: number;
+  builtdate: string;
   station: string;
   walkMinutes: number;
   images: string[];
@@ -21,10 +22,10 @@ type Property = {
 };
 
 const dummyRentals: Property[] = [
-  { id: '1', name: 'リバーサイドアパート', area: '守山', price: '65,000円/月', layout: '1LDK', size: '40㎡', builtYear: 2020, station: '守山駅', walkMinutes: 5, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
-  { id: '2', name: '京都ハイツ', area: '京都', price: '75,000円/月', layout: '2LDK', size: '55㎡', builtYear: 2019, station: '京都駅', walkMinutes: 10, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
-  { id: '3', name: '草津レジデンス', area: '草津', price: '85,000円/月', layout: '1K', size: '30㎡', builtYear: 2021, station: '草津駅', walkMinutes: 8, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
-  { id: '4', name: '大津マンション', area: '大津', price: '95,000円/月', layout: '2DK', size: '50㎡', builtYear: 2018, station: '大津駅', walkMinutes: 15, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
+  { id: '1', name: 'リバーサイドアパート', area: '守山', price: '65,000円/月', layout: '1LDK', size: '40㎡', builtYear: 2020, builtdate: '2020年4月', station: '守山駅', walkMinutes: 5, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
+  { id: '2', name: '京都ハイツ', area: '京都', price: '75,000円/月', layout: '2LDK', size: '55㎡', builtYear: 2019, builtdate: '2019年6月', station: '京都駅', walkMinutes: 10, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
+  { id: '3', name: '草津レジデンス', area: '草津', price: '85,000円/月', layout: '1K', size: '30㎡', builtYear: 2021, builtdate: '2021年1月', station: '草津駅', walkMinutes: 8, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
+  { id: '4', name: '大津マンション', area: '大津', price: '95,000円/月', layout: '2DK', size: '50㎡', builtYear: 2018, builtdate: '2018年9月', station: '大津駅', walkMinutes: 15, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
 ];
 
 export default function RentalService({ initialRentals = [] }: { initialRentals?: Property[] }) {
@@ -82,9 +83,12 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
                 <p className="font-light text-[#6B7280] text-sm mb-1">
                   {rental.station} 徒歩{rental.walkMinutes}分
                 </p>
-                <p className="font-light text-[#6B7280] text-sm mb-3">
+                <p className="font-light text-[#6B7280] text-sm mb-1">
                   {rental.layout}{rental.size ? `　${rental.size}` : ''}
                 </p>
+                {rental.builtdate && (
+                  <p className="font-light text-[#6B7280] text-sm mb-3">築 {rental.builtdate}</p>
+                )}
                 <p className="font-light text-lg">{rental.price}</p>
               </div>
             </div>

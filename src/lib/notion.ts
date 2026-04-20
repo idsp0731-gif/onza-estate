@@ -6,6 +6,7 @@ export type Property = {
   layout: string;
   size: string;
   builtYear: number;
+  builtdate: string;
   station: string;
   walkMinutes: number;
   images: string[];
@@ -26,6 +27,7 @@ export type InvestmentProperty = {
   yield: string;
   layout: string;
   size: string;
+  builtdate: string;
   thumbnail: string;
   published: boolean;
 };
@@ -97,6 +99,7 @@ export async function getRentalProperties(): Promise<Property[]> {
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
       size: props['size']?.rich_text?.[0]?.plain_text ?? '',
       builtYear: props['builtYear']?.number ?? 0,
+      builtdate: props['builtdate']?.rich_text?.[0]?.plain_text ?? '',
       images: [],
       thumbnail: props['thumbnail']?.url ?? '',
       published: true,
@@ -124,6 +127,7 @@ export async function getProperties(): Promise<Property[]> {
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
       size: props['size']?.rich_text?.[0]?.plain_text ?? '',
       builtYear: props['builtYear']?.number ?? 0,
+      builtdate: props['builtdate']?.rich_text?.[0]?.plain_text ?? '',
       images: [],
       thumbnail: props['thumbnail']?.url ?? '',
       published: true,
@@ -155,6 +159,7 @@ export async function getInvestmentProperties(): Promise<InvestmentProperty[]> {
       yield: props['yield']?.rich_text?.[0]?.plain_text ?? '',
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
       size: props['size']?.rich_text?.[0]?.plain_text ?? '',
+      builtdate: props['builtdate']?.rich_text?.[0]?.plain_text ?? '',
       thumbnail: props['thumbnail']?.url ?? '',
       published: true,
     };
