@@ -4,6 +4,7 @@ export type Property = {
   area: string;
   price: string;
   layout: string;
+  size: string;
   builtYear: number;
   station: string;
   walkMinutes: number;
@@ -92,6 +93,7 @@ export async function getRentalProperties(): Promise<Property[]> {
       station,
       walkMinutes,
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
+      size: props['size']?.rich_text?.[0]?.plain_text ?? '',
       builtYear: props['builtYear']?.number ?? 0,
       images: [],
       thumbnail: props['thumbnail']?.url ?? '',
@@ -118,6 +120,7 @@ export async function getProperties(): Promise<Property[]> {
       station: props['station']?.rich_text?.[0]?.plain_text ?? '',
       walkMinutes: props['walkMinutes']?.number ?? 0,
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
+      size: props['size']?.rich_text?.[0]?.plain_text ?? '',
       builtYear: props['builtYear']?.number ?? 0,
       images: [],
       thumbnail: props['thumbnail']?.url ?? '',
