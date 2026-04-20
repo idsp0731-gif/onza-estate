@@ -7,7 +7,7 @@ type Property = {
   id: string;
   name: string;
   area: string;
-  price: number;
+  price: string;
   layout: string;
   builtYear: number;
   station: string;
@@ -20,10 +20,10 @@ type Property = {
 };
 
 const dummyRentals: Property[] = [
-  { id: '1', name: 'リバーサイドアパート', area: '守山', price: 65000, layout: '1LDK', builtYear: 2020, station: '守山駅', walkMinutes: 5, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
-  { id: '2', name: '京都ハイツ', area: '京都', price: 75000, layout: '2LDK', builtYear: 2019, station: '京都駅', walkMinutes: 10, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
-  { id: '3', name: '草津レジデンス', area: '草津', price: 85000, layout: '1K', builtYear: 2021, station: '草津駅', walkMinutes: 8, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
-  { id: '4', name: '大津マンション', area: '大津', price: 95000, layout: '2DK', builtYear: 2018, station: '大津駅', walkMinutes: 15, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
+  { id: '1', name: 'リバーサイドアパート', area: '守山', price: '65,000', layout: '1LDK', builtYear: 2020, station: '守山駅', walkMinutes: 5, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
+  { id: '2', name: '京都ハイツ', area: '京都', price: '75,000', layout: '2LDK', builtYear: 2019, station: '京都駅', walkMinutes: 10, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
+  { id: '3', name: '草津レジデンス', area: '草津', price: '85,000', layout: '1K', builtYear: 2021, station: '草津駅', walkMinutes: 8, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
+  { id: '4', name: '大津マンション', area: '大津', price: '95,000', layout: '2DK', builtYear: 2018, station: '大津駅', walkMinutes: 15, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
 ];
 
 export default function RentalService({ initialRentals = [] }: { initialRentals?: Property[] }) {
@@ -81,7 +81,7 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
                 <p className="font-light text-[#6B7280] text-sm mb-3">
                   {rental.station} 徒歩{rental.walkMinutes}分
                 </p>
-                <p className="font-light text-lg">{rental.price.toLocaleString()}円/月</p>
+                <p className="font-light text-lg">{rental.price}円/月</p>
               </div>
             </div>
           ))}

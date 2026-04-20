@@ -2,7 +2,7 @@ export type Property = {
   id: string;
   name: string;
   area: string;
-  price: number;
+  price: string;
   layout: string;
   builtYear: number;
   station: string;
@@ -88,7 +88,7 @@ export async function getRentalProperties(): Promise<Property[]> {
       id: page.id,
       name: props['タイトル']?.title?.[0]?.plain_text ?? '',
       area: props['area']?.select?.name ?? '',
-      price: parsePrice(props['price']?.rich_text?.[0]?.plain_text ?? '0'),
+      price: props['price']?.rich_text?.[0]?.plain_text ?? '',
       station,
       walkMinutes,
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
@@ -114,7 +114,7 @@ export async function getProperties(): Promise<Property[]> {
       id: page.id,
       name: props['タイトル']?.title?.[0]?.plain_text ?? props['名前']?.title?.[0]?.plain_text ?? '',
       area: props['area']?.select?.name ?? '',
-      price: Number(props['price']?.number ?? 0),
+      price: props['price']?.rich_text?.[0]?.plain_text ?? String(props['price']?.number ?? ''),
       station: props['station']?.rich_text?.[0]?.plain_text ?? '',
       walkMinutes: props['walkMinutes']?.number ?? 0,
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
