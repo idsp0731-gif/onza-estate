@@ -81,7 +81,7 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
                 <p className="font-light text-[#6B7280] text-sm mb-3">
                   {rental.station} 徒歩{rental.walkMinutes}分
                 </p>
-                <p className="font-light text-lg">{rental.price}円/月</p>
+                <p className="font-light text-lg">{rental.price}</p>
               </div>
             </div>
           ))}
