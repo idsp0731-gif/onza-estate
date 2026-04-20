@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 type Property = {
   id: string;
@@ -60,12 +61,13 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {filteredRentals.map((rental) => (
             <div key={rental.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <div className="aspect-[4/3] bg-gray-200 overflow-hidden">
+              <div className="aspect-[4/3] bg-gray-200 overflow-hidden relative">
                 {rental.thumbnail ? (
-                  <img
+                  <Image
                     src={rental.thumbnail}
                     alt={rental.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
