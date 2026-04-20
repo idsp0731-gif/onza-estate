@@ -8,6 +8,7 @@ export type Property = {
   station: string;
   walkMinutes: number;
   images: string[];
+  thumbnail: string;
   published: boolean;
   recommended: boolean;
   type: string;
@@ -93,6 +94,7 @@ export async function getRentalProperties(): Promise<Property[]> {
       layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
       builtYear: props['builtYear']?.number ?? 0,
       images: [],
+      thumbnail: props['thumbnail']?.url ?? '',
       published: true,
       recommended: props['recommended']?.checkbox ?? false,
       type: '賃貸',
