@@ -2,9 +2,9 @@ import Image from 'next/image';
 import type { InvestmentProperty } from '@/lib/notion';
 
 const dummyProperties: InvestmentProperty[] = [
-  { id: '1', name: 'グランドメゾン京都駅前', type: '区分マンション', area: '京都', price: '2,500万円', station: '京都駅', walkMinutes: 5, yield: '5.2％', thumbnail: '', published: true },
-  { id: '2', name: 'シティタワー大阪', type: '区分マンション', area: '大阪', price: '3,000万円', station: '梅田駅', walkMinutes: 8, yield: '4.8％', thumbnail: '', published: true },
-  { id: '3', name: 'パークサイド守山', type: '区分マンション', area: '滋賀', price: '2,000万円', station: '守山駅', walkMinutes: 3, yield: '5.5％', thumbnail: '', published: true },
+  { id: '1', name: 'グランドメゾン京都駅前', type: '区分マンション', area: '京都', price: '2,500万円', station: '京都駅', walkMinutes: 5, yield: '5.2％', layout: '1LDK', size: '40㎡', thumbnail: '', published: true },
+  { id: '2', name: 'シティタワー大阪', type: '区分マンション', area: '大阪', price: '3,000万円', station: '梅田駅', walkMinutes: 8, yield: '4.8％', layout: '1K', size: '30㎡', thumbnail: '', published: true },
+  { id: '3', name: 'パークサイド守山', type: '区分マンション', area: '滋賀', price: '2,000万円', station: '守山駅', walkMinutes: 3, yield: '5.5％', layout: '1LDK', size: '35㎡', thumbnail: '', published: true },
 ];
 
 export default function RecommendedProperties({ initialProperties = [] }: { initialProperties?: InvestmentProperty[] }) {
@@ -39,8 +39,11 @@ export default function RecommendedProperties({ initialProperties = [] }: { init
                 </span>
                 <h3 className="font-light mb-2">{property.name}</h3>
                 <p className="font-light text-[#6B7280] text-sm mb-1">{property.area}</p>
-                <p className="font-light text-[#6B7280] text-sm mb-3">
+                <p className="font-light text-[#6B7280] text-sm mb-1">
                   {property.station}{property.walkMinutes > 0 ? `　徒歩${property.walkMinutes}分` : ''}
+                </p>
+                <p className="font-light text-[#6B7280] text-sm mb-3">
+                  {property.layout}{property.size ? `　${property.size}` : ''}
                 </p>
                 <div className="flex items-end justify-between">
                   <p className="font-light text-lg">{property.price}</p>

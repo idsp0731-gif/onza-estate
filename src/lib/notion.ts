@@ -24,6 +24,8 @@ export type InvestmentProperty = {
   walkMinutes: number;
   type: string;
   yield: string;
+  layout: string;
+  size: string;
   thumbnail: string;
   published: boolean;
 };
@@ -151,6 +153,8 @@ export async function getInvestmentProperties(): Promise<InvestmentProperty[]> {
       walkMinutes,
       type: props['type']?.select?.name ?? '',
       yield: props['yield']?.rich_text?.[0]?.plain_text ?? '',
+      layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
+      size: props['size']?.rich_text?.[0]?.plain_text ?? '',
       thumbnail: props['thumbnail']?.url ?? '',
       published: true,
     };
