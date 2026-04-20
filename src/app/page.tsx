@@ -12,21 +12,31 @@ import Achievements from '@/components/Achievements';
 import LineCtaBanner2 from '@/components/LineCtaBanner2';
 import Footer from '@/components/Footer';
 import FloatingCta from '@/components/FloatingCta';
-import { getRentalProperties } from '@/lib/notion';
+import { getRentalProperties, getBlogPosts } from '@/lib/notion';
+import type { Property, BlogPost } from '@/lib/notion';
 
 export default async function Home() {
-  let rentals: any[] = [];
+  let rentals: Property[] = [];
+  let articles: BlogPost[] = [];
+
   try {
     rentals = await getRentalProperties();
   } catch (e) {
-    console.error('Notion fetch error:', e);
+    console.error('Notion rental fetch error:', e);
   }
+
+  try {
+    articles = await getBlogPosts();
+  } catch (e) {
+    console.error('Notion blog fetch error:', e);
+  }
+
   return (
     <div className="min-h-screen">
       <Hero />
       <StickyNav />
       <About />
-      <CmsArticles />
+      <CmsArticles initialArticles={articles} />
       <InvestmentService />
       <RecommendedProperties />
       <SalesResidentialService />

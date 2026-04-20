@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { getBlogPosts, BlogPost } from '@/lib/notion';
+import { useState } from 'react';
+import { BlogPost } from '@/lib/notion';
 
 const dummyArticles: BlogPost[] = [
   { id: '1', title: '京都の不動産市況', category: '市況ニュース', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-04-01', slug: 'kyoto-market', published: true },
@@ -12,23 +12,9 @@ const dummyArticles: BlogPost[] = [
   { id: '6', title: 'ファミリー向け賃貸物件', category: '賃貸物件情報', thumbnail: '/placeholder-article.jpg', publishedAt: '2024-03-10', slug: 'family-rental', published: true },
 ];
 
-export default function CmsArticles() {
+export default function CmsArticles({ initialArticles = [] }: { initialArticles?: BlogPost[] }) {
   const [activeCategory, setActiveCategory] = useState('市況ニュース');
-  const [articles, setArticles] = useState<BlogPost[]>(dummyArticles);
-
-  useEffect(() => {
-    async function fetchArticles() {
-      try {
-        const notionArticles = await getBlogPosts();
-        if (notionArticles.length > 0) {
-          setArticles(notionArticles);
-        }
-      } catch (error) {
-        console.error('Failed to fetch articles from Notion:', error);
-      }
-    }
-    fetchArticles();
-  }, []);
+  const articles = initialArticles.length > 0 ? initialArticles : dummyArticles;
 
   const filteredArticles = articles.filter(article => article.category === activeCategory).slice(0, 3);
 

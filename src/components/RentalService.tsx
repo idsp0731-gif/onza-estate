@@ -1,33 +1,32 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-;
+import { useState } from 'react';
+
+type Property = {
+  id: string;
+  name: string;
+  area: string;
+  price: number;
+  layout: string;
+  builtYear: number;
+  station: string;
+  walkMinutes: number;
+  images: string[];
+  published: boolean;
+  recommended: boolean;
+  type: string;
+};
 
 const dummyRentals: Property[] = [
-  { id: '1', name: 'リバーサイドアパート', area: '滋賀', price: 65000, layout: '1LDK', builtYear: 2020, station: '守山駅', walkMinutes: 5, images: [], published: true, recommended: false, type: '賃貸' },
+  { id: '1', name: 'リバーサイドアパート', area: '守山', price: 65000, layout: '1LDK', builtYear: 2020, station: '守山駅', walkMinutes: 5, images: [], published: true, recommended: false, type: '賃貸' },
   { id: '2', name: '京都ハイツ', area: '京都', price: 75000, layout: '2LDK', builtYear: 2019, station: '京都駅', walkMinutes: 10, images: [], published: true, recommended: false, type: '賃貸' },
-  { id: '3', name: '大阪レジデンス', area: '守山', price: 85000, layout: '1K', builtYear: 2021, station: '梅田駅', walkMinutes: 8, images: [], published: true, recommended: false, type: '賃貸' },
-  { id: '4', name: '東京マンション', area: '草津', price: 95000, layout: '2DK', builtYear: 2018, station: '東京駅', walkMinutes: 15, images: [], published: true, recommended: false, type: '賃貸' },
+  { id: '3', name: '草津レジデンス', area: '草津', price: 85000, layout: '1K', builtYear: 2021, station: '草津駅', walkMinutes: 8, images: [], published: true, recommended: false, type: '賃貸' },
+  { id: '4', name: '大津マンション', area: '大津', price: 95000, layout: '2DK', builtYear: 2018, station: '大津駅', walkMinutes: 15, images: [], published: true, recommended: false, type: '賃貸' },
 ];
 
-export default function RentalService({ initialRentals = [] }: { initialRentals?: any[] }) {
+export default function RentalService({ initialRentals = [] }: { initialRentals?: Property[] }) {
   const [activeArea, setActiveArea] = useState('all');
-  const [rentals, setRentals] = useState<Property[]>(initialRentals.length > 0 ? initialRentals : dummyRentals);
-
-  useEffect(() => {
-    async function fetchRentals() {
-      try {
-        const notionProperties = await getProperties();
-        const rentalProperties = notionProperties.filter(p => p.type === '賃貸');
-        if (rentalProperties.length > 0) {
-          setRentals(rentalProperties);
-        }
-      } catch (error) {
-        console.error('Failed to fetch rentals from Notion:', error);
-      }
-    }
-    fetchRentals();
-  }, []);
+  const rentals: Property[] = initialRentals.length > 0 ? initialRentals : dummyRentals;
 
   const filteredRentals = activeArea === 'all' ? rentals : rentals.filter(r => r.area === activeArea);
 
