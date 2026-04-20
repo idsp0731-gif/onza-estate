@@ -4,20 +4,20 @@ export default function Achievements() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="text-center">
-            <div className="text-4xl md:text-6xl font-light text-[#2C5F6E] mb-2">8年</div>
-            <p className="font-light text-lg">営業歴</p>
+            <p className="font-light text-lg mb-2">営業歴</p>
+            <div className="text-4xl md:text-6xl font-light text-[#2C5F6E]">8年</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-6xl font-light text-[#2C5F6E] mb-2">全国</div>
-            <p className="font-light text-lg">対応エリア</p>
+            <p className="font-light text-lg mb-2">対応エリア</p>
+            <div className="text-4xl md:text-6xl font-light text-[#2C5F6E]">全国</div>
           </div>
           <div className="text-center">
-            <div className="text-lg md:text-xl font-light text-[#2C5F6E] mb-2 leading-relaxed">
+            <p className="font-light text-lg mb-2">保有資格</p>
+            <div className="text-lg md:text-xl font-light text-[#2C5F6E] leading-relaxed">
               宅地建物取引士<br />
               2級FP技能士<br />
               賃貸不動産経営管理士
             </div>
-            <p className="font-light text-lg">保有資格</p>
           </div>
         </div>
 
