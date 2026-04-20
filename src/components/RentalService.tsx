@@ -10,9 +10,9 @@ const dummyRentals: Property[] = [
   { id: '4', name: '東京マンション', area: '草津', price: 95000, layout: '2DK', builtYear: 2018, station: '東京駅', walkMinutes: 15, images: [], published: true, recommended: false, type: '賃貸' },
 ];
 
-export default function RentalService() {
+export default function RentalService({ initialRentals = [] }: { initialRentals?: any[] }) {
   const [activeArea, setActiveArea] = useState('all');
-  const [rentals, setRentals] = useState<Property[]>(dummyRentals);
+  const [rentals, setRentals] = useState<Property[]>(initialRentals.length > 0 ? initialRentals : dummyRentals);
 
   useEffect(() => {
     async function fetchRentals() {

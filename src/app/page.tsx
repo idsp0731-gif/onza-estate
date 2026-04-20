@@ -12,8 +12,15 @@ import Achievements from '@/components/Achievements';
 import LineCtaBanner2 from '@/components/LineCtaBanner2';
 import Footer from '@/components/Footer';
 import FloatingCta from '@/components/FloatingCta';
+import { getRentalProperties } from '@/lib/notion';
 
-export default function Home() {
+export default async function Home() {
+  let rentals: any[] = [];
+  try {
+    rentals = await getRentalProperties();
+  } catch (e) {
+    console.error('Notion fetch error:', e);
+  }
   return (
     <div className="min-h-screen">
       <Hero />
@@ -23,7 +30,7 @@ export default function Home() {
       <InvestmentService />
       <RecommendedProperties />
       <SalesResidentialService />
-      <RentalService />
+      <RentalService initialRentals={rentals} />
       <LineCtaBanner1 />
       <SnsLinks />
       <Achievements />
