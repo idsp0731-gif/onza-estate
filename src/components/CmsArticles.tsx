@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { BlogPost } from '@/lib/notion';
 
 const dummyArticles: BlogPost[] = [
@@ -49,8 +50,19 @@ export default function CmsArticles({ initialArticles = [] }: { initialArticles?
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {filteredArticles.map((article) => (
             <div key={article.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <div className="aspect-[4/3] bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500">記事画像</span>
+              <div className="relative aspect-[4/3] bg-gray-200">
+                {article.thumbnail ? (
+                  <Image
+                    src={article.thumbnail}
+                    alt={article.title}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-gray-500">記事画像</span>
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <span className="inline-block bg-[#F5F7F6] text-[#2C5F6E] px-3 py-1 rounded-full text-sm font-light mb-3">
