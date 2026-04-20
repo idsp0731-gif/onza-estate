@@ -126,7 +126,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
       title: props['タイトル']?.title?.[0]?.plain_text ?? props['名前']?.title?.[0]?.plain_text ?? '',
       category: props['category']?.select?.name ?? '',
       thumbnail: props['thumbnail']?.url ?? '/placeholder-article.jpg',
-      publishedAt: props['publishedAt']?.date?.start ?? '',
+      publishedAt: props['date']?.date?.start ?? '',
       slug: props['slug']?.rich_text?.[0]?.plain_text ?? page.id,
       published: true,
     };
