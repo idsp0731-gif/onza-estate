@@ -28,9 +28,14 @@ export default function Hero() {
             >
               LINEで気軽に相談する
             </a>
-            <button className="border border-white text-white px-6 py-1 rounded-2xl font-light text-lg min-h-[52px] hover:bg-white hover:text-[#2C5F6E] transition-colors">
-              物件を探してみる
-            </button>
+            <a
+              href="https://forms.gle/XiTMKh6YdEM9qfSu9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white text-white px-6 py-1 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:bg-white hover:text-[#2C5F6E] transition-colors"
+            >
+              アンケートご回答で仲介手数料割引
+            </a>
           </div>
           <p className="text-sm text-white/80 mt-4">
             無料・毎日7:00〜21:00対応
