@@ -2,14 +2,15 @@ import Image from 'next/image';
 
 export default function About() {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:pt-20 md:pb-12">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-light text-center mb-12">
+        <h2 className="text-2xl md:text-3xl font-light text-center mb-6 md:mb-8">
           不動産のことも、お金のことも、気軽に話せる場所でありたい。
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="aspect-[3/4] bg-transparent rounded-2xl flex items-center justify-center">
+          <div className="aspect-[3/4] bg-transparent rounded-2xl flex flex-col items-center justify-center gap-3 md:-mt-6">
             <img src="/representative.jpg" alt="ONZA Estate代表 飯田舜平" style={{width:"320px",height:"320px",objectFit:"cover",objectPosition:"top",borderRadius:"50%"}} />
+            <p className="text-sm font-light text-center" style={{color:"#0d1f3c"}}>ONZA Estate 代表　飯田 舜平</p>
           </div>
           <div>
             <p className="text-lg font-light text-[#6B7280] mb-8 leading-relaxed">
@@ -38,7 +39,7 @@ export default function About() {
                 <p className="font-light text-sm">賃貸不動産経営管理士</p>
               </div>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 md:pb-0 pb-0">
               <div className="flex items-start gap-3">
                 <span className="text-[#2C5F6E] text-xl">✓</span>
                 <p className="font-light">FPの視点で資産全体を提案</p>
