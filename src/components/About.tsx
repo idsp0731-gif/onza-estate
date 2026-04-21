@@ -10,7 +10,11 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="aspect-[3/4] bg-transparent rounded-2xl flex flex-col items-center justify-center gap-3 md:-mt-6">
             <img src="/representative.jpg" alt="ONZA Estate代表 飯田舜平" style={{width:"320px",height:"320px",objectFit:"cover",objectPosition:"top",borderRadius:"50%"}} />
-            <p className="text-sm font-light text-center" style={{color:"#0d1f3c"}}>ONZA Estate 代表　飯田 舜平</p>
+            <div className="text-center mt-2">
+              <p className="text-sm tracking-widest" style={{color:"#0d1f3c", opacity: 0.6}}>ONZA Estate 代表</p>
+              <div className="mx-auto my-2" style={{width:"30px", height:"1px", backgroundColor:"#0d1f3c", opacity: 0.3}}></div>
+              <p className="text-lg font-medium font-serif" style={{color:"#0d1f3c"}}>飯田 舜平</p>
+            </div>
           </div>
           <div>
             <p className="text-lg font-light text-[#6B7280] mb-8 leading-relaxed">
