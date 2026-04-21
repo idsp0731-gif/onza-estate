@@ -58,10 +58,23 @@ export default function RecommendedProperties({ initialProperties = [] }: { init
             </div>
           ))}
         </div>
-        <div className="text-center">
-          <button className="bg-[#2C5F6E] text-white px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] hover:opacity-90 transition-opacity">
-            投資用物件をもっと見る
-          </button>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="https://lin.ee/mS1QHo1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] hover:opacity-90 transition-opacity"
+          >
+            LINEで問い合わせてみる
+          </a>
+          <a
+            href="https://forms.gle/cFimysZM5Uv83GXA9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-white text-[#2C5F6E] border border-[#2C5F6E] px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] hover:opacity-80 transition-opacity"
+          >
+            物件資料を請求する
+          </a>
         </div>
       </div>
     </section>
