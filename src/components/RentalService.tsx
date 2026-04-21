@@ -105,12 +105,14 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
             >
               LINEで部屋探しを相談する
             </a>
-            <button
-              onClick={() => document.getElementById('chintai')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="https://forms.gle/NtiQU45xvoH6JvjH9"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-[#2C5F6E] text-[#2C5F6E] px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:bg-[#2C5F6E] hover:text-white transition-colors"
             >
-              賃貸物件を見る
-            </button>
+              物件資料を請求する
+            </a>
           </div>
           <p className="text-sm text-[#6B7280]">
             無料・毎日7:00〜21:00対応
