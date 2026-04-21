@@ -44,8 +44,8 @@ export default async function Home() {
       <StickyNav />
       <About />
       <CmsArticles initialArticles={articles} />
-      <InvestmentService />
       <RecommendedProperties initialProperties={investments} />
+      <InvestmentService />
       <SalesResidentialService />
       <RentalService initialRentals={rentals} />
       <LineCtaBanner1 />
