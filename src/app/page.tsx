@@ -2,7 +2,6 @@ import Hero from '@/components/Hero';
 import StickyNav from '@/components/StickyNav';
 import About from '@/components/About';
 import InvestmentService from '@/components/InvestmentService';
-import RecommendedProperties from '@/components/RecommendedProperties';
 import SalesResidentialService from '@/components/SalesResidentialService';
 import RentalService from '@/components/RentalService';
 import LineCtaBanner1 from '@/components/LineCtaBanner1';
@@ -44,8 +43,7 @@ export default async function Home() {
       <StickyNav />
       <About />
       <CmsArticles initialArticles={articles} />
-      <RecommendedProperties initialProperties={investments} />
-      <InvestmentService />
+      <InvestmentService initialProperties={investments} />
       <SalesResidentialService />
       <RentalService initialRentals={rentals} />
       <LineCtaBanner1 />
