@@ -33,10 +33,10 @@ export default function Achievements() {
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm">
               <p className="font-light text-[#6B7280] mb-4">
-                「売却のタイミングや住み替えの相談を気軽にできました。
-                押し売り感がなく、一緒に考えてくれる姿勢がとても良かったです。」
+                「初めての一人暮らしで不安だったのですが、わからないことを何でも質問できて安心しました。
+                希望していた条件にぴったりの部屋を見つけていただき、引っ越し後の生活も快適です。」
               </p>
-              <p className="font-light text-sm text-[#6B7280]">40代女性・住み替え相談</p>
+              <p className="font-light text-sm text-[#6B7280]">20代女性・賃貸</p>
             </div>
           </div>
         </div>
