@@ -96,17 +96,9 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
         </div>
 
         <div className="text-center mb-8">
-          <p className="text-sm font-light text-[#2C5F6E] mb-3">
+          <p className="text-sm font-light text-[#2C5F6E]">
             掲載以外の物件もご紹介可能です。お気軽にお問い合わせください。
           </p>
-          <a
-            href="https://lin.ee/mS1QHo1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm font-light text-[#06C755] underline underline-offset-2 hover:opacity-80 transition-opacity"
-          >
-            LINEで問い合わせる →
-          </a>
         </div>
 
         <div className="text-center">
