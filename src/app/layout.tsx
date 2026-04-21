@@ -45,6 +45,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 const jsonLd = {
