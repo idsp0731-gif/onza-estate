@@ -9,7 +9,7 @@ export const revalidate = 60;
 type Props = { params: Promise<{ slug: string }> };
 
 const SITE_URL = 'https://www.onza-estate.com';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.jpg`;
+const DEFAULT_OG_IMAGE = 'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776768001/ogp_final_9_vnvwji.jpg';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

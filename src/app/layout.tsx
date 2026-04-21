@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.onza-estate.com/logo.jpg',
+        url: 'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776768001/ogp_final_9_vnvwji.jpg',
         width: 1200,
         height: 630,
         alt: 'ONZA Estate',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: 'ONZA Estate｜滋賀・京都・大阪の不動産相談',
     description:
       '投資・売却・居住用・賃貸、不動産のことならONZA Estateへ。',
-    images: ['https://www.onza-estate.com/logo.jpg'],
+    images: ['https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776768001/ogp_final_9_vnvwji.jpg'],
   },
   alternates: {
     canonical: 'https://www.onza-estate.com',
