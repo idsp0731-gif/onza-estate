@@ -57,7 +57,7 @@ export default function Footer() {
             営業時間：365日24時間受付可
           </p>
           <p className="font-light text-sm text-[#6B7280]">
-            © 2025 ONZA Estate
+            © 2026 ONZA Estate
           </p>
         </div>
       </div>

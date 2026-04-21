@@ -9,6 +9,22 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: 'ブログ一覧｜ONZA Estate',
   description: '不動産とお金に関する最新情報をお届けします。市況ニュース・賃貸物件情報など毎日更新中。',
+  alternates: { canonical: 'https://www.onza-estate.com/blog' },
+  openGraph: {
+    title: 'ブログ一覧｜ONZA Estate',
+    description: '不動産とお金に関する最新情報をお届けします。市況ニュース・賃貸物件情報など毎日更新中。',
+    url: 'https://www.onza-estate.com/blog',
+    siteName: 'ONZA Estate',
+    locale: 'ja_JP',
+    type: 'website',
+    images: [{ url: 'https://www.onza-estate.com/logo.jpg', width: 1200, height: 630, alt: 'ONZA Estate ブログ' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ブログ一覧｜ONZA Estate',
+    description: '不動産とお金に関する最新情報をお届けします。市況ニュース・賃貸物件情報など毎日更新中。',
+    images: ['https://www.onza-estate.com/logo.jpg'],
+  },
 };
 
 export default async function BlogListPage() {

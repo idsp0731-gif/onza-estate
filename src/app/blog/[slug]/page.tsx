@@ -8,13 +8,35 @@ export const revalidate = 60;
 
 type Props = { params: Promise<{ slug: string }> };
 
+const SITE_URL = 'https://www.onza-estate.com';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.jpg`;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
   if (!post) return {};
+  const description = post.metadescription || undefined;
+  const ogImage = post.thumbnail || DEFAULT_OG_IMAGE;
+  const url = `${SITE_URL}/blog/${slug}`;
   return {
-    title: post.title,
-    description: post.metadescription || undefined,
+    title: `${post.title}｜ONZA Estate`,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: post.title,
+      description,
+      url,
+      siteName: 'ONZA Estate',
+      locale: 'ja_JP',
+      type: 'article',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description,
+      images: [ogImage],
+    },
   };
 }
 
