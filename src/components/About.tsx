@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function About() {
   return (
-    <section className="py-16 md:pt-20 md:pb-12">
+    <section className="pt-10 pb-6 md:pt-16 md:pb-8">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-light text-center mb-6 md:mb-8">
           不動産のことも、お金のことも、気軽に話せる場所でありたい。
