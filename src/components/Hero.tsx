@@ -33,8 +33,8 @@ export default function Hero() {
         {slides.map((src, i) => (
           <div
             key={src}
-            className="absolute inset-0 transition-opacity duration-1000"
-            style={{ opacity: i === current ? 1 : 0 }}
+            className="absolute inset-0"
+            style={{ opacity: i === current ? 1 : 0, transition: 'opacity 1.8s ease-in-out' }}
           >
             <Image
               src={src}
