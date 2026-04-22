@@ -52,7 +52,7 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative z-20 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-xl md:text-3xl lg:text-4xl font-light text-white mb-6">
+          <h1 className="font-light text-white mb-6" style={{ fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>
             あなたの暮らしと、資産の未来を、いっしょに考えます。
           </h1>
           <p className="text-sm md:text-lg font-light text-white/90 mb-12 max-w-2xl mx-auto">
