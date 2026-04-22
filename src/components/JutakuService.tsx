@@ -36,7 +36,9 @@ export default function JutakuService() {
               LINEで住宅購入を相談する
             </a>
             <a
-              href="#"
+              href="https://forms.gle/M13sCYomNMUUBQxB8"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-[#2C5F6E] text-[#2C5F6E] px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:bg-[#2C5F6E] hover:text-white transition-colors"
             >
               資料請求する
