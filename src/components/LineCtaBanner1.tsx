@@ -2,7 +2,7 @@ export default function LineCtaBanner1() {
   return (
     <section id="contact" className="bg-[#2C5F6E] py-16 md:py-24 scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4 text-center text-white">
-        <h2 className="text-2xl md:text-3xl font-light mb-6">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-6">
           まず、話してみてください。
         </h2>
         <p className="text-lg font-light mb-12 max-w-2xl mx-auto">

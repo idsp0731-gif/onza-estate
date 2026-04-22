@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section className="pt-10 pb-6 md:pt-16 md:pb-8">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-light text-center mb-4">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-4">
           不動産のことも、お金のことも、気軽に話せる場所でありたい。
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">

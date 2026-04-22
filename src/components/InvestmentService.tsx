@@ -14,7 +14,7 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
     <section id="toushi" className="bg-[#f8f7f4] py-16 md:py-24 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4">
         {/* 1. タイトル・説明文 */}
-        <h2 className="text-2xl md:text-3xl font-light text-center mb-6">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
           資産になる不動産を、いっしょに探しましょう。
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">

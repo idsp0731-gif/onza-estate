@@ -5,12 +5,12 @@ export default function Achievements() {
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="text-center">
             <p className="font-light text-lg mb-2">営業歴</p>
-            <div className="text-4xl md:text-6xl font-light text-[#2C5F6E]">8年</div>
+            <div className="text-3xl md:text-4xl lg:text-6xl font-light text-[#2C5F6E]">8年</div>
             <p className="font-light text-sm text-[#9CA3AF] mt-2">前職トップ営業経験</p>
           </div>
           <div className="text-center">
             <p className="font-light text-lg mb-2">対応エリア</p>
-            <div className="text-4xl md:text-6xl font-light text-[#2C5F6E]">全国</div>
+            <div className="text-3xl md:text-4xl lg:text-6xl font-light text-[#2C5F6E]">全国</div>
           </div>
           <div className="text-center">
             <p className="font-light text-lg mb-2">保有資格</p>
