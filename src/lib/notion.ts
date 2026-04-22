@@ -166,12 +166,17 @@ export async function getInvestmentProperties(): Promise<InvestmentProperty[]> {
   });
 }
 
-export async function getBlogPosts(): Promise<BlogPost[]> {
+export async function getBlogPosts(category?: string): Promise<BlogPost[]> {
   if (!process.env.NOTION_BLOG_DB) return [];
+
+  const publishedFilter = { property: 'published', checkbox: { equals: true } };
+  const filter = category
+    ? { and: [publishedFilter, { property: 'category', select: { equals: category } }] }
+    : publishedFilter;
 
   const results = await queryDatabase(
     process.env.NOTION_BLOG_DB,
-    { property: 'published', checkbox: { equals: true } },
+    filter,
     [{ property: 'date', direction: 'descending' }]
   );
 

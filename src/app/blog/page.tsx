@@ -4,8 +4,6 @@ import type { Metadata } from 'next';
 import { getBlogPosts } from '@/lib/notion';
 import Footer from '@/components/Footer';
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   title: 'ブログ一覧｜ONZA Estate',
   description: '不動産とお金に関する最新情報をお届けします。市況ニュース・賃貸物件情報など毎日更新中。',
@@ -27,8 +25,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function BlogListPage() {
-  let articles = await getBlogPosts().catch(() => []);
+const CATEGORIES = ['市況ニュース', '賃貸物件情報'] as const;
+
+export default async function BlogListPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const { category } = await searchParams;
+  const activeCategory = typeof category === 'string' && CATEGORIES.includes(category as typeof CATEGORIES[number])
+    ? category
+    : undefined;
+
+  const articles = await getBlogPosts(activeCategory).catch(() => []);
 
   return (
     <div className="min-h-screen bg-[#F5F7F6] flex flex-col">
@@ -51,6 +60,30 @@ export default async function BlogListPage() {
             <span className="inline-block bg-[#2C5F6E] text-white px-4 py-2 rounded-full text-sm font-light">
               毎日更新中
             </span>
+          </div>
+
+          <div className="flex justify-center mb-8">
+            <div className="flex bg-white rounded-2xl shadow-sm p-1">
+              <Link
+                href="/blog"
+                className={`px-6 py-3 rounded-xl font-light text-sm transition-colors ${
+                  !activeCategory ? 'bg-[#2C5F6E] text-white' : 'text-[#6B7280] hover:text-[#1F2937]'
+                }`}
+              >
+                すべて
+              </Link>
+              {CATEGORIES.map((cat) => (
+                <Link
+                  key={cat}
+                  href={`/blog?category=${cat}`}
+                  className={`px-6 py-3 rounded-xl font-light text-sm transition-colors ${
+                    activeCategory === cat ? 'bg-[#2C5F6E] text-white' : 'text-[#6B7280] hover:text-[#1F2937]'
+                  }`}
+                >
+                  {cat}
+                </Link>
+              ))}
+            </div>
           </div>
 
           {articles.length === 0 ? (
