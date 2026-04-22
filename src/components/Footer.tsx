@@ -105,6 +105,7 @@ export default function Footer() {
 
         {/* 2段目：事業者情報 */}
         <div className="mb-8">
+          <h4 className="font-light mb-4">事業者情報</h4>
           <p className="font-light text-sm text-[#6B7280] mb-1">ONZA Estate</p>
           <p className="font-light text-sm text-[#6B7280] mb-1">代表　飯田 舜平</p>
           <p className="font-light text-sm text-[#6B7280] mb-1">〒524-0011 滋賀県守山市今市町140-3</p>
