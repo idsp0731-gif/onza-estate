@@ -32,7 +32,12 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
   const [activeArea, setActiveArea] = useState('all');
   const rentals: Property[] = initialRentals.length > 0 ? initialRentals : dummyRentals;
 
-  const filteredRentals = activeArea === 'all' ? rentals : rentals.filter(r => r.area === activeArea);
+  const knownAreas = ['守山', '草津', '大津', '京都'];
+  const filteredRentals = activeArea === 'all'
+    ? rentals
+    : activeArea === 'その他'
+      ? rentals.filter(r => !knownAreas.includes(r.area))
+      : rentals.filter(r => r.area === activeArea);
 
   return (
     <section id="chintai" className="bg-[#f8f7f4] py-16 md:py-24 scroll-mt-16">
@@ -46,7 +51,7 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
 
         <div className="flex justify-center mb-8">
           <div className="flex bg-white rounded-2xl shadow-sm p-1">
-            {['all', '守山', '草津', '大津', '京都'].map((area) => (
+            {['all', '守山', '草津', '大津', '京都', 'その他'].map((area) => (
               <button
                 key={area}
                 onClick={() => setActiveArea(area)}

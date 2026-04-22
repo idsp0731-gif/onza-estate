@@ -79,10 +79,11 @@ function parseStation(raw: string): { station: string; walkMinutes: number } {
 }
 
 export async function getRentalProperties(): Promise<Property[]> {
-  const results = await queryDatabase(process.env.NOTION_RENTAL_DB!, {
-    property: 'published',
-    checkbox: { equals: true },
-  });
+  const results = await queryDatabase(
+    process.env.NOTION_RENTAL_DB!,
+    { property: 'published', checkbox: { equals: true } },
+    [{ timestamp: 'last_edited_time', direction: 'descending' }]
+  );
 
   return results.map((page: any) => {
     const props = page.properties;
