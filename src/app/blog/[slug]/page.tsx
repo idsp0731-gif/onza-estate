@@ -120,7 +120,7 @@ function RichText({ items }: { items: any[] }) {
   return (
     <>
       {items.map((item, i) => {
-        let node: React.ReactNode = item.plain_text;
+        let node: React.ReactNode = item.plain_text.replace(/\n/g, ' ');
         if (item.annotations?.code) {
           node = (
             <code key={i} className="bg-gray-100 text-[#2C5F6E] px-1.5 py-0.5 rounded text-sm font-mono">
