@@ -7,6 +7,7 @@ const sectionTabs = [
   { id: 'baikyaku', label: '売却相談' },
   { id: 'chintai', label: '賃貸' },
   { id: 'jutaku', label: '住宅購入' },
+  { id: 'contact', label: 'お問い合わせ' },
 ];
 
 export default function StickyNav() {

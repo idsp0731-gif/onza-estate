@@ -1,6 +1,6 @@
 export default function LineCtaBanner1() {
   return (
-    <section className="bg-[#2C5F6E] py-16 md:py-24">
+    <section id="contact" className="bg-[#2C5F6E] py-16 md:py-24">
       <div className="max-w-4xl mx-auto px-4 text-center text-white">
         <h2 className="text-2xl md:text-3xl font-light mb-6">
           まず、話してみてください。
