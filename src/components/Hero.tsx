@@ -53,12 +53,26 @@ export default function Hero() {
         {/* Content */}
         <div className="relative z-20 max-w-4xl mx-auto px-4 text-center">
           <h1 className="font-light text-white mb-6" style={{ fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>
-            あなたの暮らしと、資産の未来を、<br />
-            いっしょに考えます。
+            <span className="block md:hidden">
+              あなたの暮らしと、<br />
+              資産の未来を、<br />
+              いっしょに考えます。
+            </span>
+            <span className="hidden md:block">
+              あなたの暮らしと、資産の未来を、<br />
+              いっしょに考えます。
+            </span>
           </h1>
           <p className="text-sm md:text-lg font-light text-white/90 mb-12 max-w-2xl mx-auto">
-            滋賀・京都・大阪を中心に、投資・売却・居住用・賃貸など<br />
-            不動産のご相談をワンストップで承っています。
+            <span className="block md:hidden">
+              滋賀・京都・大阪を中心に、<br />
+              投資・売却・居住用・賃貸など<br />
+              不動産のご相談をワンストップで承っています。
+            </span>
+            <span className="hidden md:block">
+              滋賀・京都・大阪を中心に、投資・売却・居住用・賃貸など<br />
+              不動産のご相談をワンストップで承っています。
+            </span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <a
