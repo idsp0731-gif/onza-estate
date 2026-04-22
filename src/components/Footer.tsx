@@ -100,34 +100,46 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-light mb-4">会社情報</h4>
-            <ul className="space-y-2 font-light text-sm text-[#6B7280]">
-              <li><a href="#" className="hover:text-white">会社概要</a></li>
-              <li><a href="/privacy" className="hover:text-white">プライバシーポリシー</a></li>
-            </ul>
+            <h4 className="font-light mb-4">事業者情報</h4>
+            <dl className="space-y-2 font-light text-sm text-[#6B7280]">
+              <div>
+                <dt className="sr-only">屋号</dt>
+                <dd>ONZA Estate</dd>
+              </div>
+              <div>
+                <dt className="sr-only">代表者</dt>
+                <dd>代表　飯田 舜平</dd>
+              </div>
+              <div>
+                <dt className="sr-only">所在地</dt>
+                <dd>〒524-0011 滋賀県守山市今市町140-3</dd>
+              </div>
+              <div>
+                <dt className="sr-only">所属先</dt>
+                <dd>株式会社WANDY<br />（国土交通大臣（1）第10492号）</dd>
+              </div>
+              <div>
+                <dt className="sr-only">TEL</dt>
+                <dd>TEL：090-7497-7313</dd>
+              </div>
+              <div>
+                <dt className="sr-only">Email</dt>
+                <dd>Email：2005-wandy@sherpa.estate</dd>
+              </div>
+            </dl>
+            <a href="/privacy" className="inline-block mt-4 font-light text-sm text-[#6B7280] hover:text-white transition-colors">
+              プライバシーポリシー
+            </a>
           </div>
         </div>
 
         <div className="border-t border-[#E5E9E8] pt-8">
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <p className="font-light text-sm mb-2">所在地</p>
-              <p className="font-light text-sm text-[#6B7280] mb-4">
-                〒524-0011 滋賀県守山市今市町140-3
-              </p>
-              <p className="font-light text-sm mb-2">所属先</p>
-              <p className="font-light text-sm text-[#6B7280]">
-                株式会社WANDY<br />
-                〒101-0051 東京都千代田区神田神保町1丁目4-6 クロサワビル7階
-              </p>
-            </div>
-            <div>
-              <p className="font-light text-sm mb-2">連絡先</p>
-              <p className="font-light text-sm text-[#6B7280] mb-2">TEL: 090-7497-7313</p>
-              <p className="font-light text-sm text-[#6B7280] mb-4">MAIL: 2005-wandy@sherpa.estate</p>
-              <p className="font-light text-sm mb-2">宅建業免許</p>
-              <p className="font-light text-sm text-[#6B7280]">国土交通大臣（1）第10492号</p>
-            </div>
+          <div className="mb-8">
+            <p className="font-light text-sm mb-1">所属先（本社所在地）</p>
+            <p className="font-light text-sm text-[#6B7280]">
+              株式会社WANDY<br />
+              〒101-0051 東京都千代田区神田神保町1丁目4-6 クロサワビル7階
+            </p>
           </div>
           <p className="font-light text-sm text-[#6B7280] mb-8">
             営業時間：365日24時間受付可
