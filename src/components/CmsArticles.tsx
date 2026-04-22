@@ -21,7 +21,7 @@ export default function CmsArticles({ initialArticles = [] }: { initialArticles?
   const filteredArticles = articles.filter(article => article.category === activeCategory).slice(0, 3);
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="pt-8 pb-16 md:pt-8 md:pb-24">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-light mb-4">
