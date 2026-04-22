@@ -103,6 +103,7 @@ export default function Footer() {
             <h4 className="font-light mb-4">会社情報</h4>
             <ul className="space-y-2 font-light text-sm text-[#6B7280]">
               <li><a href="#" className="hover:text-white">会社概要</a></li>
+              <li><a href="/privacy" className="hover:text-white">プライバシーポリシー</a></li>
             </ul>
           </div>
         </div>
