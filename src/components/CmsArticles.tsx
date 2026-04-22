@@ -77,7 +77,10 @@ export default function CmsArticles({ initialArticles = [] }: { initialArticles?
         </div>
 
         <div className="text-center">
-          <Link href="/blog" className="inline-block bg-[#2C5F6E] text-white px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] hover:opacity-90 transition-opacity">
+          <Link
+            href={activeCategory === '市況ニュース' ? '/blog?category=市況ニュース' : '#chintai'}
+            className="inline-block bg-[#2C5F6E] text-white px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] hover:opacity-90 transition-opacity"
+          >
             もっと読む
           </Link>
         </div>
