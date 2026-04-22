@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import NavigationButtons from '@/components/NavigationButtons';
 import StickyNav from '@/components/StickyNav';
 import About from '@/components/About';
 import InvestmentService from '@/components/InvestmentService';
@@ -41,6 +42,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen">
       <Hero />
+      <NavigationButtons />
       <StickyNav />
       <About />
       <CmsArticles initialArticles={articles} />
