@@ -35,7 +35,7 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
   const filteredRentals = activeArea === 'all' ? rentals : rentals.filter(r => r.area === activeArea);
 
   return (
-    <section id="chintai" className="py-16 md:py-24 scroll-mt-16">
+    <section id="chintai" className="bg-[#f8f7f4] py-16 md:py-24 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-light text-center mb-6">
           滋賀・京都・大阪で、自分らしい部屋を。

@@ -1,6 +1,6 @@
 export default function JutakuService() {
   return (
-    <section id="jutaku" className="bg-[#F5F7F6] py-16 md:py-24 scroll-mt-16">
+    <section id="jutaku" className="bg-white py-16 md:py-24 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-light text-center mb-6">
           家選びは、お金の設計から始めよう。
