@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-const tabs = [
+const sectionTabs = [
   { id: 'toushi', label: '投資' },
   { id: 'baikyaku', label: '売却相談' },
   { id: 'chintai', label: '賃貸' },
@@ -10,52 +10,57 @@ const tabs = [
 ];
 
 export default function StickyNav() {
-  const [activeTab, setActiveTab] = useState('toushi');
-  const [isClicking, setIsClicking] = useState(false);
+  const [activeTab, setActiveTab] = useState<string>('top');
+  const isClickingRef = useRef(false);
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    const handleScroll = () => {
+      if (isClickingRef.current) return;
 
-    tabs.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (!el) return;
+      const threshold = window.innerHeight * 0.4;
+      let active = 'top';
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (isClicking) return;
-          if (entry.isIntersecting) {
-            setActiveTab(id);
-          }
-        },
-        { rootMargin: '0px 0px -60% 0px', threshold: 0 }
-      );
+      for (const { id } of sectionTabs) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= threshold) {
+          active = id;
+        }
+      }
 
-      observer.observe(el);
-      observers.push(observer);
-    });
+      setActiveTab(active);
+    };
 
-    return () => observers.forEach((o) => o.disconnect());
-  }, [isClicking]);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
-  const scrollToSection = (id: string) => {
-    setIsClicking(true);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleClick = (id: string) => {
+    isClickingRef.current = true;
     setActiveTab(id);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
-    setTimeout(() => setIsClicking(false), 1000);
+
+    setTimeout(() => { isClickingRef.current = false; }, 1000);
   };
+
+  const allTabs = [{ id: 'top', label: 'トップ' }, ...sectionTabs];
 
   return (
     <nav className="sticky top-0 bg-white border-b border-[#E5E9E8] z-10">
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex justify-center">
-          {tabs.map((tab) => (
+          {allTabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => scrollToSection(tab.id)}
-              className={`px-4 md:px-6 py-4 font-light text-base md:text-lg transition-colors ${
+              onClick={() => handleClick(tab.id)}
+              className={`px-3 md:px-6 py-4 font-light text-sm md:text-lg transition-colors ${
                 activeTab === tab.id
                   ? 'text-[#2C5F6E] border-b-2 border-[#2C5F6E]'
                   : 'text-[#6B7280]'
