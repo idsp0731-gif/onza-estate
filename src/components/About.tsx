@@ -5,7 +5,13 @@ export default function About() {
     <section className="pt-10 pb-6 md:pt-16 md:pb-8">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-4">
-          不動産のことも、お金のことも、気軽に話せる場所でありたい。
+          <span className="block md:hidden">
+            不動産のことも、お金のことも、<br />
+            気軽に話せる場所でありたい。
+          </span>
+          <span className="hidden md:block">
+            不動産のことも、お金のことも、気軽に話せる場所でありたい。
+          </span>
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="aspect-[3/4] bg-transparent rounded-2xl flex flex-col items-center justify-center gap-3 md:-mt-6">
