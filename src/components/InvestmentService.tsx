@@ -15,7 +15,13 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
       <div className="max-w-6xl mx-auto px-4">
         {/* 1. タイトル・説明文 */}
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
-          資産になる不動産を、いっしょに探しましょう。
+          <span className="block md:hidden">
+            資産になる不動産を、<br />
+            いっしょに探しましょう。
+          </span>
+          <span className="hidden md:block">
+            資産になる不動産を、いっしょに探しましょう。
+          </span>
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
           好立地の中古区分マンションを中心にご提案。一棟アパートもご相談いただけます。

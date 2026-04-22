@@ -43,7 +43,13 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
     <section id="chintai" className="bg-[#f8f7f4] py-16 md:py-24 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
-          滋賀・京都・大阪で、自分らしい部屋を。
+          <span className="block md:hidden">
+            滋賀・京都・大阪で、<br />
+            自分らしい部屋を。
+          </span>
+          <span className="hidden md:block">
+            滋賀・京都・大阪で、自分らしい部屋を。
+          </span>
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
           エリアのことも、生活のことも、気軽に聞いてください。
