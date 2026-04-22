@@ -92,15 +92,14 @@ export default async function BlogPostPage({ params }: Props) {
         )}
 
         {/* 本文 */}
-        <div className="bg-white rounded-2xl px-8 py-10 md:px-12 md:py-12 shadow-sm [word-break:auto-phrase] break-words [line-break:strict] [text-wrap:pretty]">
+        <div className="bg-white rounded-2xl px-8 py-10 md:px-12 md:py-12 shadow-sm [word-break:auto-phrase] break-words [line-break:strict]">
           <BlockRenderer blocks={blocks} />
         </div>
 
         {/* フッターCTA */}
         <div className="mt-10 bg-white rounded-2xl p-8 shadow-sm text-center">
           <p className="font-light text-[#374151] mb-6 text-sm leading-relaxed">
-            不動産に関するご相談は、LINEからお気軽にどうぞ。<br />
-            毎日7:00〜21:00、無料で対応しています。
+            不動産に関するご相談は、LINEからお気軽にどうぞ。毎日7:00〜21:00、無料で対応しています。
           </p>
           <a
             href="https://lin.ee/mS1QHo1"
@@ -120,7 +119,7 @@ function RichText({ items }: { items: any[] }) {
   return (
     <>
       {items.map((item, i) => {
-        let node: React.ReactNode = item.plain_text.replace(/\n/g, ' ');
+        let node: React.ReactNode = (item.plain_text ?? '').replace(/[\r\n]+/g, ' ');
         if (item.annotations?.code) {
           node = (
             <code key={i} className="bg-gray-100 text-[#2C5F6E] px-1.5 py-0.5 rounded text-sm font-mono">
