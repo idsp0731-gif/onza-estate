@@ -92,7 +92,7 @@ export default async function BlogPostPage({ params }: Props) {
         )}
 
         {/* 本文 */}
-        <div className="bg-white rounded-2xl px-8 py-10 md:px-12 md:py-12 shadow-sm">
+        <div className="bg-white rounded-2xl px-8 py-10 md:px-12 md:py-12 shadow-sm [word-break:auto-phrase] break-words [line-break:strict] [text-wrap:pretty]">
           <BlockRenderer blocks={blocks} />
         </div>
 
