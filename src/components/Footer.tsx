@@ -4,13 +4,12 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4">
 
         {/* 1段目：ロゴ・SNS ／ サービスリンク */}
-        <div className="flex flex-col md:flex-row md:justify-between gap-10 mb-10">
+        <div className="flex flex-col md:flex-row md:justify-start gap-16 mb-10">
           <div>
             <h3 className="text-2xl font-light mb-2">ONZA Estate</h3>
-            <p className="font-light text-[#6B7280] mb-1">
+            <p className="font-light text-[#6B7280] mb-8">
               あなたの不動産相談、いっしょに考えます。
             </p>
-            <p className="font-light text-sm text-[#6B7280] mb-8">代表　飯田 舜平</p>
 
             {/* LINE（共通） */}
             <div className="mb-4">
