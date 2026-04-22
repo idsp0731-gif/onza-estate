@@ -197,17 +197,29 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
 }
 
 export async function getPageBlocks(pageId: string): Promise<any[]> {
-  const res = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=100`, {
-    headers: {
-      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-      'Notion-Version': NOTION_VERSION,
-    },
-    next: { revalidate: 60 },
-  });
+  const blocks: any[] = [];
+  let cursor: string | undefined;
 
-  if (!res.ok) throw new Error(`Notion blocks API error ${res.status}`);
-  const data = await res.json();
-  return data.results ?? [];
+  do {
+    const url = new URL(`https://api.notion.com/v1/blocks/${pageId}/children`);
+    url.searchParams.set('page_size', '100');
+    if (cursor) url.searchParams.set('start_cursor', cursor);
+
+    const res = await fetch(url.toString(), {
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+        'Notion-Version': NOTION_VERSION,
+      },
+      next: { revalidate: 60 },
+    });
+
+    if (!res.ok) throw new Error(`Notion blocks API error ${res.status}`);
+    const data = await res.json();
+    blocks.push(...(data.results ?? []));
+    cursor = data.has_more ? data.next_cursor : undefined;
+  } while (cursor);
+
+  return blocks;
 }
 
 function parseBlogPost(page: any): BlogPost {
