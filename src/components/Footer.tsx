@@ -2,8 +2,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#1A1A1A] text-white py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          <div className="md:col-span-2">
+
+        {/* 1段目：ロゴ・SNS ／ サービスリンク */}
+        <div className="flex flex-col md:flex-row md:justify-between gap-10 mb-10">
+          <div>
             <h3 className="text-2xl font-light mb-2">ONZA Estate</h3>
             <p className="font-light text-[#6B7280] mb-1">
               あなたの不動産相談、いっしょに考えます。
@@ -29,7 +31,6 @@ export default function Footer() {
 
             {/* SNS：投資用・賃貸用 */}
             <div className="flex gap-8">
-              {/* 投資用 */}
               <div>
                 <p className="text-xs font-light text-[#6B7280] mb-2">投資用</p>
                 <div className="flex gap-3">
@@ -58,7 +59,6 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* 賃貸用 */}
               <div>
                 <p className="text-xs font-light text-[#6B7280] mb-2">賃貸用</p>
                 <div className="flex gap-3">
@@ -96,58 +96,42 @@ export default function Footer() {
               <li><a href="#baikyaku" className="hover:text-white">売却相談</a></li>
               <li><a href="#chintai" className="hover:text-white">賃貸</a></li>
               <li><a href="#jutaku" className="hover:text-white">住宅購入</a></li>
-              <li><a href="#" className="hover:text-white">ブログ</a></li>
+              <li><a href="/blog" className="hover:text-white">ブログ</a></li>
             </ul>
-          </div>
-          <div>
-            <h4 className="font-light mb-4">事業者情報</h4>
-            <dl className="space-y-2 font-light text-sm text-[#6B7280]">
-              <div>
-                <dt className="sr-only">屋号</dt>
-                <dd>ONZA Estate</dd>
-              </div>
-              <div>
-                <dt className="sr-only">代表者</dt>
-                <dd>代表　飯田 舜平</dd>
-              </div>
-              <div>
-                <dt className="sr-only">所在地</dt>
-                <dd>〒524-0011 滋賀県守山市今市町140-3</dd>
-              </div>
-              <div>
-                <dt className="sr-only">所属先</dt>
-                <dd>株式会社WANDY<br />（国土交通大臣（1）第10492号）</dd>
-              </div>
-              <div>
-                <dt className="sr-only">TEL</dt>
-                <dd>TEL：090-7497-7313</dd>
-              </div>
-              <div>
-                <dt className="sr-only">Email</dt>
-                <dd>Email：2005-wandy@sherpa.estate</dd>
-              </div>
-            </dl>
-            <a href="/privacy" className="inline-block mt-4 font-light text-sm text-[#6B7280] hover:text-white transition-colors">
-              プライバシーポリシー
-            </a>
           </div>
         </div>
 
-        <div className="border-t border-[#E5E9E8] pt-8">
-          <div className="mb-8">
-            <p className="font-light text-sm mb-1">所属先（本社所在地）</p>
-            <p className="font-light text-sm text-[#6B7280]">
-              株式会社WANDY<br />
-              〒101-0051 東京都千代田区神田神保町1丁目4-6 クロサワビル7階
-            </p>
-          </div>
-          <p className="font-light text-sm text-[#6B7280] mb-8">
+        {/* 横線（1段目と2段目の間） */}
+        <div className="border-t border-[#333333] mb-10" />
+
+        {/* 2段目：事業者情報 */}
+        <div className="mb-8">
+          <p className="font-light text-sm text-[#6B7280] mb-1">ONZA Estate</p>
+          <p className="font-light text-sm text-[#6B7280] mb-1">代表　飯田 舜平</p>
+          <p className="font-light text-sm text-[#6B7280] mb-1">〒524-0011 滋賀県守山市今市町140-3</p>
+          <p className="font-light text-sm text-[#6B7280] mb-1">TEL：090-7497-7313</p>
+          <p className="font-light text-sm text-[#6B7280] mb-1">Email：2005-wandy@sherpa.estate</p>
+          <p className="font-light text-sm text-[#6B7280] mb-3">宅建業免許：国土交通大臣（1）第10492号</p>
+          <a href="/privacy" className="font-light text-sm text-[#6B7280] hover:text-white transition-colors">
+            プライバシーポリシー
+          </a>
+        </div>
+
+        {/* 3段目：所属先・営業時間・コピーライト（線なし） */}
+        <div>
+          <p className="font-light text-sm text-[#6B7280] mb-1">所属先（本社所在地）</p>
+          <p className="font-light text-sm text-[#6B7280] mb-6">
+            株式会社WANDY<br />
+            〒101-0051 東京都千代田区神田神保町1丁目4-6 クロサワビル7階
+          </p>
+          <p className="font-light text-sm text-[#6B7280] mb-4">
             営業時間：365日24時間受付可
           </p>
           <p className="font-light text-sm text-[#6B7280]">
             © 2026 ONZA Estate
           </p>
         </div>
+
       </div>
     </footer>
   );
