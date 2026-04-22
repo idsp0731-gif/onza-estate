@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import ParticleBackground from "@/components/ParticleBackground";
 
 const notoSansJp = Noto_Sans_JP({
   weight: ['300', '400'],
@@ -97,10 +96,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans">
-        <ParticleBackground />
-        {children}
-      </body>
+      <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
 }
