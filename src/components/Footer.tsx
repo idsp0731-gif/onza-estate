@@ -111,7 +111,6 @@ export default function Footer() {
           <p className="font-light text-sm text-[#6B7280] mb-1">〒524-0011 滋賀県守山市今市町140-3</p>
           <p className="font-light text-sm text-[#6B7280] mb-1">TEL：090-7497-7313</p>
           <p className="font-light text-sm text-[#6B7280] mb-1">Email：2005-wandy@sherpa.estate</p>
-          <p className="font-light text-sm text-[#6B7280] mb-3">宅建業免許：国土交通大臣（1）第10492号</p>
           <a href="/privacy" className="font-light text-sm text-[#6B7280] hover:text-white transition-colors">
             プライバシーポリシー
           </a>
@@ -119,10 +118,12 @@ export default function Footer() {
 
         {/* 3段目：所属先・営業時間・コピーライト（線なし） */}
         <div>
-          <p className="font-light text-sm text-[#6B7280] mb-1">所属先（本社所在地）</p>
+          <p className="font-light text-sm text-[#6B7280] mb-1">所属先</p>
           <p className="font-light text-sm text-[#6B7280] mb-6">
             株式会社WANDY<br />
-            〒101-0051 東京都千代田区神田神保町1丁目4-6 クロサワビル7階
+            〒101-0051 東京都千代田区神田神保町1丁目4-6 クロサワビル7階<br />
+            TEL：03-6824-6611<br />
+            宅建業免許：国土交通大臣（1）第10492号
           </p>
           <p className="font-light text-sm text-[#6B7280] mb-4">
             営業時間：365日24時間受付可
