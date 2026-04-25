@@ -35,7 +35,8 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
             href="/investment-guide"
             className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-2xl px-6 py-4 mb-6 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors group"
           >
-            <span>なぜ不動産投資をするのか？　考え方・基礎知識を読む</span>
+            <span className="block md:hidden">なぜ不動産投資をするのか？<br />考え方・基礎知識を読む</span>
+            <span className="hidden md:block">なぜ不動産投資をするのか？　考え方・基礎知識を読む</span>
             <span className="ml-4 shrink-0">→</span>
           </Link>
           <h3 className="text-xl font-light mb-6">おすすめ投資用物件</h3>
