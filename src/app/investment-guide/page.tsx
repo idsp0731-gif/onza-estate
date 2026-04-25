@@ -88,7 +88,7 @@ export default function InvestmentGuidePage() {
                 </h2>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   多くの人が「お金を増やすこと」を目的に投資を考えます。しかし本来は逆です。<br />
-                  重要なのは、「どうなりたいか」「何をしたいか」を先に決めること。
+                  重要なのは、<br />「どうなりたいか」「何をしたいか」<br />を先に決めること。
                 </p>
                 <ul className="space-y-2 text-sm text-[#6B7280] mb-4">
                   <li className="flex gap-2"><span>・</span><span>いつまでにどんな生活をしたいのか</span></li>
@@ -96,7 +96,7 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>・</span><span>働き方をどう変えたいのか</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  そこから逆算して、「そのためにいくら必要か」→「どう資産形成するか」を決めていきます。
+                  そこから逆算して、<br />「そのためにいくら必要か」→「どう資産形成するか」<br />を決めていきます。
                 </p>
               </section>
 
@@ -124,7 +124,15 @@ export default function InvestmentGuidePage() {
                   こういった偏りはリスクになります。
                 </p>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  そのため、インデックス投資（コア）・個別株や成長投資（サブ）・不動産（キャッシュフロー資産）のように役割を分けて持つことが合理的です。
+                  そのため、
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>インデックス投資（コア）</span></li>
+                  <li className="flex gap-2"><span>・</span><span>個別株や成長投資（サブ）</span></li>
+                  <li className="flex gap-2"><span>・</span><span>不動産（キャッシュフロー資産）</span></li>
+                </ul>
+                <p className="text-sm leading-relaxed text-[#6B7280]">
+                  のように役割を分けて持つことが合理的です。
                 </p>
               </section>
 
@@ -138,9 +146,23 @@ export default function InvestmentGuidePage() {
                 <p className="text-sm leading-relaxed text-[#1F2937] font-light bg-[#f8f7f4] rounded-xl px-5 py-4 mb-4">
                   「先にキャッシュフローを作れる資産」これが最大の特徴です。
                 </p>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  株式投資は、
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>元本を入れて</span></li>
+                  <li className="flex gap-2"><span>・</span><span>値上がりや配当を待つ</span></li>
+                </ul>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  一方、不動産は
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>ローンを使い</span></li>
+                  <li className="flex gap-2"><span>・</span><span>自己資金以上の資産を持ち</span></li>
+                  <li className="flex gap-2"><span>・</span><span>その日から家賃収入が入る</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  株式投資は、元本を入れて値上がりや配当を待つ。一方、不動産はローンを使い、自己資金以上の資産を持ち、その日から家賃収入が入る。<br />
-                  つまり、「時間を前倒しして資産形成できる」という構造になっています。
+                  つまり、<br />「時間を前倒しして資産形成できる」<br />という構造になっています。
                 </p>
               </section>
 
@@ -155,11 +177,25 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>・</span><span>ローン＝リスクではなく「レバレッジ」</span></li>
                   <li className="flex gap-2"><span>・</span><span>現金を減らさずに資産を持てる手段</span></li>
                 </ul>
-                <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  例えば、金利1〜2%・投資利回り3〜5%以上の前提であれば、差分はプラスになります。※資産価値の観点除く
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  例えば
                 </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>金利1〜2%</span></li>
+                  <li className="flex gap-2"><span>・</span><span>投資利回り3〜5%以上</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  そのため、現金は現金でしかできない投資へ・不動産はローンを活用という分け方も合理的です。
+                  の前提であれば、<br />差分はプラスになります。※資産価値の観点除く
+                </p>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  そのため、
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>現金は現金でしかできない投資へ</span></li>
+                  <li className="flex gap-2"><span>・</span><span>不動産はローンを活用</span></li>
+                </ul>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
+                  という分け方も合理的です。
                 </p>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
                   また、
@@ -206,15 +242,24 @@ export default function InvestmentGuidePage() {
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
                   不動産を「持ち続ける」か「売却する」か
                 </h2>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  不動産は、
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>長期保有して安定収入を得る</span></li>
+                  <li className="flex gap-2"><span>・</span><span>市況を見て売却・買い替えを行う</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  不動産は、長期保有して安定収入を得る・市況を見て売却・買い替えを行う、どちらも選択肢です。
+                  どちらも選択肢です。
                 </p>
                 <ul className="space-y-2 text-sm text-[#6B7280] mb-4">
                   <li className="flex gap-2"><span>・</span><span>キャッシュフロー重視→長期保有</span></li>
                   <li className="flex gap-2"><span>・</span><span>資産の組み替えや利益確定→売却・再投資</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  状況や目的に応じて柔軟に判断することが重要です。一つの目安として、10〜20年単位で見直すという考え方もあります。
+                  状況や目的に応じて柔軟に判断することが重要です。<br />
+                  一つの目安として、<br />
+                  10〜20年単位で見直すという考え方もあります。
                 </p>
               </section>
 
@@ -222,11 +267,21 @@ export default function InvestmentGuidePage() {
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
                   現金を持ちすぎるリスク
                 </h2>
-                <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  日本円の預金は、利回り約0.1%程度。これは見方を変えると「0.1%で運用している投資」です。
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  日本円の預金は、
                 </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>利回り約0.1%程度</span></li>
+                </ul>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  これは見方を変えると<br />「0.1%で運用している投資」<br />です。
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>生活費</span></li>
+                  <li className="flex gap-2"><span>・</span><span>急な出費</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  生活費・急な出費を確保するために預金も必要ですが、あまり持ちすぎると、インフレによる価値の下落等のリスクもあります。
+                  を確保するために預金も必要ですが、<br />あまり持ちすぎるとインフレによる価値の下落等のリスクもあります。
                 </p>
               </section>
 
@@ -242,7 +297,7 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>・</span><span>20〜30%：個別株・為替など値動きのある資産</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  不動産はその中で、「安定したインカム（家賃収入）を担う中核的なポジション」になります。
+                  不動産はその中で、<br />「安定したインカム（家賃収入）を担う中核的なポジション」<br />になります。
                 </p>
               </section>
 
@@ -268,7 +323,7 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>・</span><span>税制変更の影響を受ける可能性</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  があります。そのため、あくまで「資産形成や資産運用としての保有が前提」で、税務は補助的な要素として考えることが重要です。
+                  があります。<br />そのため、あくまで<br />「資産形成や資産運用としての保有が前提」<br />で税務は補助的な要素として考えることが重要です。
                 </p>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
                   また、団信（団体信用生命保険）付きローンであれば、
@@ -295,7 +350,7 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>・</span><span>本業を続けながら資産形成できる</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  つまり、「時間を売る仕事」と「資産からの収入」を同時に持てる状態を作れます。
+                  つまり、<br />「時間を売る仕事」と「資産からの収入」<br />を同時に持てる状態を作れます。
                 </p>
               </section>
 
@@ -304,7 +359,7 @@ export default function InvestmentGuidePage() {
                   まとめ
                 </h2>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  不動産投資の本質は、お金を増やすことではなく、将来の選択肢を増やすことです。
+                  不動産投資の本質は、<br />「将来の選択肢を増やすこと」<br />です。
                 </p>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
                   その中で不動産は、
