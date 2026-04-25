@@ -138,13 +138,13 @@ export default function InvestmentGuidePage() {
 
               <section>
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
-                  不動産投資のメリット：キャッシュフローを先に作れる点
+                  不動産投資のメリット：収入源を先に作れる点
                 </h2>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   では、その中で不動産は何を担うのか。結論はシンプルです。
                 </p>
                 <p className="text-sm leading-relaxed text-[#1F2937] font-light bg-[#f8f7f4] rounded-xl px-5 py-4 mb-4">
-                  「先にキャッシュフローを作れる資産」これが最大の特徴です。
+                  「先に収入源を作れる資産」これが最大の特徴です。
                 </p>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
                   株式投資は、
@@ -223,7 +223,13 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>③</span><span>安定性（空室リスクが低い）</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
-                  この観点から見ると、都心・駅近のRC区分マンションが一つの選択になります。理由は、
+                  この観点から見ると、おすすめは
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>都心・駅近のRC中古区分マンション</span></li>
+                </ul>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  です。<br />理由は、
                 </p>
                 <ul className="space-y-2 text-sm text-[#6B7280] mb-4">
                   <li className="flex gap-2"><span>・</span><span>需要が安定しやすい</span></li>
@@ -366,7 +372,7 @@ export default function InvestmentGuidePage() {
                 </p>
                 <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
                   <li className="flex gap-2"><span>・</span><span>ローンを使い</span></li>
-                  <li className="flex gap-2"><span>・</span><span>早い段階でキャッシュフローを作り</span></li>
+                  <li className="flex gap-2"><span>・</span><span>早い段階で収入源を作り</span></li>
                   <li className="flex gap-2"><span>・</span><span>長期的に資産を積み上げる</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
