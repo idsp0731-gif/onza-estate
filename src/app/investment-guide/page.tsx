@@ -197,17 +197,6 @@ export default function InvestmentGuidePage() {
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   という分け方も合理的です。
                 </p>
-                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
-                  また、
-                </p>
-                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
-                  <li className="flex gap-2"><span>・</span><span>50年ローンなどの長期借入も選択肢※金利に注意</span></li>
-                  <li className="flex gap-2"><span>・</span><span>返済を抑えてキャッシュを確保</span></li>
-                  <li className="flex gap-2"><span>・</span><span>余剰資金を投資や自己投資に回すという考え方</span></li>
-                </ul>
-                <p className="text-sm leading-relaxed text-[#6B7280]">
-                  も成り立ちます。
-                </p>
               </section>
 
               <section>
@@ -229,9 +218,9 @@ export default function InvestmentGuidePage() {
                   理由は、
                 </p>
                 <ul className="space-y-2 text-sm text-[#6B7280] mb-4">
-                  <li className="flex gap-2"><span>・</span><span>需要が安定しやすい</span></li>
-                  <li className="flex gap-2"><span>・</span><span>売却しやすい（流動性が高い）</span></li>
                   <li className="flex gap-2"><span>・</span><span>市況の変化に対して価格が崩れにくい傾向</span></li>
+                  <li className="flex gap-2"><span>・</span><span>売却しやすい（流動性が高い）</span></li>
+                  <li className="flex gap-2"><span>・</span><span>需要が安定しやすい</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   ※あくまで「一つの戦略」であり、他の手法にもそれぞれのメリットがあります。
