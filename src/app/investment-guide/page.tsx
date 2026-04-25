@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function InvestmentGuidePage() {
   return (
-    <div className="min-h-screen bg-[#F5F7F6] flex flex-col">
+    <div className="investment-guide min-h-screen bg-[#F5F7F6] flex flex-col">
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link
@@ -64,8 +64,8 @@ export default function InvestmentGuidePage() {
           />
           <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
             <p className="text-white font-light text-xl md:text-3xl leading-relaxed mb-4">
-              お金は「増やすもの」ではなく、<br />
-              未来を設計するための手段。
+              お金は「目的」ではなく、<br />
+              未来を設計するための「手段」
             </p>
             <p className="text-white/80 font-light text-sm md:text-lg">
               不動産投資は、その設計を前倒しするための一つの方法です。
@@ -222,14 +222,11 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>②</span><span>流動性（売りやすい）</span></li>
                   <li className="flex gap-2"><span>③</span><span>安定性（空室リスクが低い）</span></li>
                 </ul>
-                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
-                  この観点から見ると、おすすめは
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
+                  この観点から見ると、<br />おすすめは「都心・駅近のRC中古区分マンション」です。
                 </p>
-                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
-                  <li className="flex gap-2"><span>・</span><span>都心・駅近のRC中古区分マンション</span></li>
-                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
-                  です。<br />理由は、
+                  理由は、
                 </p>
                 <ul className="space-y-2 text-sm text-[#6B7280] mb-4">
                   <li className="flex gap-2"><span>・</span><span>需要が安定しやすい</span></li>

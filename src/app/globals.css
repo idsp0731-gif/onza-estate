@@ -22,3 +22,8 @@ body {
   font-family: var(--font-sans), sans-serif;
   scroll-behavior: smooth;
 }
+
+.investment-guide li > span:first-child {
+  font-size: 1.2em;
+  line-height: 1;
+}
