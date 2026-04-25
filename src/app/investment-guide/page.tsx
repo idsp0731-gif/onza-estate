@@ -4,12 +4,12 @@ import type { Metadata } from 'next';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'なぜ不動産投資をするのか｜ONZA Estate',
+  title: '不動産投資はなぜ必要か？会社員でもできる理由と考え方｜ONZA Estate',
   description:
     'お金は増やすものではなく未来を設計する手段。不動産投資がキャッシュフロー形成に有効な理由をFP視点で解説します。',
   alternates: { canonical: 'https://www.onza-estate.com/investment-guide' },
   openGraph: {
-    title: 'なぜ不動産投資をするのか｜ONZA Estate',
+    title: '不動産投資はなぜ必要か？会社員でもできる理由と考え方｜ONZA Estate',
     description:
       'お金は増やすものではなく未来を設計する手段。不動産投資がキャッシュフロー形成に有効な理由をFP視点で解説します。',
     url: 'https://www.onza-estate.com/investment-guide',
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
         url: 'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777082512/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8825%E6%97%A5_11_00_37_kig95c.png',
         width: 1200,
         height: 630,
-        alt: 'なぜ不動産投資をするのか｜ONZA Estate',
+        alt: '不動産投資はなぜ必要か？会社員でもできる理由と考え方｜ONZA Estate',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'なぜ不動産投資をするのか｜ONZA Estate',
+    title: '不動産投資はなぜ必要か？会社員でもできる理由と考え方｜ONZA Estate',
     description:
       'お金は増やすものではなく未来を設計する手段。不動産投資がキャッシュフロー形成に有効な理由をFP視点で解説します。',
     images: [
@@ -80,7 +80,7 @@ export default function InvestmentGuidePage() {
 
               <section>
                 <h1 className="text-2xl md:text-3xl font-light mb-6 border-b border-gray-100 pb-4">
-                  なぜ不動産投資をするのか
+                  不動産投資はなぜ必要か？会社員でもできる理由と考え方
                 </h1>
 
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
@@ -102,7 +102,7 @@ export default function InvestmentGuidePage() {
 
               <section>
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
-                  投資の基本：分散と長期
+                  不動産投資を含めた資産運用の基本（分散と長期）
                 </h2>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   資産形成において基本はシンプルです。
@@ -125,7 +125,7 @@ export default function InvestmentGuidePage() {
 
               <section>
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
-                  不動産投資の役割
+                  不動産投資のメリット：キャッシュフローを先に作れる点
                 </h2>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   では、その中で不動産は何を担うのか。結論はシンプルです。
@@ -141,7 +141,7 @@ export default function InvestmentGuidePage() {
 
               <section>
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
-                  ローンを使う理由
+                  不動産投資でローンを使うべき理由
                 </h2>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   不動産投資の本質はここにあります。
@@ -254,7 +254,7 @@ export default function InvestmentGuidePage() {
 
               <section>
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
-                  会社員でもできる理由
+                  不動産投資は会社員でもできる？その理由
                 </h2>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   不動産投資は、会社員の方にも有利な方法です。
