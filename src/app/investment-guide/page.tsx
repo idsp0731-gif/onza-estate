@@ -115,9 +115,14 @@ export default function InvestmentGuidePage() {
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   特に重要なのは、1つの資産に依存しないこと。
                 </p>
-                <ul className="space-y-2 text-sm text-[#6B7280] mb-4">
-                  <li className="flex gap-2"><span>・</span><span>株だけ・日本円だけ・不動産だけ、こういった偏りはリスクになります。</span></li>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>株だけ</span></li>
+                  <li className="flex gap-2"><span>・</span><span>日本円だけ</span></li>
+                  <li className="flex gap-2"><span>・</span><span>不動産だけ</span></li>
                 </ul>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
+                  こういった偏りはリスクになります。
+                </p>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
                   そのため、インデックス投資（コア）・個別株や成長投資（サブ）・不動産（キャッシュフロー資産）のように役割を分けて持つことが合理的です。
                 </p>
@@ -156,8 +161,16 @@ export default function InvestmentGuidePage() {
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   そのため、現金は現金でしかできない投資へ・不動産はローンを活用という分け方も合理的です。
                 </p>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  また、
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>50年ローンなどの長期借入も選択肢※金利に注意</span></li>
+                  <li className="flex gap-2"><span>・</span><span>返済を抑えてキャッシュを確保</span></li>
+                  <li className="flex gap-2"><span>・</span><span>余剰資金を投資や自己投資に回すという考え方</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  また、50年ローンなどの長期借入も選択肢※金利に注意・返済を抑えてキャッシュを確保・余剰資金を投資や自己投資に回すという考え方も成り立ちます。
+                  も成り立ちます。
                 </p>
               </section>
 
@@ -173,10 +186,14 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>②</span><span>流動性（売りやすい）</span></li>
                   <li className="flex gap-2"><span>③</span><span>安定性（空室リスクが低い）</span></li>
                 </ul>
-                <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  この観点から見ると、都心・駅近のRC区分マンションが一つの選択になります。<br />
-                  理由は、需要が安定しやすい・売却しやすい（流動性が高い）・市況変化に対して価格が崩れにくい傾向。
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  この観点から見ると、都心・駅近のRC区分マンションが一つの選択になります。理由は、
                 </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-4">
+                  <li className="flex gap-2"><span>・</span><span>需要が安定しやすい</span></li>
+                  <li className="flex gap-2"><span>・</span><span>売却しやすい（流動性が高い）</span></li>
+                  <li className="flex gap-2"><span>・</span><span>市況の変化に対して価格が崩れにくい傾向</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   ※あくまで「一つの戦略」であり、他の手法にもそれぞれのメリットがあります。
                 </p>
@@ -243,12 +260,25 @@ export default function InvestmentGuidePage() {
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   これらにより、手元に残るキャッシュを増やせる可能性があります。
                 </p>
-                <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  一方で、節税だけを目的にすると収益性を見誤るリスク・税制変更の影響を受ける可能性があります。<br />
-                  そのため、あくまで「資産形成や資産運用としての保有が前提」で、税務は補助的な要素として考えることが重要です。
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  一方で、節税だけを目的にすると
                 </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>収益性を見誤るリスク</span></li>
+                  <li className="flex gap-2"><span>・</span><span>税制変更の影響を受ける可能性</span></li>
+                </ul>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
+                  があります。そのため、あくまで「資産形成や資産運用としての保有が前提」で、税務は補助的な要素として考えることが重要です。
+                </p>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  また、団信（団体信用生命保険）付きローンであれば、
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>生命保険は最低限に見直し可能</span></li>
+                  <li className="flex gap-2"><span>・</span><span>保険として収入を生む資産を残すことができる</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  また、団信（団体信用生命保険）付きローンであれば、生命保険は最低限に見直し可能・保険として収入を生む資産を残すことができる、といった副次的なメリットもあります。
+                  といった副次的なメリットもあります。
                 </p>
               </section>
 
@@ -276,8 +306,16 @@ export default function InvestmentGuidePage() {
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
                   不動産投資の本質は、お金を増やすことではなく、将来の選択肢を増やすことです。
                 </p>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  その中で不動産は、
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>ローンを使い</span></li>
+                  <li className="flex gap-2"><span>・</span><span>早い段階でキャッシュフローを作り</span></li>
+                  <li className="flex gap-2"><span>・</span><span>長期的に資産を積み上げる</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
-                  その中で不動産は、ローンを使い・早い段階でキャッシュフローを作り・長期的に資産を積み上げるための有効な手段の一つです。
+                  ための有効な手段の一つです。
                 </p>
               </section>
 
@@ -285,8 +323,15 @@ export default function InvestmentGuidePage() {
                 <h2 className="text-base font-light border-l-2 border-[#2C5F6E] pl-4 mb-4">
                   最後に
                 </h2>
+                <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
+                  投資はあくまで手段です。
+                </p>
+                <ul className="space-y-2 text-sm text-[#6B7280] mb-2">
+                  <li className="flex gap-2"><span>・</span><span>どんな人生を送りたいのか</span></li>
+                  <li className="flex gap-2"><span>・</span><span>どのタイミングで自由を得たいのか</span></li>
+                </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  投資はあくまで手段です。どんな人生を送りたいのか・どのタイミングで自由を得たいのか、それによって最適な選択は変わります。
+                  それによって最適な選択は変わります。
                 </p>
                 <p className="text-sm leading-relaxed text-[#6B7280]">
                   不動産投資もその一つの選択肢として、冷静に位置づけていくことが重要です。
