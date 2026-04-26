@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function JutakuService() {
   return (
     <section id="jutaku" className="bg-white py-16 md:py-24 scroll-mt-16">
@@ -5,10 +7,21 @@ export default function JutakuService() {
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
           家選びは、お金の設計から始めよう。
         </h2>
-        <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-lg font-light text-[#6B7280] text-center mb-6 max-w-3xl mx-auto">
           FPの視点で住宅ローンの設計や返済計画を一緒に考えながら、ライフプランに合った物件の種類・価格帯をご提案します。
           焦らず、後悔しない家選びをサポートします。
         </p>
+
+        <div className="max-w-3xl mx-auto mb-12">
+          <Link
+            href="/rent-vs-buy"
+            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-2xl px-6 py-4 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors group"
+          >
+            <span className="block md:hidden">賃貸と購入、どちらが合理的か？<br />違いと考え方を読む</span>
+            <span className="hidden md:block">賃貸と購入、どちらが合理的か？　違いと考え方を読む</span>
+            <span className="ml-4 shrink-0">→</span>
+          </Link>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-white p-6 rounded-2xl shadow-sm">
