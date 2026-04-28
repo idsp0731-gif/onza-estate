@@ -1,44 +1,15 @@
-'use client';
-
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-type Property = {
-  id: string;
-  name: string;
-  area: string;
-  price: string;
-  layout: string;
-  size: string;
-  builtYear: number;
-  builtdate: string;
-  station: string;
-  walkMinutes: number;
-  images: string[];
-  thumbnail: string;
-  published: boolean;
-  recommended: boolean;
-  type: string;
-};
+import type { Property } from '@/lib/notion';
 
 const dummyRentals: Property[] = [
   { id: '1', name: 'リバーサイドアパート', area: '守山', price: '65,000円/月', layout: '1LDK', size: '40㎡', builtYear: 2020, builtdate: '2020年4月', station: '守山駅', walkMinutes: 5, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
   { id: '2', name: '京都ハイツ', area: '京都', price: '75,000円/月', layout: '2LDK', size: '55㎡', builtYear: 2019, builtdate: '2019年6月', station: '京都駅', walkMinutes: 10, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
   { id: '3', name: '草津レジデンス', area: '草津', price: '85,000円/月', layout: '1K', size: '30㎡', builtYear: 2021, builtdate: '2021年1月', station: '草津駅', walkMinutes: 8, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
-  { id: '4', name: '大津マンション', area: '大津', price: '95,000円/月', layout: '2DK', size: '50㎡', builtYear: 2018, builtdate: '2018年9月', station: '大津駅', walkMinutes: 15, images: [], thumbnail: '', published: true, recommended: false, type: '賃貸' },
 ];
 
 export default function RentalService({ initialRentals = [] }: { initialRentals?: Property[] }) {
-  const [activeArea, setActiveArea] = useState('all');
-  const rentals: Property[] = initialRentals.length > 0 ? initialRentals : dummyRentals;
-
-  const knownAreas = ['守山', '草津', '大津', '京都'];
-  const filteredRentals = activeArea === 'all'
-    ? rentals
-    : activeArea === 'その他'
-      ? rentals.filter(r => !knownAreas.includes(r.area))
-      : rentals.filter(r => r.area === activeArea);
+  const rentals = (initialRentals.length > 0 ? initialRentals : dummyRentals).slice(0, 3);
 
   return (
     <section id="chintai" className="bg-[#f8f7f4] py-16 md:py-24 scroll-mt-16">
@@ -52,48 +23,18 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
             滋賀・京都・大阪で、自分らしい部屋を。
           </span>
         </h2>
-        <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
+        <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
           物件探しは条件だけでなく、「将来どうするか」まで含めて考えることが重要です。
           単なる紹介ではなく、生活・費用・今後の選択肢まで整理した上でご提案します。
           ワンストップ対応により、内見から契約までスムーズに進められます。
         </p>
 
-        <div className="flex justify-center mb-12">
-          <Link
-            href="/rental"
-            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
-          >
-            賃貸物件を見る →
-          </Link>
-        </div>
-
-        <div className="flex justify-center mb-8">
-          <div className="flex bg-white rounded-2xl shadow-sm p-1">
-            {['all', '守山', '草津', '大津', '京都', 'その他'].map((area) => (
-              <button
-                key={area}
-                onClick={() => setActiveArea(area)}
-                className={`px-6 py-3 rounded-xl font-light text-sm transition-colors ${
-                  activeArea === area ? 'bg-[#2C5F6E] text-white' : 'text-[#6B7280]'
-                }`}
-              >
-                {area === 'all' ? 'すべて' : area}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {filteredRentals.map((rental) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
+          {rentals.map((rental) => (
             <div key={rental.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
               <div className="aspect-[4/3] bg-gray-200 overflow-hidden relative">
                 {rental.thumbnail ? (
-                  <Image
-                    src={rental.thumbnail}
-                    alt={rental.name}
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src={rental.thumbnail} alt={rental.name} fill className="object-cover" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
                     <span className="text-gray-500">物件画像</span>
@@ -118,34 +59,25 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
           ))}
         </div>
 
-        <div className="text-center mb-8">
+        <div className="text-center mb-4">
           <p className="text-sm font-light text-[#2C5F6E]">
             掲載以外の物件もご紹介可能です。お気軽にお問い合わせください。
           </p>
         </div>
 
-        <div className="text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mb-4">
-            <a
-              href="https://lin.ee/mS1QHo1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#06C755] text-white px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:opacity-90 transition-opacity"
-            >
-              LINEで部屋探しを相談する
-            </a>
-            <a
-              href="https://forms.gle/NtiQU45xvoH6JvjH9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-[#2C5F6E] text-[#2C5F6E] px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:bg-[#2C5F6E] hover:text-white transition-colors"
-            >
-              物件資料を請求する
-            </a>
-          </div>
-          <p className="text-sm text-[#6B7280]">
-            無料・毎日7:00〜21:00対応
-          </p>
+        <div className="text-center mb-8">
+          <Link href="/rental" className="text-[#2C5F6E] font-light text-sm hover:underline">
+            もっと見る →
+          </Link>
+        </div>
+
+        <div className="flex justify-center">
+          <Link
+            href="/rental"
+            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
+          >
+            賃貸物件を見る →
+          </Link>
         </div>
       </div>
     </section>
