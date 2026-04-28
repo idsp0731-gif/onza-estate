@@ -24,10 +24,20 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
             資産になる不動産を、いっしょに探しましょう。
           </span>
         </h2>
-        <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
-          好立地の中古区分マンションを中心にご提案。一棟アパートもご相談いただけます。
-          基本は仲介のため、中立な立場でサポートします。
+        <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
+          不動産投資は、ローンを活用しながら家賃収入で資産形成を行う手法です。
+          短期的な値動きに依存せず、安定した収入を積み上げられる点が特徴です。
+          これまでの営業トップ実績とFP視点をもとに、数字ベースで合理的な判断ができる提案を行います。
         </p>
+
+        <div className="flex justify-center mb-12">
+          <Link
+            href="/investment"
+            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
+          >
+            投資の考え方を見る →
+          </Link>
+        </div>
 
         {/* 2. おすすめ投資用物件 */}
         <div className="mb-12">

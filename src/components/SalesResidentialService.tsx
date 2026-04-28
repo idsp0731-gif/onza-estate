@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function SalesResidentialService() {
   return (
     <section id="baikyaku" className="py-16 md:py-24 scroll-mt-16">
@@ -5,10 +7,20 @@ export default function SalesResidentialService() {
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
           売り時を、正しく判断するために。
         </h2>
-        <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
-          FPの視点で資産全体の状況を把握し、売却のタイミングや戦略を一緒に考えます。
-          単なる査定ではなく、お客様の資産全体から見た最適な売却プランをご提案します。
+        <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
+          不動産売却は「価格」だけでなく「タイミング」と「戦略」で結果が変わります。
+          これまでのトップ営業経験をもとに、買い手目線を踏まえた売却設計を行います。
+          査定から販売、契約まで一貫して対応し、無駄のない進行を実現します。
         </p>
+
+        <div className="flex justify-center mb-12">
+          <Link
+            href="/sale"
+            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
+          >
+            売却の流れを見る →
+          </Link>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-white p-6 rounded-2xl shadow-sm">

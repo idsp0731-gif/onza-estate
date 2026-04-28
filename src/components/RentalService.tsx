@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Property = {
   id: string;
@@ -51,9 +52,20 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
             滋賀・京都・大阪で、自分らしい部屋を。
           </span>
         </h2>
-        <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
-          エリアのことも、生活のことも、気軽に聞いてください。
+        <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
+          物件探しは条件だけでなく、「将来どうするか」まで含めて考えることが重要です。
+          単なる紹介ではなく、生活・費用・今後の選択肢まで整理した上でご提案します。
+          ワンストップ対応により、内見から契約までスムーズに進められます。
         </p>
+
+        <div className="flex justify-center mb-12">
+          <Link
+            href="/rental"
+            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
+          >
+            賃貸物件を見る →
+          </Link>
+        </div>
 
         <div className="flex justify-center mb-8">
           <div className="flex bg-white rounded-2xl shadow-sm p-1">
