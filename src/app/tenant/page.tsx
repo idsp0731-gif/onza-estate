@@ -93,12 +93,12 @@ export default function TenantPage() {
                 LINEでテナント相談する
               </a>
               <a
-                href="https://forms.gle/aMpZA75kR728DpTA8"
+                href="https://forms.gle/suX3StwmySGmN2Rg8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-[#2C5F6E] text-[#2C5F6E] px-6 py-4 rounded-2xl font-light text-lg min-h-[52px] flex items-center justify-center hover:bg-[#2C5F6E] hover:text-white transition-colors"
               >
-                まずは相談する
+                資料請求をする
               </a>
             </div>
             <p className="text-sm text-[#6B7280] mb-8">無料・毎日7:00〜21:00対応</p>
