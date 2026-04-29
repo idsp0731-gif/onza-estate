@@ -23,11 +23,20 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
             滋賀・京都・大阪で、自分らしい部屋を。
           </span>
         </h2>
-        <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
           物件探しは条件だけでなく、「将来どうするか」まで含めて考えることが重要です。<br />
           単なる紹介ではなく、生活・費用・今後の選択肢まで整理した上でご提案します。<br />
           ワンストップ対応により、内見から契約までスムーズに進められます。
         </p>
+
+        <div className="flex justify-center mb-10">
+          <Link
+            href="/rental"
+            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
+          >
+            賃貸物件を見る →
+          </Link>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
           {rentals.map((rental) => (
@@ -65,18 +74,9 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
           </p>
         </div>
 
-        <div className="text-center mb-8">
+        <div className="text-center">
           <Link href="/rental" className="text-[#2C5F6E] font-light text-sm hover:underline">
             もっと見る →
-          </Link>
-        </div>
-
-        <div className="flex justify-center">
-          <Link
-            href="/rental"
-            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
-          >
-            賃貸物件を見る →
           </Link>
         </div>
       </div>

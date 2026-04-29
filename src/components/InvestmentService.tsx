@@ -29,6 +29,15 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
           これまでの営業トップ実績とFP視点をもとに、数字ベースで合理的な判断ができる提案を行います。
         </p>
 
+        <div className="flex justify-center mb-10">
+          <Link
+            href="/investment"
+            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
+          >
+            投資の考え方を見る →
+          </Link>
+        </div>
+
         <h3 className="text-xl font-light mb-6">おすすめ投資用物件</h3>
         <div className="grid md:grid-cols-3 gap-6 mb-4">
           {properties.slice(0, 3).map((property) => (
@@ -68,18 +77,9 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
           ))}
         </div>
 
-        <div className="text-center mb-8">
+        <div className="text-center">
           <Link href="/investment" className="text-[#2C5F6E] font-light text-sm hover:underline">
             もっと見る →
-          </Link>
-        </div>
-
-        <div className="flex justify-center">
-          <Link
-            href="/investment"
-            className="inline-flex items-center gap-2 border border-[#0d1f3c] text-[#0d1f3c] px-8 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
-          >
-            投資の考え方を見る →
           </Link>
         </div>
       </div>
