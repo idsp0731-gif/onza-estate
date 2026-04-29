@@ -95,6 +95,7 @@ export default function Footer() {
               <li><a href="#baikyaku" className="hover:text-white">売却相談</a></li>
               <li><a href="#chintai" className="hover:text-white">賃貸</a></li>
               <li><a href="#jutaku" className="hover:text-white">住宅購入</a></li>
+              <li><a href="/tenant" className="hover:text-white">テナント</a></li>
               <li><a href="/blog" className="hover:text-white">ブログ</a></li>
             </ul>
           </div>

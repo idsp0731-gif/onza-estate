@@ -6,6 +6,7 @@ import InvestmentService from '@/components/InvestmentService';
 import SalesResidentialService from '@/components/SalesResidentialService';
 import RentalService from '@/components/RentalService';
 import JutakuService from '@/components/JutakuService';
+import TenantService from '@/components/TenantService';
 import LineCtaBanner1 from '@/components/LineCtaBanner1';
 import CmsArticles from '@/components/CmsArticles';
 import SnsLinks from '@/components/SnsLinks';
@@ -50,6 +51,7 @@ export default async function Home() {
       <SalesResidentialService />
       <RentalService initialRentals={rentals} />
       <JutakuService />
+      <TenantService />
       <LineCtaBanner1 />
       <SnsLinks />
       <Achievements />

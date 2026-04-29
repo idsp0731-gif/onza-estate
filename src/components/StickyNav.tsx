@@ -9,7 +9,7 @@ const pageTabs = [
   { href: '/sale', label: '売却相談' },
   { href: '/rental', label: '賃貸' },
   { href: '/housing', label: '住宅購入' },
-  { href: '/#contact', label: 'お問い合わせ' },
+  { href: '/tenant', label: 'テナント' },
 ];
 
 export default function StickyNav() {
