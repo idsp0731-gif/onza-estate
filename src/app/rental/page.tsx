@@ -35,17 +35,44 @@ export default async function RentalPage() {
   return (
     <div className="min-h-screen">
       <StickyNav />
-      <div className="relative h-[250px] md:h-[400px] w-full overflow-hidden">
+      <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden">
         <Image
-          src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777434544/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_12_45_16_tytdkr.png"
+          src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777437948/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_13_45_14_cfzstr.png"
           alt="賃貸物件のご相談"
           fill
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-white text-2xl md:text-4xl font-light">賃貸物件のご相談</h1>
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 flex flex-col justify-center pl-8 md:pl-16 lg:pl-24">
+          <h1
+            style={{
+              fontFamily: "'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif",
+              fontSize: "clamp(1.8rem, 5vw, 3rem)",
+              fontWeight: 400,
+              letterSpacing: "0.15em",
+              lineHeight: 1.7,
+              color: "#0d1f3c",
+            }}
+            className="mb-6"
+          >
+            新しい暮らしを、<br />
+            無理なく選ぶ。
+          </h1>
+          <p
+            style={{
+              fontSize: "clamp(0.8rem, 2vw, 1rem)",
+              fontWeight: 300,
+              letterSpacing: "0.08em",
+              lineHeight: 1.9,
+              color: "#333333",
+            }}
+          >
+            理想の住まいとの出会いが、<br />
+            毎日の心地よさにつながっていく。<br />
+            ライフスタイルや将来設計に寄り添いながら、<br />
+            あなたにとって最適な賃貸をご提案します。
+          </p>
         </div>
       </div>
       <section className="bg-[#f8f7f4] py-16 md:py-24">
