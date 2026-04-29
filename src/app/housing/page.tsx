@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import StickyNav from '@/components/StickyNav';
 import Footer from '@/components/Footer';
@@ -15,6 +16,19 @@ export default function HousingPage() {
   return (
     <div className="min-h-screen">
       <StickyNav />
+      <div className="relative h-[250px] md:h-[400px] w-full overflow-hidden">
+        <Image
+          src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777434763/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_12_51_59_mote5b.png"
+          alt="住宅購入のご相談"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-white text-2xl md:text-4xl font-light">住宅購入のご相談</h1>
+        </div>
+      </div>
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
