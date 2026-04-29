@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const slides = [
-  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776849482/2DDF47AE-2DFC-4633-BF2E-0A361944AB48_0_izywhk.jpg',
-  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776849482/B3EA04B7-2445-46E2-85F7-3E347BE21FF9_0_on8ibo.jpg',
-  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776849482/4CADA44C-0332-4BD2-B15D-3FBCF8A6D34D_0_uwrrrl.jpg',
-  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776849482/59D70375-C0C2-40FF-8160-A17E899EB4B8_0_vxwxhz.jpg',
-  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776849482/68CB6D28-FA1C-4D6E-B620-4BB2F1651407_0_xsuoma.jpg',
+  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777436940/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_13_28_47_rdgk7a.png',
+  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777436941/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_13_27_47_qfwrhs.png',
+  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777437948/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_13_45_14_cfzstr.png',
+  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777436941/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_13_27_25_ccw3a5.png',
+  'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777439528/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_14_10_14_kn9rcc.png',
 ];
 
 export default function Hero() {
