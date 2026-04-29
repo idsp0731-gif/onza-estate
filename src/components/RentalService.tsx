@@ -24,8 +24,8 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
           </span>
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
-          物件探しは条件だけでなく、「将来どうするか」まで含めて考えることが重要です。
-          単なる紹介ではなく、生活・費用・今後の選択肢まで整理した上でご提案します。
+          物件探しは条件だけでなく、「将来どうするか」まで含めて考えることが重要です。<br />
+          単なる紹介ではなく、生活・費用・今後の選択肢まで整理した上でご提案します。<br />
           ワンストップ対応により、内見から契約までスムーズに進められます。
         </p>
 

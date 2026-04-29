@@ -24,8 +24,8 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
           </span>
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
-          不動産投資は、ローンを活用しながら家賃収入で資産形成を行う手法です。
-          短期的な値動きに依存せず、安定した収入を積み上げられる点が特徴です。
+          不動産投資は、ローンを活用しながら家賃収入で資産形成を行う手法です。<br />
+          短期的な値動きに依存せず、安定した収入を積み上げられる点が特徴です。<br />
           これまでの営業トップ実績とFP視点をもとに、数字ベースで合理的な判断ができる提案を行います。
         </p>
 
