@@ -33,17 +33,25 @@ export default async function InvestmentPage() {
   return (
     <div className="min-h-screen">
       <StickyNav />
-      <div className="relative h-[250px] md:h-[400px] w-full overflow-hidden">
+      <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden">
         <Image
-          src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777434303/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_12_43_30_trhsix.png"
+          src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777436940/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_13_28_47_rdgk7a.png"
           alt="不動産投資のご相談"
           fill
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-white text-2xl md:text-4xl font-light">不動産投資のご相談</h1>
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 flex flex-col justify-center pl-8 md:pl-16 lg:pl-24">
+          <h1 className="text-[#0d1f3c] text-3xl md:text-5xl font-bold mb-4 leading-snug">
+            時間を味方につけ、<br />
+            資産を積み上げる。
+          </h1>
+          <p className="text-black text-sm md:text-base font-light leading-relaxed">
+            目先の利回りだけでなく、長期的な視点でリスクを抑え、<br />
+            安定した資産形成を実現するために。<br />
+            FPを活かした、合理的な不動産投資をご提案します。
+          </p>
         </div>
       </div>
       <section className="bg-[#f8f7f4] py-16 md:py-24">
