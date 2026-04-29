@@ -68,12 +68,6 @@ export default function RentalService({ initialRentals = [] }: { initialRentals?
           ))}
         </div>
 
-        <div className="text-center mb-4">
-          <p className="text-sm font-light text-[#2C5F6E]">
-            掲載以外の物件もご紹介可能です。お気軽にお問い合わせください。
-          </p>
-        </div>
-
         <div className="text-center">
           <Link href="/rental" className="text-[#2C5F6E] font-light text-sm hover:underline">
             もっと見る →
