@@ -4,10 +4,6 @@ const cards = [
   {
     label: '投資',
     href: '/investment',
-    guideBanner: {
-      text: '不動産投資はなぜ必要か？ 考え方・基礎知識を読む',
-      href: '/investment-guide',
-    },
     description: '好立地の中古区分を中心に、FP目線で収益物件をご提案。',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -18,7 +14,6 @@ const cards = [
   {
     label: '売却相談',
     href: '/sale',
-    guideBanner: null,
     description: '資産全体を把握した上で、最適な売却タイミングを一緒に考えます。',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -29,7 +24,6 @@ const cards = [
   {
     label: '賃貸',
     href: '/rental',
-    guideBanner: null,
     description: '滋賀・京都・大阪で、自分らしい部屋探しをサポート。',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -40,10 +34,6 @@ const cards = [
   {
     label: '住宅購入',
     href: '/housing',
-    guideBanner: {
-      text: '賃貸と購入、どちらが合理的か？ 違いと考え方を読む',
-      href: '/rent-vs-buy',
-    },
     description: '住宅ローン設計からライフプランに合った物件選びまでご提案。',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -59,34 +49,41 @@ export default function NavigationButtons() {
       <div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {cards.map((card) => (
-            <div key={card.href} className="flex flex-col gap-2">
-              <Link
-                href={card.href}
-                className="group relative flex flex-col bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-              >
-                <div className="flex-1 p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2 text-[#0d1f3c]">
-                      {card.icon}
-                      <span className="font-bold text-sm md:text-base text-[#0d1f3c]">{card.label}</span>
-                    </div>
-                    <span className="text-[#0d1f3c] text-xs">&#9658;</span>
+            <Link
+              key={card.href}
+              href={card.href}
+              className="group relative flex flex-col bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+            >
+              <div className="flex-1 p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2 text-[#0d1f3c]">
+                    {card.icon}
+                    <span className="font-bold text-sm md:text-base text-[#0d1f3c]">{card.label}</span>
                   </div>
-                  <p className="text-xs text-gray-500 leading-relaxed">{card.description}</p>
+                  <span className="text-[#0d1f3c] text-xs">&#9658;</span>
                 </div>
-                <div className="h-[3px] bg-[#0d1f3c]" />
-              </Link>
-              {card.guideBanner && (
-                <Link
-                  href={card.guideBanner.href}
-                  className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-3 py-2 font-light text-xs hover:bg-[#2C5F6E] hover:text-white transition-colors"
-                >
-                  <span className="leading-snug">{card.guideBanner.text}</span>
-                  <span className="ml-2 shrink-0">→</span>
-                </Link>
-              )}
-            </div>
+                <p className="text-xs text-gray-500 leading-relaxed">{card.description}</p>
+              </div>
+              <div className="h-[3px] bg-[#0d1f3c]" />
+            </Link>
           ))}
+        </div>
+
+        <div className="mt-4 flex flex-col gap-3">
+          <Link
+            href="/investment-guide"
+            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
+          >
+            <span>不動産投資はなぜ必要か？　考え方・基礎知識を読む</span>
+            <span className="ml-4 shrink-0">→</span>
+          </Link>
+          <Link
+            href="/rent-vs-buy"
+            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
+          >
+            <span>賃貸と購入、どちらが合理的か？　違いと考え方を読む</span>
+            <span className="ml-4 shrink-0">→</span>
+          </Link>
         </div>
       </div>
     </section>

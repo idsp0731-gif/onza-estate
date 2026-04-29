@@ -22,16 +22,6 @@ export default function JutakuService() {
           </Link>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <Link
-            href="/rent-vs-buy"
-            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-2xl px-6 py-4 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
-          >
-            <span className="block md:hidden">賃貸と購入、どちらが合理的か？<br />違いと考え方を読む</span>
-            <span className="hidden md:block">賃貸と購入、どちらが合理的か？　違いと考え方を読む</span>
-            <span className="ml-4 shrink-0">→</span>
-          </Link>
-        </div>
       </div>
     </section>
   );
