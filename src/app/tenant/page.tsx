@@ -25,7 +25,7 @@ export default function TenantPage() {
           priority
         />
         <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 flex flex-col justify-center pl-8 md:pl-16 lg:pl-24">
+        <div className="absolute inset-0 flex flex-col justify-center items-end pr-8 md:pr-16 lg:pr-24">
           <h1
             style={{
               fontFamily: "'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif",
@@ -35,6 +35,7 @@ export default function TenantPage() {
               lineHeight: 1.7,
               color: "#0d1f3c",
               textShadow: "0 1px 3px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3)",
+              textAlign: "right",
             }}
             className="mb-6"
           >
@@ -49,6 +50,7 @@ export default function TenantPage() {
               lineHeight: 1.9,
               color: "#333333",
               textShadow: "0 1px 2px rgba(255,255,255,0.5)",
+              textAlign: "right",
             }}
           >
             物件選定から契約、開業に必要な許認可まで。<br />
