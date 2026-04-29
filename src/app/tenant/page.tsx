@@ -34,6 +34,7 @@ export default function TenantPage() {
               letterSpacing: "0.12em",
               lineHeight: 1.7,
               color: "#0d1f3c",
+              textShadow: "0 1px 3px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3)",
             }}
             className="mb-6"
           >
@@ -47,6 +48,7 @@ export default function TenantPage() {
               letterSpacing: "0.08em",
               lineHeight: 1.9,
               color: "#333333",
+              textShadow: "0 1px 2px rgba(255,255,255,0.5)",
             }}
           >
             物件選定から契約、開業に必要な許認可まで。<br />

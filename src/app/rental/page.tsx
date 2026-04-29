@@ -53,6 +53,7 @@ export default async function RentalPage() {
               letterSpacing: "0.15em",
               lineHeight: 1.7,
               color: "#0d1f3c",
+              textShadow: "0 1px 3px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3)",
             }}
             className="mb-6"
           >
@@ -66,6 +67,7 @@ export default async function RentalPage() {
               letterSpacing: "0.08em",
               lineHeight: 1.9,
               color: "#333333",
+              textShadow: "0 1px 2px rgba(255,255,255,0.5)",
             }}
           >
             理想の住まいとの出会いが、<br />
