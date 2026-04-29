@@ -26,11 +26,29 @@ export default function HousingPage() {
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex flex-col justify-center pl-8 md:pl-16 lg:pl-24">
-          <h1 className="text-[#0d1f3c] text-3xl md:text-5xl font-bold mb-4 leading-snug">
+          <h1
+            style={{
+              fontFamily: "'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif",
+              fontSize: "clamp(1.8rem, 5vw, 3rem)",
+              fontWeight: 400,
+              letterSpacing: "0.12em",
+              lineHeight: 1.7,
+              color: "#0d1f3c",
+            }}
+            className="mb-6"
+          >
             住むだけで終わらない、<br />
             住宅購入
           </h1>
-          <p className="text-black text-sm md:text-base font-light leading-relaxed">
+          <p
+            style={{
+              fontSize: "clamp(0.8rem, 2vw, 1rem)",
+              fontWeight: 300,
+              letterSpacing: "0.08em",
+              lineHeight: 1.9,
+              color: "#333333",
+            }}
+          >
             今の暮らしを心地よくすること。<br />
             そして、将来の選択肢を広げてくれること。<br />
             私たちは、暮らしと資産の両面から、<br />

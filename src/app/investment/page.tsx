@@ -43,11 +43,29 @@ export default async function InvestmentPage() {
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex flex-col justify-center pl-8 md:pl-16 lg:pl-24">
-          <h1 className="text-[#0d1f3c] text-3xl md:text-5xl font-bold mb-4 leading-snug">
+          <h1
+            style={{
+              fontFamily: "'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif",
+              fontSize: "clamp(1.8rem, 5vw, 3rem)",
+              fontWeight: 400,
+              letterSpacing: "0.12em",
+              lineHeight: 1.7,
+              color: "#0d1f3c",
+            }}
+            className="mb-6"
+          >
             時間を味方につけ、<br />
             資産を積み上げる。
           </h1>
-          <p className="text-black text-sm md:text-base font-light leading-relaxed">
+          <p
+            style={{
+              fontSize: "clamp(0.8rem, 2vw, 1rem)",
+              fontWeight: 300,
+              letterSpacing: "0.08em",
+              lineHeight: 1.9,
+              color: "#333333",
+            }}
+          >
             目先の利回りだけでなく、長期的な視点でリスクを抑え、<br />
             安定した資産形成を実現するために。<br />
             FPを活かした、合理的な不動産投資をご提案します。
