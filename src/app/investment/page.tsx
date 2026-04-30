@@ -230,6 +230,15 @@ export default async function InvestmentPage() {
             </div>
           </div>
 
+          {/* CTA前テキスト */}
+          <div className="mb-12">
+            <h2 className="text-xl font-light mb-6">不動産投資は「合う・合わない」があります</h2>
+            <p className="text-lg font-light text-[#6B7280]">
+              収入・資産状況・目的によって、最適な選択は異なります。<br />
+              そのため、まずは状況を整理することが重要です。
+            </p>
+          </div>
+
           {/* CTA */}
           <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mb-4">
