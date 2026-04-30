@@ -74,6 +74,30 @@ export default async function InvestmentPage() {
           </p>
         </div>
       </div>
+      {/* こんな方へ */}
+      <section className="bg-white py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-xl font-light mb-6">こんな方へ</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-[#f8f7f4] p-6 rounded-2xl">
+              <span className="text-[#2C5F6E] text-2xl mb-3 block">💰</span>
+              <p className="font-light text-sm">預金だけでは増えないと感じている</p>
+            </div>
+            <div className="bg-[#f8f7f4] p-6 rounded-2xl">
+              <span className="text-[#2C5F6E] text-2xl mb-3 block">🤔</span>
+              <p className="font-light text-sm">投資は気になるが何から始めるか分からない</p>
+            </div>
+            <div className="bg-[#f8f7f4] p-6 rounded-2xl">
+              <span className="text-[#2C5F6E] text-2xl mb-3 block">📊</span>
+              <p className="font-light text-sm">株や投資信託だけでいいのか不安</p>
+            </div>
+            <div className="bg-[#f8f7f4] p-6 rounded-2xl">
+              <span className="text-[#2C5F6E] text-2xl mb-3 block">📈</span>
+              <p className="font-light text-sm">将来の収入源を増やしたい</p>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="bg-[#f8f7f4] py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
@@ -101,25 +125,6 @@ export default async function InvestmentPage() {
               <span className="hidden md:block">不動産投資はなぜ必要か？　考え方・基礎知識を読む</span>
               <span className="ml-4 shrink-0">→</span>
             </Link>
-          </div>
-
-          {/* こんな方へ */}
-          <div className="mb-12">
-            <h2 className="text-xl font-light mb-6">こんな方へ</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-2xl shadow-sm">
-                <span className="text-[#2C5F6E] text-2xl mb-3 block">🏠</span>
-                <p className="font-light">将来のために資産形成を考えはじめた方</p>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-sm">
-                <span className="text-[#2C5F6E] text-2xl mb-3 block">🤔</span>
-                <p className="font-light">管理のことが不安で踏み出せない方</p>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-sm">
-                <span className="text-[#2C5F6E] text-2xl mb-3 block">💼</span>
-                <p className="font-light">FPも含めてお金の相談をしたい方</p>
-              </div>
-            </div>
           </div>
 
           {/* 扱う物件種別 */}
