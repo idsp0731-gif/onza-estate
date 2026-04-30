@@ -16,6 +16,8 @@ export default function SalePage() {
   return (
     <div className="min-h-screen">
       <StickyNav />
+
+      {/* ヒーロー */}
       <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden">
         <Image
           src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777436941/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_13_27_47_qfwrhs.png"
@@ -59,35 +61,126 @@ export default function SalePage() {
           </p>
         </div>
       </div>
-      <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
-            売り時を、正しく判断するために。
-          </h1>
-          <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
-            不動産売却は「価格」だけでなく「タイミング」と「戦略」で結果が変わります。<br />
-            これまでのトップ営業経験をもとに、買い手目線を踏まえた売却設計を行います。<br />
-            査定から販売、契約まで一貫して対応し、無駄のない進行を実現します。
-          </p>
 
-          {/* 特徴リスト */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <span className="text-[#2C5F6E] text-2xl mb-3 block">📊</span>
-              <p className="font-light">FP目線で資産全体を把握した売却判断</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <span className="text-[#2C5F6E] text-2xl mb-3 block">📅</span>
-              <p className="font-light">市況を踏まえた最適な売却タイミングのご提案</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <span className="text-[#2C5F6E] text-2xl mb-3 block">🤝</span>
-              <p className="font-light">査定・売却活動・引渡しまでトータルサポート</p>
+      {/* こんなお悩みはありませんか？ */}
+      <section className="bg-white py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-xl font-light text-center mb-8">こんなお悩みはありませんか？</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              'いくらで売れるのか分からない',
+              'どの会社に任せるべきか迷っている',
+              'できるだけ高く売りたいが、リスクは避けたい',
+              '今売るべきかどうか判断できない',
+            ].map((text) => (
+              <div key={text} className="flex items-start gap-3 bg-[#f8f7f4] px-6 py-5 rounded-2xl">
+                <span className="text-[#2C5F6E] mt-0.5 shrink-0">✓</span>
+                <p className="font-light text-sm">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f8f7f4] py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4">
+
+          {/* 説明文 */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-6">
+              売り時を、正しく判断するために。
+            </h2>
+            <p className="text-lg font-light text-[#6B7280] max-w-3xl mx-auto">
+              不動産売却は「価格」だけでなく「タイミング」と「戦略」で結果が変わります。<br />
+              これまでのトップ営業経験をもとに、買い手目線を踏まえた売却設計を行います。<br />
+              査定から販売、契約まで一貫して対応し、無駄のない進行を実現します。
+            </p>
+          </div>
+
+          {/* 売却は「戦略」で結果が変わります */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-6">売却は「戦略」で結果が変わります</h2>
+            <p className="text-lg font-light text-[#6B7280] mb-8 max-w-2xl mx-auto">
+              同じ物件でも、条件次第で結果は大きく変わります。
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+              {[
+                { label: '売り出し価格', icon: '💰' },
+                { label: '販売方法', icon: '📋' },
+                { label: 'ターゲット設定', icon: '🎯' },
+              ].map((item) => (
+                <div key={item.label} className="bg-white p-6 rounded-2xl shadow-sm text-center">
+                  <span className="text-2xl mb-3 block">{item.icon}</span>
+                  <p className="font-light">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* CTA */}
+          {/* ONZA Estateの売却提案 */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-8">ONZA Estateの売却提案</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">🏆</span>
+                <p className="font-light">投資用不動産販売でのトップ営業経験</p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">👁️</span>
+                <p className="font-light">買い手目線を踏まえた価格設定</p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">📊</span>
+                <p className="font-light">FP視点での売却タイミング提案</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 売却方法の選択 */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-8">売却方法の選択</h2>
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <div className="inline-block bg-[#2C5F6E] text-white px-3 py-1 rounded-full text-sm font-light mb-4">① 高く売る（エンド向け）</div>
+                <p className="font-light text-[#6B7280] text-sm">時間をかけて市場で売却</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <div className="inline-block bg-[#6B7280] text-white px-3 py-1 rounded-full text-sm font-light mb-4">② 早く売る（業者向け）</div>
+                <p className="font-light text-[#6B7280] text-sm">スピード重視で確実に売却</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 売却の流れ */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-8">売却の流れ</h2>
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
+              {[
+                { step: '1', title: '相談', desc: '現在の状況・ご希望をお聞かせください' },
+                { step: '2', title: '査定', desc: '市場価格をもとに最適価格をご提示' },
+                { step: '3', title: '販売開始', desc: '戦略に基づいた売却活動を開始' },
+                { step: '4', title: '契約・引渡し', desc: '契約から引渡しまで一貫サポート' },
+              ].map((item, index, arr) => (
+                <div key={item.step} className="flex md:flex-col items-center gap-4 md:gap-0">
+                  <div className="bg-white p-6 rounded-2xl shadow-sm min-w-[200px] md:min-w-[180px] text-center">
+                    <div className="text-[#2C5F6E] text-2xl font-light mb-3">{item.step}</div>
+                    <h3 className="font-light mb-2">{item.title}</h3>
+                    <p className="font-light text-[#6B7280] text-sm">{item.desc}</p>
+                  </div>
+                  {index < arr.length - 1 && (
+                    <span className="text-[#2C5F6E] text-xl shrink-0 md:hidden">↓</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* まずは査定・ご相談から + CTA */}
           <div className="text-center">
+            <h2 className="text-xl font-light mb-6">まずは査定・ご相談から</h2>
+            <p className="text-lg font-light text-[#6B7280] mb-8 max-w-xl mx-auto">
+              売るかどうか迷っている段階でも、お気軽にご相談ください。
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mb-4">
               <a
                 href="https://lin.ee/mS1QHo1"
@@ -109,6 +202,7 @@ export default function SalePage() {
             <p className="text-sm text-[#6B7280] mb-8">無料・毎日7:00〜21:00対応</p>
             <Link href="/" className="text-sm text-[#6B7280] hover:underline">← トップへ戻る</Link>
           </div>
+
         </div>
       </section>
       <Footer />
