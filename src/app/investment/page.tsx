@@ -134,11 +134,11 @@ export default async function InvestmentPage() {
               <div className="bg-white p-6 rounded-2xl shadow-sm relative">
                 <span className="absolute top-4 right-4 bg-[#2C5F6E] text-white px-3 py-1 rounded-full text-sm font-light">おすすめ</span>
                 <h3 className="text-lg font-light mb-2">好立地中古区分マンション</h3>
-                <p className="font-light text-[#6B7280]">安定した収益が見込める物件をご提案</p>
+                <p className="font-light text-[#6B7280]">資産性・売却しやすさを重視した選定</p>
               </div>
               <div className="bg-white p-6 rounded-2xl shadow-sm">
                 <h3 className="text-lg font-light mb-2">一棟アパート</h3>
-                <p className="font-light text-[#6B7280]">規模の大きな投資物件も対応</p>
+                <p className="font-light text-[#6B7280]">規模拡大・収益重視の方向け</p>
               </div>
             </div>
           </div>
