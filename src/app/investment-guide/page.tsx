@@ -212,7 +212,7 @@ export default function InvestmentGuidePage() {
                   <li className="flex gap-2"><span>③</span><span>安定性（空室リスクが低い）</span></li>
                 </ul>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-4">
-                  この観点から見ると、<br />おすすめは「都心・駅近のRC中古区分マンション」です。
+                  この観点から見ると、<br />おすすめは「好立地・駅近のRC中古区分マンション」です。
                 </p>
                 <p className="text-sm leading-relaxed text-[#6B7280] mb-2">
                   理由は、
