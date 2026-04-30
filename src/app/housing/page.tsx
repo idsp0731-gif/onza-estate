@@ -16,6 +16,8 @@ export default function HousingPage() {
   return (
     <div className="min-h-screen">
       <StickyNav />
+
+      {/* ヒーロー */}
       <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden">
         <Image
           src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777436941/ChatGPT_Image_2026%E5%B9%B44%E6%9C%8829%E6%97%A5_13_27_25_ccw3a5.png"
@@ -58,47 +60,142 @@ export default function HousingPage() {
           </p>
         </div>
       </div>
-      <section className="bg-white py-16 md:py-24">
+
+      {/* こんなお悩みはありませんか？ */}
+      <section className="bg-white py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
-            家選びは、お金の設計から始めよう。
-          </h1>
-          <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
-            住宅購入は人生で大きな意思決定の一つです。<br />
-            物件だけでなく、住宅ローンや将来の資産性まで含めて判断する必要があります。<br />
-            FP資格を活かし、資金計画から物件選定まで一貫してサポートします。
-          </p>
+          <h2 className="text-xl font-light text-center mb-8">こんなお悩みはありませんか？</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              '購入するべきか賃貸のままでいいのか迷っている',
+              '住宅ローンに不安がある',
+              '将来のライフプランと合うか分からない',
+              '何から始めればいいか分からない',
+            ].map((text) => (
+              <div key={text} className="flex items-start gap-3 bg-[#f8f7f4] px-6 py-5 rounded-2xl">
+                <span className="text-[#2C5F6E] mt-0.5 shrink-0">✓</span>
+                <p className="font-light text-sm">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {/* 特徴リスト */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <span className="text-[#2C5F6E] text-2xl mb-3 block">🏦</span>
-              <p className="font-light">住宅ローンの設計・返済シミュレーション</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <span className="text-[#2C5F6E] text-2xl mb-3 block">📋</span>
-              <p className="font-light">ライフプランに合った物件種類・価格帯のご提案</p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <span className="text-[#2C5F6E] text-2xl mb-3 block">🏠</span>
-              <p className="font-light">物件探し・契約・入居までワンストップ対応</p>
+      <section className="bg-[#f8f7f4] py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4">
+
+          {/* 説明文 */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-light mb-6">
+              家選びは、お金の設計から始めよう。
+            </h2>
+            <p className="text-lg font-light text-[#6B7280] max-w-3xl mx-auto">
+              住宅購入は人生で大きな意思決定の一つです。<br />
+              物件だけでなく、住宅ローンや将来の資産性まで含めて判断する必要があります。<br />
+              FP資格を活かし、資金計画から物件選定まで一貫してサポートします。
+            </p>
+          </div>
+
+          {/* 住宅購入は「人によって正解が異なります」 */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-6">住宅購入は「人によって正解が異なります」</h2>
+            <p className="text-lg font-light text-[#6B7280] mb-8 max-w-2xl mx-auto">
+              購入が有利な場合もあれば、賃貸が適しているケースもあります。<br />
+              重要なのは、収入・ライフプラン・価値観に合っているかどうかです。
+            </p>
+            <div className="max-w-3xl mx-auto">
+              <Link
+                href="/rent-vs-buy"
+                className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-2xl px-6 py-4 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
+              >
+                <span className="block md:hidden">賃貸と購入、どちらが合理的か？<br />違いと考え方を読む</span>
+                <span className="hidden md:block">賃貸と購入、どちらが合理的か？　違いと考え方を読む</span>
+                <span className="ml-4 shrink-0">→</span>
+              </Link>
             </div>
           </div>
 
-          {/* リンクバナー */}
-          <div className="max-w-3xl mx-auto mb-12">
-            <Link
-              href="/rent-vs-buy"
-              className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-2xl px-6 py-4 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
-            >
-              <span className="block md:hidden">賃貸と購入、どちらが合理的か？<br />違いと考え方を読む</span>
-              <span className="hidden md:block">賃貸と購入、どちらが合理的か？　違いと考え方を読む</span>
-              <span className="ml-4 shrink-0">→</span>
-            </Link>
+          {/* 住宅購入の主なメリット */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-8">住宅購入の主なメリット</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">🏠</span>
+                <p className="font-light">資産として残る</p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">🛡️</span>
+                <p className="font-light">団信による保障</p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">🔄</span>
+                <p className="font-light">将来的に貸す、売る選択肢</p>
+              </div>
+            </div>
           </div>
 
-          {/* CTA */}
+          {/* 購入前に考えるべきこと */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-8">購入前に考えるべきこと</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">📅</span>
+                <p className="font-light">将来のライフスタイルの変化</p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">💳</span>
+                <p className="font-light">ローン返済の負担</p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">📈</span>
+                <p className="font-light">売却・賃貸のしやすさ</p>
+              </div>
+            </div>
+          </div>
+
+          {/* ONZA Estateの提案 */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-8">ONZA Estateの提案</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">📊</span>
+                <p className="font-light">FP視点での資金計画</p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">🔭</span>
+                <p className="font-light">購入後も見据えた提案</p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl shadow-sm">
+                <span className="text-[#2C5F6E] text-2xl mb-3 block">🗂️</span>
+                <p className="font-light">売却・賃貸まで含めた選択肢</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 判断のポイント */}
+          <div className="mb-16 text-center">
+            <h2 className="text-xl font-light mb-8">判断のポイント</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              {[
+                { icon: '💰', text: '今後の収入見通し' },
+                { icon: '💼', text: '働き方' },
+                { icon: '🏡', text: '住み替えの可能性' },
+              ].map((item) => (
+                <div key={item.text} className="bg-white p-6 rounded-2xl shadow-sm">
+                  <span className="text-2xl mb-3 block">{item.icon}</span>
+                  <p className="font-light text-sm">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* まずは整理からでも問題ありません + CTA */}
           <div className="text-center">
+            <h2 className="text-xl font-light mb-6">まずは整理からでも問題ありません</h2>
+            <p className="text-lg font-light text-[#6B7280] mb-10 max-w-2xl mx-auto">
+              購入するかどうかが決まっていなくても、<br />
+              状況整理からご相談可能です。
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto mb-4">
               <a
                 href="https://lin.ee/mS1QHo1"
@@ -120,6 +217,7 @@ export default function HousingPage() {
             <p className="text-sm text-[#6B7280] mb-8">無料・毎日7:00〜21:00対応</p>
             <Link href="/" className="text-sm text-[#6B7280] hover:underline">← トップへ戻る</Link>
           </div>
+
         </div>
       </section>
       <Footer />
