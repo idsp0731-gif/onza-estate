@@ -311,13 +311,20 @@ export default function RentVsBuyPage() {
               </div>
             </div>
 
-            <div className="text-center mt-10">
+            <div className="flex justify-center gap-6 mt-10">
               <Link
                 href="/"
                 className="inline-flex items-center gap-2 text-sm font-light text-[#2C5F6E] hover:opacity-70 transition-opacity"
               >
                 <span>←</span>
                 <span>トップへ戻る</span>
+              </Link>
+              <Link
+                href="/housing"
+                className="inline-flex items-center gap-2 text-sm font-light text-[#2C5F6E] hover:opacity-70 transition-opacity"
+              >
+                <span>←</span>
+                <span>住宅購入ページに戻る</span>
               </Link>
             </div>
           </div>
