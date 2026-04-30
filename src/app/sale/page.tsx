@@ -160,16 +160,11 @@ export default function SalePage() {
                 { step: '2', title: '査定', desc: '市場価格をもとに最適価格をご提示' },
                 { step: '3', title: '販売開始', desc: '戦略に基づいた売却活動を開始' },
                 { step: '4', title: '契約・引渡し', desc: '契約から引渡しまで一貫サポート' },
-              ].map((item, index, arr) => (
-                <div key={item.step} className="flex md:flex-col items-center gap-4 md:gap-0">
-                  <div className="bg-white p-6 rounded-2xl shadow-sm min-w-[200px] md:min-w-[180px] text-center">
-                    <div className="text-[#2C5F6E] text-2xl font-light mb-3">{item.step}</div>
-                    <h3 className="font-light mb-2">{item.title}</h3>
-                    <p className="font-light text-[#6B7280] text-sm">{item.desc}</p>
-                  </div>
-                  {index < arr.length - 1 && (
-                    <span className="text-[#2C5F6E] text-xl shrink-0 md:hidden">↓</span>
-                  )}
+              ].map((item) => (
+                <div key={item.step} className="bg-white p-6 rounded-2xl shadow-sm min-w-[200px] md:min-w-[180px] text-center">
+                  <div className="text-[#2C5F6E] text-2xl font-light mb-3">{item.step}</div>
+                  <h3 className="font-light mb-2">{item.title}</h3>
+                  <p className="font-light text-[#6B7280] text-sm">{item.desc}</p>
                 </div>
               ))}
             </div>
