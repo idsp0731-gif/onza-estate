@@ -162,9 +162,9 @@ function BlockRenderer({ blocks }: { blocks: any[] }) {
 
           case 'heading_1':
             return (
-              <h1 key={id} className="text-lg font-normal text-[#1F2937] mt-8 mb-1 border-l-4 border-[#2C5F6E] pl-3">
+              <h2 key={id} className="text-lg font-normal text-[#1F2937] mt-8 mb-1 border-l-4 border-[#2C5F6E] pl-3">
                 <RichText items={content.rich_text} />
-              </h1>
+              </h2>
             );
 
           case 'heading_2':

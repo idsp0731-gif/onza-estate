@@ -100,7 +100,7 @@ export default async function InvestmentPage() {
       </section>
       <section className="bg-[#f8f7f4] py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
             <span className="block md:hidden">
               資産になる不動産を、<br />
               いっしょに探しましょう。
@@ -108,7 +108,7 @@ export default async function InvestmentPage() {
             <span className="hidden md:block">
               資産になる不動産を、いっしょに探しましょう。
             </span>
-          </h1>
+          </h2>
           <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
             不動産投資は、家賃収入で資産形成・資産運用を行う手法です。<br />
             短期的な値動きに依存せず、安定した収入を積み上げられる点が特徴です。<br />
