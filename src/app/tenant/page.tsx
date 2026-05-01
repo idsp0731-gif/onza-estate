@@ -41,8 +41,8 @@ export default function TenantPage() {
             }}
             className="mb-6"
           >
-            事業のスタートを、<br />
-            スムーズに。
+            テナント物件で、<br />
+            事業のスタートをスムーズに
           </h1>
           <p
             style={{

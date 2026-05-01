@@ -40,7 +40,7 @@ export default function SalePage() {
             }}
             className="mb-6"
           >
-            手放すという選択にも、<br />
+            不動産売却という選択にも、<br />
             理由がある。
           </h1>
           <p

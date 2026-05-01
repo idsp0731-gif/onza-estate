@@ -55,8 +55,8 @@ export default async function InvestmentPage() {
             }}
             className="mb-6"
           >
-            時間を味方につけ、<br />
-            資産を積み上げる。
+            不動産投資で、<br />
+            時間を味方に資産を積み上げる
           </h1>
           <p
             style={{

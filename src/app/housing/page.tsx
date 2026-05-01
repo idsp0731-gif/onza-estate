@@ -40,8 +40,8 @@ export default function HousingPage() {
             }}
             className="mb-6"
           >
-            住むだけで終わらない、<br />
-            住宅購入
+            住宅購入は、<br />
+            住むだけで終わらない選択
           </h1>
           <p
             style={{

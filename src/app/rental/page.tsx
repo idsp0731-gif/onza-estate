@@ -83,8 +83,8 @@ export default async function RentalPage() {
             }}
             className="mb-6"
           >
-            新しい暮らしを、<br />
-            無理なく選ぶ。
+            賃貸物件で、<br />
+            新しい暮らしを無理なく選ぶ。
           </h1>
           <p
             style={{
