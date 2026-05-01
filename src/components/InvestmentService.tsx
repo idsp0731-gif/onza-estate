@@ -75,8 +75,20 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
             もっと見る →
           </Link>
         </div>
+      </div>
 
-        <div className="mt-10 pt-10 border-t border-gray-200 text-center">
+      <div className="relative w-full h-[200px] md:h-[300px] mt-10">
+        <Image
+          src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777605543/ChatGPT_Image_2026%E5%B9%B45%E6%9C%881%E6%97%A5_12_17_14_ptiure.png"
+          alt="不動産投資"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="pt-10 border-t border-gray-200 text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://lin.ee/mS1QHo1"

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function SalesResidentialService() {
@@ -20,7 +21,19 @@ export default function SalesResidentialService() {
             売却の流れを見る →
           </Link>
         </div>
+      </div>
 
+      <div className="relative w-full h-[200px] md:h-[300px]">
+        <Image
+          src="https://res.cloudinary.com/dh2xvp5xj/image/upload/v1777605542/ChatGPT_Image_2026%E5%B9%B45%E6%9C%881%E6%97%A5_12_18_15_d9gh6l.png"
+          alt="不動産売却"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4">
         <div className="pt-10 border-t border-gray-200 text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
