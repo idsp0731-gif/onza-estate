@@ -36,7 +36,7 @@ export default function SalePage() {
               letterSpacing: "0.12em",
               lineHeight: 1.7,
               color: "#0d1f3c",
-              textShadow: "2px 2px 8px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.6), -1px -1px 4px rgba(0,0,0,0.5)",
+              textShadow: "0 1px 3px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3)",
             }}
             className="mb-6"
           >
