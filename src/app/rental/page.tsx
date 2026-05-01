@@ -79,7 +79,7 @@ export default async function RentalPage() {
               letterSpacing: "0.15em",
               lineHeight: 1.7,
               color: "#0d1f3c",
-              textShadow: "0 1px 3px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3)",
+              textShadow: "2px 2px 8px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.6), -1px -1px 4px rgba(0,0,0,0.5)",
             }}
             className="mb-6"
           >
@@ -92,8 +92,8 @@ export default async function RentalPage() {
               fontWeight: 300,
               letterSpacing: "0.08em",
               lineHeight: 1.9,
-              color: "#333333",
-              textShadow: "0 1px 2px rgba(255,255,255,0.5)",
+              color: "rgba(255,255,255,0.95)",
+              textShadow: "1px 1px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7), -1px -1px 3px rgba(0,0,0,0.6)",
             }}
           >
             理想の住まいとの出会いが、<br />
