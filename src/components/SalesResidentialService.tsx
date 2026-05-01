@@ -5,12 +5,11 @@ export default function SalesResidentialService() {
     <section id="baikyaku" className="py-16 md:py-24 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
-          売り時を、正しく判断するために。
+          不動産売却｜売るか迷っている方へ
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-12 max-w-3xl mx-auto">
-          不動産売却は「価格」だけでなく「タイミング」と「戦略」で結果が変わります。<br />
-          これまでのトップ営業経験をもとに、買い手目線を踏まえた売却設計を行います。<br />
-          査定から販売、契約まで一貫して対応し、無駄のない進行を実現します。
+          売却は「価格」だけでなく「タイミング」と「戦略」で結果が変わります。<br />
+          買い手目線まで踏まえ、納得できる売却判断をサポートします。
         </p>
 
         <div className="flex justify-center mb-10">

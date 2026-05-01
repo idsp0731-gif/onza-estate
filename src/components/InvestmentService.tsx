@@ -15,19 +15,11 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
     <section id="toushi" className="bg-[#f8f7f4] py-16 md:py-24 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
-          <span className="block md:hidden">
-            資産になる不動産を、<br />
-            いっしょに探しましょう。
-          </span>
-          <span className="hidden md:block">
-            資産になる不動産を、いっしょに探しましょう。
-          </span>
+          不動産投資｜資産形成を考え始めた方へ
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
-          不動産投資は、家賃収入で資産形成・資産運用を行う手法です。<br />
-          短期的な値動きに依存せず、安定した収入を積み上げられる点が特徴です。<br />
-          これまでの営業トップ実績とFP視点をもとに、<br />
-          数字ベースで合理的な判断ができる提案を行います。
+          株式や預金だけでなく、不動産を含めた資産全体で設計します。<br />
+          FP視点と実務経験をもとに、長期的に積み上がる投資判断をサポートします。
         </p>
 
         <div className="flex justify-center mb-10">

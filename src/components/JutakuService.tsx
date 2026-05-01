@@ -5,12 +5,11 @@ export default function JutakuService() {
     <section id="jutaku" className="bg-white py-16 md:py-24 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
-          家選びは、お金の設計から始めよう。
+          住宅購入｜購入すべきか迷っている方へ
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
-          住宅購入は人生で大きな意思決定の一つです。<br />
-          物件だけでなく、住宅ローンや将来の資産性まで含めて判断する必要があります。<br />
-          FP資格を活かし、資金計画から物件選定まで一貫してサポートします。
+          住宅購入は、物件ではなく資金計画から考えるべき判断です。<br />
+          将来の資産性や選択肢まで踏まえ、合理的な購入判断をサポートします。
         </p>
 
         <div className="flex justify-center mb-10">

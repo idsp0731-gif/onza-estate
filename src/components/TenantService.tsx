@@ -5,12 +5,11 @@ export default function TenantService() {
     <section id="tenant" className="bg-[#f8f7f4] py-16 md:py-24 scroll-mt-16">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-center mb-6">
-          出店を、スムーズに進めるために。
+          テナント｜出店を検討している方へ
         </h2>
         <p className="text-lg font-light text-[#6B7280] text-center mb-8 max-w-3xl mx-auto">
-          テナント探し・出店は、立地や賃料だけでなく「契約条件」と「事業計画」の整合性が重要です。<br />
-          物件選定から条件交渉まで、これまでの営業トップ実績をもとに実務ベースで対応します。<br />
-          さらに行政書士との提携により、各種許認可や契約手続きまでワンストップで進めることが可能です。
+          出店は立地だけでなく、契約条件と事業計画の整合が重要です。<br />
+          物件選定から許認可まで一貫して、失敗リスクを抑えた出店を支援します。
         </p>
 
         <div className="flex justify-center mb-10">
