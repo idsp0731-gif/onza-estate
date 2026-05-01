@@ -74,7 +74,7 @@ export default async function RentalPage() {
           <h1
             style={{
               fontFamily: "'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif",
-              fontSize: "clamp(1.8rem, 5vw, 3rem)",
+              fontSize: "clamp(1.3rem, 4.2vw, 3rem)",
               fontWeight: 400,
               letterSpacing: "0.15em",
               lineHeight: 1.7,

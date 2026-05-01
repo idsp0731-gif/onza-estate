@@ -31,7 +31,7 @@ export default function HousingPage() {
           <h1
             style={{
               fontFamily: "'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif",
-              fontSize: "clamp(1.8rem, 5vw, 3rem)",
+              fontSize: "clamp(1.4rem, 4.5vw, 3rem)",
               fontWeight: 400,
               letterSpacing: "0.12em",
               lineHeight: 1.7,
