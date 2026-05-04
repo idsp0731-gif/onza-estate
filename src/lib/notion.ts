@@ -46,24 +46,37 @@ export type BlogPost = {
 const NOTION_VERSION = '2022-06-28';
 
 async function queryDatabase(databaseId: string, filter?: object, sorts?: object[]): Promise<any[]> {
-  const res = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-      'Notion-Version': NOTION_VERSION,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ ...(filter ? { filter } : {}), ...(sorts ? { sorts } : {}) }),
-    next: { revalidate: 60 },
-  });
+  const allResults: any[] = [];
+  let cursor: string | undefined;
 
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Notion API error ${res.status}: ${err}`);
-  }
+  do {
+    const res = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+        'Notion-Version': NOTION_VERSION,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...(filter ? { filter } : {}),
+        ...(sorts ? { sorts } : {}),
+        ...(cursor ? { start_cursor: cursor } : {}),
+        page_size: 100,
+      }),
+      next: { revalidate: 60 },
+    });
 
-  const data = await res.json();
-  return data.results ?? [];
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Notion API error ${res.status}: ${err}`);
+    }
+
+    const data = await res.json();
+    allResults.push(...(data.results ?? []));
+    cursor = data.has_more ? data.next_cursor : undefined;
+  } while (cursor);
+
+  return allResults;
 }
 
 function parsePrice(raw: string): number {
