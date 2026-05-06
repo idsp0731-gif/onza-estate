@@ -334,6 +334,14 @@ function ResultScreen({ scores, onReset }: { scores: Scores; onReset: () => void
               売却ページを見る
             </Link>
             <a
+              href="https://forms.gle/aMpZA75kR728DpTA8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center border border-[#0d1f3c] text-[#0d1f3c] px-6 py-3 rounded-2xl font-light text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
+            >
+              まずは査定を依頼する
+            </a>
+            <a
               href="https://lin.ee/mS1QHo1"
               target="_blank"
               rel="noopener noreferrer"
