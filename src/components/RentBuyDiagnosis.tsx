@@ -95,13 +95,22 @@ const questions: Question[] = [
     ],
   },
   {
-    text: '主な通勤先はどちらですか？',
+    text: '通勤条件を教えてください',
     answers: [
-      { label: '京都方面', scores: { buy: 3, rent: 0, hold: 0 } },
-      { label: '大阪方面', scores: { buy: 1, rent: 1, hold: 0 } },
-      { label: '滋賀県内', scores: { buy: 3, rent: 0, hold: 0 } },
-      { label: '車移動中心', scores: { buy: 3, rent: 0, hold: 0 } },
-      { label: '在宅中心', scores: { buy: 1, rent: 1, hold: 1 } },
+      { label: '公共交通30分以内', scores: { buy: 3, rent: 0, hold: 0 } },
+      { label: '公共交通1時間以内', scores: { buy: 1, rent: 1, hold: 0 } },
+      { label: '車通勤', scores: { buy: 3, rent: 0, hold: 0 } },
+      { label: '徒歩通勤', scores: { buy: 2, rent: 1, hold: 0 } },
+    ],
+  },
+  {
+    text: '居住予定地域はどちらですか？',
+    answers: [
+      { label: '滋賀県', scores: { buy: 3, rent: 0, hold: 0 } },
+      { label: '京都', scores: { buy: 1, rent: 2, hold: 0 } },
+      { label: '大阪', scores: { buy: 1, rent: 2, hold: 0 } },
+      { label: 'その他（都市部）', scores: { buy: 1, rent: 2, hold: 0 } },
+      { label: 'その他（地方）', scores: { buy: 2, rent: 1, hold: 1 } },
     ],
   },
 ];
