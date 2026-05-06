@@ -96,19 +96,80 @@ export default async function BlogPostPage({ params }: Props) {
           <BlockRenderer blocks={blocks} />
         </div>
 
-        {/* フッターCTA */}
-        <div className="mt-10 bg-white rounded-2xl p-8 shadow-sm text-center">
-          <p className="font-light text-[#374151] mb-6 text-sm leading-relaxed">
-            不動産に関するご相談は、LINEからお気軽にどうぞ。毎日7:00〜21:00、無料で対応しています。
-          </p>
-          <a
-            href="https://lin.ee/mS1QHo1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-[#06C755] text-white px-8 py-4 rounded-2xl font-light text-base hover:opacity-90 transition-opacity"
+        {/* カテゴリ別CTA */}
+        {post.category === '賃貸物件情報' ? (
+          <div className="mt-10 bg-white rounded-2xl p-8 shadow-sm text-center">
+            <p className="font-light text-[#374151] mb-6 text-sm leading-relaxed">
+              賃貸物件についてのご相談はお気軽にどうぞ。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/rental"
+                className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                賃貸物件を見る
+              </Link>
+              <a
+                href="https://lin.ee/mS1QHo1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                LINEで相談する
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-10 bg-white rounded-2xl p-8 shadow-sm text-center">
+            <p className="font-light text-[#374151] mb-6 text-sm leading-relaxed">
+              不動産に関するご相談は、LINEからお気軽にどうぞ。毎日7:00〜21:00、無料で対応しています。
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
+              <Link
+                href="/investment"
+                className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                不動産投資を相談する
+              </Link>
+              <Link
+                href="/sale"
+                className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                売却を相談する
+              </Link>
+              <Link
+                href="/housing"
+                className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                住宅購入を相談する
+              </Link>
+              <a
+                href="https://lin.ee/mS1QHo1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                LINEで相談する
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* ナビゲーション */}
+        <div className="mt-6 flex items-center justify-between text-sm font-light">
+          <Link
+            href={post.category === '賃貸物件情報' ? '/blog?category=賃貸物件情報' : '/blog?category=市況ニュース'}
+            className="text-[#2C5F6E] hover:opacity-70 transition-opacity flex items-center gap-1"
           >
-            LINEで無料相談する
-          </a>
+            <span>←</span>
+            <span>{post.category === '賃貸物件情報' ? '賃貸物件情報一覧へ戻る' : '市況ニュース一覧へ戻る'}</span>
+          </Link>
+          <Link
+            href="/"
+            className="text-[#6B7280] hover:opacity-70 transition-opacity"
+          >
+            トップへ戻る
+          </Link>
         </div>
       </article>
     </div>
