@@ -14,7 +14,6 @@ import Achievements from '@/components/Achievements';
 import LineCtaBanner2 from '@/components/LineCtaBanner2';
 import Footer from '@/components/Footer';
 import FloatingCta from '@/components/FloatingCta';
-import RentBuyDiagnosis from '@/components/RentBuyDiagnosis';
 import { getRentalProperties, getBlogPosts, getInvestmentProperties } from '@/lib/notion';
 import type { Property, BlogPost, InvestmentProperty } from '@/lib/notion';
 
@@ -45,17 +44,6 @@ export default async function Home() {
     <div className="min-h-screen">
       <Hero />
       <NavigationButtons />
-      <section className="py-12 md:py-16 px-4 bg-white">
-        <div className="max-w-2xl mx-auto text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-3">
-            賃貸・購入 かんたん診断
-          </h2>
-          <p className="text-sm md:text-base text-gray-500 font-light">
-            10問の質問に答えるだけで、あなたの状況に合った方向性をお伝えします。
-          </p>
-        </div>
-        <RentBuyDiagnosis />
-      </section>
       <StickyNav />
       <About />
       <CmsArticles initialArticles={articles} />

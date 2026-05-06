@@ -94,6 +94,13 @@ export default function NavigationButtons() {
             <span>賃貸と購入、どちらが合理的か？　違いと考え方を読む</span>
             <span className="ml-4 shrink-0">→</span>
           </Link>
+          <Link
+            href="/diagnosis"
+            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
+          >
+            <span>賃貸・購入 かんたん診断を試してみる</span>
+            <span className="ml-4 shrink-0">→</span>
+          </Link>
         </div>
       </div>
     </section>
