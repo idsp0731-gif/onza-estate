@@ -176,15 +176,26 @@ export default async function BlogPostPage({ params }: Props) {
   );
 }
 
+function renderTextWithBreaks(text: string): React.ReactNode {
+  const lines = text.split('\n');
+  return lines.map((line, i) => (
+    <span key={i}>
+      {line}
+      {i < lines.length - 1 && <br />}
+    </span>
+  ));
+}
+
 function RichText({ items }: { items: any[] }) {
   return (
     <>
       {items.map((item, i) => {
-        let node: React.ReactNode = (item.plain_text ?? '').replace(/[\r\n]+/g, ' ');
+        const rawText = item.plain_text ?? '';
+        let node: React.ReactNode = renderTextWithBreaks(rawText);
         if (item.annotations?.code) {
           node = (
             <code key={i} className="bg-gray-100 text-[#2C5F6E] px-1.5 py-0.5 rounded text-sm font-mono">
-              {node}
+              {rawText}
             </code>
           );
         } else {
