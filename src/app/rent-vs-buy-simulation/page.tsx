@@ -17,10 +17,9 @@ export default function RentVsBuySimulationPage() {
           </h1>
           <p className="text-sm md:text-base text-white/70 font-light leading-relaxed">
             賃貸継続と住宅購入は、<br />
-            年収だけでなく、<br />
-            居住予定年数・転勤可能性・家族計画・通勤条件などによって考え方が変わる場合があります。<br />
-            この診断では、<br />
-            現在の条件をもとに住まい選びの方向性を整理します。
+            年収だけでなく、居住予定年数・転勤可能性・家族計画・通勤条件<br />
+            などによって考え方が変わる場合があります。<br />
+            この診断では、現在の条件をもとに住まい選びの方向性を整理します。
           </p>
         </div>
       </div>
