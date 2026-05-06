@@ -94,27 +94,48 @@ export default function NavigationButtons() {
             <span>賃貸と購入、どちらが合理的か？　違いと考え方を読む</span>
             <span className="ml-4 shrink-0">→</span>
           </Link>
-          <Link
-            href="/rent-vs-buy-simulation"
-            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
-          >
-            <span>賃貸・購入 かんたん診断を試してみる</span>
-            <span className="ml-4 shrink-0">→</span>
-          </Link>
-          <Link
-            href="/home-budget-simulation"
-            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
-          >
-            <span>住宅購入適正額診断を試してみる</span>
-            <span className="ml-4 shrink-0">→</span>
-          </Link>
-          <Link
-            href="/property-sale-simulation"
-            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
-          >
-            <span>不動産売却方針診断を試してみる</span>
-            <span className="ml-4 shrink-0">→</span>
-          </Link>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Link
+              href="/rent-vs-buy-simulation"
+              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
+            >
+              <div className="text-2xl mb-2">🏠</div>
+              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">賃貸・購入 かんたん診断</h3>
+              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                11問で賃貸・購入どちらが合うか方向性を整理
+              </p>
+              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
+            </Link>
+            <Link
+              href="/home-budget-simulation"
+              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
+            >
+              <div className="text-2xl mb-2">💰</div>
+              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">住宅購入適正額診断</h3>
+              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                9問で住宅購入予算の目安を3段階で整理
+              </p>
+              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
+            </Link>
+            <Link
+              href="/property-sale-simulation"
+              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
+            >
+              <div className="text-2xl mb-2">📋</div>
+              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">不動産売却方針診断</h3>
+              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                10問で売る・貸す・保有の方向性を整理
+              </p>
+              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
+            </Link>
+            <div className="flex flex-col bg-white border border-gray-200 rounded-xl p-4 opacity-50 cursor-default">
+              <div className="text-2xl mb-2">🔜</div>
+              <h3 className="text-sm font-light text-gray-400 mb-1 leading-snug">近日公開</h3>
+              <p className="text-xs text-gray-400 font-light leading-relaxed flex-1">
+                新しい診断を準備中です
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

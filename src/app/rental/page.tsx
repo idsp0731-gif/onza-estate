@@ -169,6 +169,17 @@ export default async function RentalPage() {
             </p>
           </div>
 
+          {/* 診断リンク */}
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-10">
+            <Link
+              href="/rent-vs-buy-simulation"
+              className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors flex-1"
+            >
+              <span>賃貸・購入 かんたん診断を試してみる</span>
+              <span className="ml-4 shrink-0">→</span>
+            </Link>
+          </div>
+
           {/* CTA（物件一覧の下） */}
           <div className="text-center mb-16">
             {ctaButtons}

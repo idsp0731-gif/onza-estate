@@ -189,6 +189,24 @@ export default function HousingPage() {
             </div>
           </div>
 
+          {/* 診断リンク */}
+          <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-10">
+            <Link
+              href="/rent-vs-buy-simulation"
+              className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors flex-1"
+            >
+              <span>賃貸・購入 かんたん診断を試してみる</span>
+              <span className="ml-4 shrink-0">→</span>
+            </Link>
+            <Link
+              href="/home-budget-simulation"
+              className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors flex-1"
+            >
+              <span>住宅購入適正額診断を試してみる</span>
+              <span className="ml-4 shrink-0">→</span>
+            </Link>
+          </div>
+
           {/* まずは整理からでも問題ありません + CTA */}
           <div className="text-center">
             <h2 className="text-xl font-light mb-6">まずは整理からでも問題ありません</h2>
