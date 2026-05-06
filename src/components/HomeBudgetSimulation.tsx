@@ -103,37 +103,45 @@ const questions: Question[] = [
 ];
 
 type ResultLines = {
-  stable: number;
+  stableLow: number;
+  stableHigh: number;
   balance: number;
-  active: number;
+  activeLow: number;
+  activeHigh: number;
 };
 
-function calcLines(base: number, totalAdj: number): ResultLines {
-  const finalBase = Math.round((base + totalAdj) / 100) * 100;
-
-  let stableOffset: number;
-  let activeOffset: number;
-
-  if (finalBase < 4000) {
-    stableOffset = -400;
-    activeOffset = 500;
-  } else if (finalBase < 7000) {
-    stableOffset = -650;
-    activeOffset = 750;
-  } else {
-    stableOffset = -1150;
-    activeOffset = 1500;
-  }
-
-  return {
-    stable: Math.round((finalBase + stableOffset) / 100) * 100,
-    balance: finalBase,
-    active: Math.round((finalBase + activeOffset) / 100) * 100,
-  };
+function r(n: number): number {
+  return Math.round(n / 100) * 100;
 }
 
-function fmt(man: number): string {
-  return `${man}万円`;
+function calcLines(base: number, totalAdj: number): ResultLines {
+  const finalBase = r(base + totalAdj);
+
+  if (finalBase < 4000) {
+    return {
+      stableLow: r(finalBase - 500),
+      stableHigh: r(finalBase - 300),
+      balance: finalBase,
+      activeLow: r(finalBase + 300),
+      activeHigh: r(finalBase + 700),
+    };
+  } else if (finalBase < 7000) {
+    return {
+      stableLow: r(finalBase - 800),
+      stableHigh: r(finalBase - 500),
+      balance: finalBase,
+      activeLow: r(finalBase + 500),
+      activeHigh: r(finalBase + 1000),
+    };
+  } else {
+    return {
+      stableLow: r(finalBase - 1500),
+      stableHigh: r(finalBase - 800),
+      balance: finalBase,
+      activeLow: r(finalBase + 1000),
+      activeHigh: r(finalBase + 2000),
+    };
+  }
 }
 
 export default function HomeBudgetSimulation() {
@@ -182,9 +190,9 @@ export default function HomeBudgetSimulation() {
 
               <div className="space-y-3 mb-6">
                 <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-slate-500 tracking-wide">安定重視ライン</span>
-                    <span className="text-xl font-bold text-slate-700">{fmt(result.stable)}</span>
+                  <div className="flex items-start justify-between mb-2 gap-4">
+                    <span className="text-xs font-semibold text-slate-500 tracking-wide shrink-0">安定重視ライン</span>
+                    <span className="text-lg font-bold text-slate-700 text-right">{result.stableLow}〜{result.stableHigh}万円</span>
                   </div>
                   <p className="text-xs text-slate-500 leading-relaxed">
                     生活余力を重視した場合の住宅予算目安。<br />
@@ -193,9 +201,9 @@ export default function HomeBudgetSimulation() {
                 </div>
 
                 <div className="bg-[#0d1f3c] rounded-xl p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-white/70 tracking-wide">バランスライン</span>
-                    <span className="text-xl font-bold text-white">{fmt(result.balance)}</span>
+                  <div className="flex items-start justify-between mb-2 gap-4">
+                    <span className="text-xs font-semibold text-white/70 tracking-wide shrink-0">バランスライン</span>
+                    <span className="text-lg font-bold text-white text-right">{result.balance}万円前後</span>
                   </div>
                   <p className="text-xs text-white/70 leading-relaxed">
                     住宅・生活・資産形成のバランスを考慮した場合の目安。<br />
@@ -204,9 +212,9 @@ export default function HomeBudgetSimulation() {
                 </div>
 
                 <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-blue-600 tracking-wide">積極活用ライン</span>
-                    <span className="text-xl font-bold text-blue-800">{fmt(result.active)}</span>
+                  <div className="flex items-start justify-between mb-2 gap-4">
+                    <span className="text-xs font-semibold text-blue-600 tracking-wide shrink-0">積極活用ライン</span>
+                    <span className="text-lg font-bold text-blue-800 text-right">{result.activeLow}〜{result.activeHigh}万円</span>
                   </div>
                   <p className="text-xs text-blue-700/70 leading-relaxed">
                     住宅ローンを比較的積極的に活用した場合の目安。<br />
