@@ -349,6 +349,14 @@ export default function ShigaAreaDiagnosis() {
             >
               LINEで相談する
             </a>
+            <a
+              href="https://forms.gle/M13sCYomNMUUBQxB8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center border-2 border-[#0d1f3c] text-[#0d1f3c] font-semibold py-4 rounded-xl hover:bg-[#0d1f3c] hover:text-white transition-colors"
+            >
+              資料請求する
+            </a>
           </div>
 
           <button
