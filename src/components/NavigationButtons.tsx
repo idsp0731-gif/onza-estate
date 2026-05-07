@@ -128,13 +128,17 @@ export default function NavigationButtons() {
               </p>
               <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
             </Link>
-            <div className="flex flex-col bg-white border border-gray-200 rounded-xl p-4 opacity-50 cursor-default">
-              <div className="text-2xl mb-2">🔜</div>
-              <h3 className="text-sm font-light text-gray-400 mb-1 leading-snug">近日公開</h3>
-              <p className="text-xs text-gray-400 font-light leading-relaxed flex-1">
-                新しい診断を準備中です
+            <Link
+              href="/shiga-area-diagnosis"
+              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
+            >
+              <div className="text-2xl mb-2">🗺️</div>
+              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">滋賀県南部 エリア診断</h3>
+              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                12問で自分のライフスタイルに合うエリアを整理
               </p>
-            </div>
+              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
+            </Link>
           </div>
         </div>
       </div>

@@ -190,7 +190,7 @@ export default function HousingPage() {
           </div>
 
           {/* 診断リンク */}
-          <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-10">
+          <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-4">
             <Link
               href="/rent-vs-buy-simulation"
               className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors flex-1"
@@ -203,6 +203,15 @@ export default function HousingPage() {
               className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors flex-1"
             >
               <span>住宅購入適正額診断を試してみる</span>
+              <span className="ml-4 shrink-0">→</span>
+            </Link>
+          </div>
+          <div className="max-w-xl mx-auto mb-10">
+            <Link
+              href="/shiga-area-diagnosis"
+              className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors w-full"
+            >
+              <span>滋賀県南部 居住エリア診断を試してみる</span>
               <span className="ml-4 shrink-0">→</span>
             </Link>
           </div>
