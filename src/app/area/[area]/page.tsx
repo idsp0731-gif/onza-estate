@@ -15,17 +15,17 @@ type AreaConfig = {
 const AREA_MAP: Record<string, AreaConfig> = {
   moriyama: {
     name: '守山市',
-    notionArea: '守山市',
+    notionArea: '守山',
     description: '守山市の住宅購入・賃貸・エリア特徴など、地域に特化した不動産情報をお届けします。',
   },
   kusatsu: {
     name: '草津市',
-    notionArea: '草津市',
+    notionArea: '草津',
     description: '草津市の住宅購入・賃貸・エリア特徴など、地域に特化した不動産情報をお届けします。',
   },
   otsu: {
     name: '大津市',
-    notionArea: '大津市',
+    notionArea: '大津',
     description: '大津市の住宅購入・賃貸・エリア特徴など、地域に特化した不動産情報をお届けします。',
   },
 };
