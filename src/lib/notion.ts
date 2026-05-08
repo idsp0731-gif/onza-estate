@@ -209,12 +209,12 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
   return parseBlogPost(results[0]);
 }
 
-export async function getPageBlocks(pageId: string): Promise<any[]> {
+async function fetchBlockChildren(blockId: string): Promise<any[]> {
   const blocks: any[] = [];
   let cursor: string | undefined;
 
   do {
-    const url = new URL(`https://api.notion.com/v1/blocks/${pageId}/children`);
+    const url = new URL(`https://api.notion.com/v1/blocks/${blockId}/children`);
     url.searchParams.set('page_size', '100');
     if (cursor) url.searchParams.set('start_cursor', cursor);
 
@@ -231,6 +231,18 @@ export async function getPageBlocks(pageId: string): Promise<any[]> {
     blocks.push(...(data.results ?? []));
     cursor = data.has_more ? data.next_cursor : undefined;
   } while (cursor);
+
+  return blocks;
+}
+
+export async function getPageBlocks(pageId: string): Promise<any[]> {
+  const blocks = await fetchBlockChildren(pageId);
+
+  for (const block of blocks) {
+    if (block.type === 'table' && block.has_children) {
+      block.children = await fetchBlockChildren(block.id);
+    }
+  }
 
   return blocks;
 }

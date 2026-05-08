@@ -306,6 +306,47 @@ function BlockRenderer({ blocks }: { blocks: any[] }) {
             ) : null;
           }
 
+          case 'table': {
+            const rows: any[] = block.children ?? [];
+            const hasColumnHeader = content.has_column_header ?? false;
+            return (
+              <div key={id} className="overflow-x-auto my-6">
+                <table className="w-full border-collapse text-sm">
+                  <tbody>
+                    {rows.map((row: any, rowIndex: number) => {
+                      const cells: any[][] = row.table_row?.cells ?? [];
+                      const isHeaderRow = hasColumnHeader && rowIndex === 0;
+                      return (
+                        <tr
+                          key={row.id}
+                          className={isHeaderRow ? '' : rowIndex % 2 === 0 ? 'bg-white' : 'bg-[#F5F7F6]'}
+                        >
+                          {cells.map((cell: any[], cellIndex: number) =>
+                            isHeaderRow ? (
+                              <th
+                                key={cellIndex}
+                                className="bg-[#2C5F6E] text-white px-4 py-3 font-light text-left border border-[#1a3d4a]"
+                              >
+                                <RichText items={cell} />
+                              </th>
+                            ) : (
+                              <td
+                                key={cellIndex}
+                                className="px-4 py-3 border border-gray-200"
+                              >
+                                <RichText items={cell} />
+                              </td>
+                            )
+                          )}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
+
           default:
             return null;
         }
