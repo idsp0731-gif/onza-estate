@@ -144,31 +144,47 @@ function calcLines(base: number, totalAdj: number): ResultLines {
   }
 }
 
+function calcState(answers: (number | null)[]): { base: number; adj: number } {
+  let base = 0;
+  let adj = 0;
+  answers.forEach((idx, qIdx) => {
+    if (idx === null) return;
+    const a = questions[qIdx].answers[idx];
+    if (a.base !== undefined) base = a.base;
+    adj += a.adjustment ?? 0;
+  });
+  return { base, adj };
+}
+
 export default function HomeBudgetSimulation() {
   const [current, setCurrent] = useState(0);
-  const [incomeBase, setIncomeBase] = useState(0);
-  const [totalAdj, setTotalAdj] = useState(0);
+  const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(
+    Array(questions.length).fill(null)
+  );
   const [result, setResult] = useState<ResultLines | null>(null);
 
-  const handleAnswer = (answer: Answer) => {
-    const newBase = answer.base !== undefined ? answer.base : incomeBase;
-    const newAdj = totalAdj + (answer.adjustment ?? 0);
-
+  const handleAnswer = (idx: number) => {
+    const newAnswers = [...selectedAnswers];
+    newAnswers[current] = idx;
+    setSelectedAnswers(newAnswers);
     if (current + 1 >= questions.length) {
-      setIncomeBase(newBase);
-      setTotalAdj(newAdj);
-      setResult(calcLines(newBase, newAdj));
+      const { base, adj } = calcState(newAnswers);
+      setResult(calcLines(base, adj));
     } else {
-      setIncomeBase(newBase);
-      setTotalAdj(newAdj);
       setCurrent(current + 1);
     }
   };
 
+  const handleBack = () => {
+    const newAnswers = [...selectedAnswers];
+    newAnswers[current - 1] = null;
+    setSelectedAnswers(newAnswers);
+    setCurrent(current - 1);
+  };
+
   const reset = () => {
     setCurrent(0);
-    setIncomeBase(0);
-    setTotalAdj(0);
+    setSelectedAnswers(Array(questions.length).fill(null));
     setResult(null);
   };
 
@@ -322,16 +338,25 @@ export default function HomeBudgetSimulation() {
             </h2>
 
             <div className="space-y-3">
-              {q.answers.map((answer) => (
+              {q.answers.map((answer, idx) => (
                 <button
                   key={answer.label}
-                  onClick={() => handleAnswer(answer)}
+                  onClick={() => handleAnswer(idx)}
                   className="w-full text-left px-5 py-4 rounded-xl border border-[#0d1f3c] text-[#0d1f3c] font-medium text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
                 >
                   {answer.label}
                 </button>
               ))}
             </div>
+
+            {current > 0 && (
+              <button
+                onClick={handleBack}
+                className="mt-6 text-sm text-[#0d1f3c]/60 hover:text-[#0d1f3c] transition-colors"
+              >
+                ← 前の質問に戻る
+              </button>
+            )}
           </div>
         </div>
       </div>

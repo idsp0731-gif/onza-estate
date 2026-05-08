@@ -264,27 +264,40 @@ const bodyExtra: Record<ResultType, string> = {
 
 export default function RentBuyDiagnosis() {
   const [current, setCurrent] = useState(0);
-  const [scores, setScores] = useState({ buy: 0, rent: 0, hold: 0 });
+  const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(
+    Array(questions.length).fill(null)
+  );
   const [result, setResult] = useState<ResultType | null>(null);
 
-  const handleAnswer = (answer: Answer) => {
-    const next = {
-      buy: scores.buy + answer.scores.buy,
-      rent: scores.rent + answer.scores.rent,
-      hold: scores.hold + answer.scores.hold,
-    };
+  const handleAnswer = (idx: number) => {
+    const newAnswers = [...selectedAnswers];
+    newAnswers[current] = idx;
+    setSelectedAnswers(newAnswers);
     if (current + 1 >= questions.length) {
-      setScores(next);
-      setResult(calcResult(next.buy, next.rent, next.hold));
+      const s = newAnswers.reduce(
+        (acc, ai, qi) => {
+          if (ai === null) return acc;
+          const a = questions[qi].answers[ai];
+          return { buy: acc.buy + a.scores.buy, rent: acc.rent + a.scores.rent, hold: acc.hold + a.scores.hold };
+        },
+        { buy: 0, rent: 0, hold: 0 }
+      );
+      setResult(calcResult(s.buy, s.rent, s.hold));
     } else {
-      setScores(next);
       setCurrent(current + 1);
     }
   };
 
+  const handleBack = () => {
+    const newAnswers = [...selectedAnswers];
+    newAnswers[current - 1] = null;
+    setSelectedAnswers(newAnswers);
+    setCurrent(current - 1);
+  };
+
   const reset = () => {
     setCurrent(0);
-    setScores({ buy: 0, rent: 0, hold: 0 });
+    setSelectedAnswers(Array(questions.length).fill(null));
     setResult(null);
   };
 
@@ -412,16 +425,25 @@ export default function RentBuyDiagnosis() {
             </h2>
 
             <div className="space-y-3">
-              {q.answers.map((answer) => (
+              {q.answers.map((answer, idx) => (
                 <button
                   key={answer.label}
-                  onClick={() => handleAnswer(answer)}
+                  onClick={() => handleAnswer(idx)}
                   className="w-full text-left px-5 py-4 rounded-xl border border-[#0d1f3c] text-[#0d1f3c] font-medium text-sm hover:bg-[#0d1f3c] hover:text-white transition-colors"
                 >
                   {answer.label}
                 </button>
               ))}
             </div>
+
+            {current > 0 && (
+              <button
+                onClick={handleBack}
+                className="mt-6 text-sm text-[#0d1f3c]/60 hover:text-[#0d1f3c] transition-colors"
+              >
+                ← 前の質問に戻る
+              </button>
+            )}
           </div>
         </div>
       </div>

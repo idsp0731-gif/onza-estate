@@ -277,6 +277,13 @@ export default function ShigaAreaDiagnosis() {
     }
   };
 
+  const handleBack = () => {
+    const newAnswers = [...answers];
+    newAnswers[currentQ - 1] = null;
+    setAnswers(newAnswers);
+    setCurrentQ(currentQ - 1);
+  };
+
   const handleReset = () => {
     setCurrentQ(0);
     setAnswers(Array(questions.length).fill(null));
@@ -407,6 +414,15 @@ export default function ShigaAreaDiagnosis() {
               </button>
             ))}
           </div>
+
+          {currentQ > 0 && (
+            <button
+              onClick={handleBack}
+              className="mt-6 text-sm text-[#0d1f3c]/60 hover:text-[#0d1f3c] transition-colors"
+            >
+              ← 前の質問に戻る
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -368,28 +368,44 @@ function ResultScreen({ scores, onReset }: { scores: Scores; onReset: () => void
 
 export default function PropertySaleSimulation() {
   const [currentQ, setCurrentQ] = useState(0);
-  const [scores, setScores] = useState<Scores>({ A: 0, B: 0, C: 0, D: 0 });
+  const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(
+    Array(questions.length).fill(null)
+  );
   const [done, setDone] = useState(false);
 
-  const handleSelect = (option: Option) => {
-    const next = addScores(scores, option.scores);
+  const handleSelect = (optionIdx: number) => {
+    const newAnswers = [...selectedAnswers];
+    newAnswers[currentQ] = optionIdx;
+    setSelectedAnswers(newAnswers);
     if (currentQ + 1 < questions.length) {
-      setScores(next);
       setCurrentQ(currentQ + 1);
     } else {
-      setScores(next);
       setDone(true);
     }
   };
 
+  const handleBack = () => {
+    const newAnswers = [...selectedAnswers];
+    newAnswers[currentQ - 1] = null;
+    setSelectedAnswers(newAnswers);
+    setCurrentQ(currentQ - 1);
+  };
+
   const reset = () => {
     setCurrentQ(0);
-    setScores({ A: 0, B: 0, C: 0, D: 0 });
+    setSelectedAnswers(Array(questions.length).fill(null));
     setDone(false);
   };
 
   if (done) {
-    return <ResultScreen scores={scores} onReset={reset} />;
+    const finalScores = selectedAnswers.reduce(
+      (acc, idx, qIdx) => {
+        if (idx === null) return acc;
+        return addScores(acc, questions[qIdx].options[idx].scores);
+      },
+      { A: 0, B: 0, C: 0, D: 0 } as Scores
+    );
+    return <ResultScreen scores={finalScores} onReset={reset} />;
   }
 
   const q = questions[currentQ];
@@ -428,13 +444,22 @@ export default function PropertySaleSimulation() {
             {q.options.map((opt, i) => (
               <button
                 key={i}
-                onClick={() => handleSelect(opt)}
+                onClick={() => handleSelect(i)}
                 className="w-full text-left px-5 py-4 bg-white border border-gray-200 rounded-2xl text-sm font-light text-[#374151] hover:border-[#0d1f3c] hover:bg-[#0d1f3c]/5 transition-all duration-150 active:scale-[0.98]"
               >
                 {opt.label}
               </button>
             ))}
           </div>
+
+          {currentQ > 0 && (
+            <button
+              onClick={handleBack}
+              className="mt-6 text-sm text-[#0d1f3c]/60 hover:text-[#0d1f3c] transition-colors"
+            >
+              ← 前の質問に戻る
+            </button>
+          )}
         </div>
       </div>
     </div>
