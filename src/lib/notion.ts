@@ -248,3 +248,50 @@ function parseBlogPost(page: any): BlogPost {
     metadescription: props['metadescription']?.rich_text?.[0]?.plain_text ?? '',
   };
 }
+
+export type AreaArticle = {
+  id: string;
+  title: string;
+  area: string;
+  slug: string;
+  metadescription: string;
+};
+
+function parseAreaArticle(page: any): AreaArticle {
+  const props = page.properties;
+  return {
+    id: page.id,
+    title: props['title']?.title?.[0]?.plain_text ?? '',
+    area: props['area']?.rich_text?.[0]?.plain_text ?? '',
+    slug: props['slug']?.rich_text?.[0]?.plain_text ?? page.id,
+    metadescription: props['metadescription']?.rich_text?.[0]?.plain_text ?? '',
+  };
+}
+
+export async function getAreaArticles(area?: string): Promise<AreaArticle[]> {
+  if (!process.env.NOTION_AREA_DB) return [];
+
+  const filter = area
+    ? { property: 'area', rich_text: { equals: area } }
+    : undefined;
+
+  const results = await queryDatabase(
+    process.env.NOTION_AREA_DB,
+    filter,
+    [{ timestamp: 'last_edited_time', direction: 'descending' }]
+  );
+
+  return results.map((page: any) => parseAreaArticle(page));
+}
+
+export async function getAreaArticleBySlug(slug: string): Promise<AreaArticle | null> {
+  if (!process.env.NOTION_AREA_DB) return null;
+
+  const results = await queryDatabase(process.env.NOTION_AREA_DB, {
+    property: 'slug',
+    rich_text: { equals: slug },
+  });
+
+  if (results.length === 0) return null;
+  return parseAreaArticle(results[0]);
+}
