@@ -69,7 +69,7 @@ const questions: Question[] = [
     ],
   },
   {
-    text: '今の場所に何年住む予定ですか？',
+    text: '引っ越し後、どのくらいの期間住む想定ですか？',
     answers: [
       { label: '3年未満', scores: { buy: 0, rent: 5, hold: 0 } },
       { label: '3〜7年', scores: { buy: 2, rent: 2, hold: 1 } },
