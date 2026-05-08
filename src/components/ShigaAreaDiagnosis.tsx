@@ -374,34 +374,34 @@ export default function ShigaAreaDiagnosis() {
   const progress = Math.round((currentQ / questions.length) * 100);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0d1f3c] to-[#162d52] py-10 px-4 flex flex-col items-center">
+    <div className="min-h-screen bg-[#f8f7f4] py-10 px-4 flex flex-col items-center">
       <div className="w-full max-w-xl">
         <div className="text-center mb-8">
-          <h1 className="text-white text-xl font-bold">滋賀県南部 居住エリア診断</h1>
-          <p className="text-blue-200 text-sm mt-1">12問に答えて、あなたに合うエリアを見つけよう</p>
+          <h1 className="text-[#0d1f3c] text-xl font-bold">滋賀県南部 居住エリア診断</h1>
+          <p className="text-[#0d1f3c]/60 text-sm mt-1">12問に答えて、あなたに合うエリアを見つけよう</p>
         </div>
 
         <div className="mb-6">
-          <div className="flex justify-between text-xs text-blue-200 mb-1">
+          <div className="flex justify-between text-xs text-[#0d1f3c]/60 mb-1">
             <span>Q{currentQ + 1} / {questions.length}</span>
             <span>{progress}%</span>
           </div>
-          <div className="w-full bg-white/20 rounded-full h-2">
+          <div className="w-full bg-[#0d1f3c]/20 rounded-full h-2">
             <div
-              className="bg-white h-2 rounded-full transition-all duration-300"
+              className="bg-[#0d1f3c] h-2 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-6">
+        <div className="bg-white rounded-2xl shadow-sm border border-[#0d1f3c]/10 p-6">
           <p className="text-[#0d1f3c] font-semibold text-base mb-5 leading-snug">{q.text}</p>
           <div className="space-y-2.5">
             {q.answers.map((answer, idx) => (
               <button
                 key={idx}
                 onClick={() => handleAnswer(idx)}
-                className="w-full text-left px-4 py-3.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-700 hover:border-[#0d1f3c] hover:bg-[#0d1f3c] hover:text-white transition-all duration-150 active:scale-[0.98]"
+                className="w-full text-left px-4 py-3.5 rounded-xl border border-[#0d1f3c] text-sm font-medium text-[#0d1f3c] bg-white hover:bg-[#0d1f3c] hover:text-white transition-all duration-150 active:scale-[0.98]"
               >
                 {answer.label}
               </button>

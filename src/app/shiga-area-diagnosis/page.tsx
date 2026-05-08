@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default function ShigaAreaDiagnosisPage() {
   return (
     <div className="min-h-screen">
-      <div className="bg-[#0d1f3c] pt-8 pb-4 px-4 text-center">
+      <div className="bg-[#f8f7f4] pt-8 pb-4 px-4 text-center border-b border-[#0d1f3c]/10">
         <h1 className="sr-only">
           滋賀県南部 居住エリア診断｜あなたの生活スタイルに合う街は？
         </h1>
-        <p className="text-blue-200 text-sm font-light max-w-xl mx-auto leading-relaxed">
+        <p className="text-[#0d1f3c] text-sm font-light max-w-xl mx-auto leading-relaxed">
           通勤・子育て・資産性・車利用・住宅予算などをもとに、<br className="hidden sm:block" />
           滋賀県南部で自分に合う居住エリアを整理する診断シミュレーションです。
         </p>
