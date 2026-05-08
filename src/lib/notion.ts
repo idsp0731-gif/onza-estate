@@ -269,17 +269,30 @@ function parseAreaArticle(page: any): AreaArticle {
 }
 
 export async function getAreaArticles(area?: string): Promise<AreaArticle[]> {
+  console.log('NOTION_AREA_DB:', process.env.NOTION_AREA_DB);
   if (!process.env.NOTION_AREA_DB) return [];
 
-  const filter = area
-    ? { property: 'area', rich_text: { equals: area } }
-    : undefined;
-
-  const results = await queryDatabase(
+  // デバッグ：まず全件取得してプロパティ構造を確認
+  const allResults = await queryDatabase(
     process.env.NOTION_AREA_DB,
-    filter,
+    undefined,
     [{ timestamp: 'last_edited_time', direction: 'descending' }]
   );
+  console.log('全件取得数:', allResults.length);
+  if (allResults.length > 0) {
+    console.log('先頭レコードのプロパティ:', JSON.stringify(allResults[0].properties, null, 2));
+  }
+
+  const results = area
+    ? allResults.filter((page: any) => {
+        const areaVal =
+          page.properties['area']?.rich_text?.[0]?.plain_text ??
+          page.properties['area']?.select?.name ??
+          '';
+        console.log('area値:', areaVal, '→ フィルタ対象:', area);
+        return areaVal === area;
+      })
+    : allResults;
 
   return results.map((page: any) => parseAreaArticle(page));
 }
