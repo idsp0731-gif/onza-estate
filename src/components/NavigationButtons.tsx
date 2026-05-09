@@ -101,6 +101,13 @@ export default function NavigationButtons() {
             <span>守山市の不動産・住まい情報を見る</span>
             <span className="ml-4 shrink-0">→</span>
           </Link>
+          <Link
+            href="/compare"
+            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
+          >
+            <span>駅・エリア比較記事を見る</span>
+            <span className="ml-4 shrink-0">→</span>
+          </Link>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <Link
               href="/rent-vs-buy-simulation"

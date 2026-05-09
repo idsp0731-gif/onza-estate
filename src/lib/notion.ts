@@ -325,3 +325,44 @@ export async function getAreaArticleBySlug(slug: string): Promise<AreaArticle | 
   if (results.length === 0) return null;
   return parseAreaArticle(results[0]);
 }
+
+export type CompareArticle = {
+  id: string;
+  title: string;
+  slug: string;
+  metadescription: string;
+};
+
+function parseCompareArticle(page: any): CompareArticle {
+  const props = page.properties;
+  return {
+    id: page.id,
+    title: props['title']?.title?.[0]?.plain_text ?? '',
+    slug: props['slug']?.rich_text?.[0]?.plain_text ?? page.id,
+    metadescription: props['metadescription']?.rich_text?.[0]?.plain_text ?? '',
+  };
+}
+
+export async function getCompareArticles(): Promise<CompareArticle[]> {
+  if (!process.env.NOTION_COMPARE_DB) return [];
+
+  const results = await queryDatabase(
+    process.env.NOTION_COMPARE_DB,
+    { property: 'published', checkbox: { equals: true } },
+    [{ timestamp: 'last_edited_time', direction: 'descending' }]
+  );
+
+  return results.map((page: any) => parseCompareArticle(page));
+}
+
+export async function getCompareArticleBySlug(slug: string): Promise<CompareArticle | null> {
+  if (!process.env.NOTION_COMPARE_DB) return null;
+
+  const results = await queryDatabase(process.env.NOTION_COMPARE_DB, {
+    property: 'slug',
+    rich_text: { equals: slug },
+  });
+
+  if (results.length === 0) return null;
+  return parseCompareArticle(results[0]);
+}
