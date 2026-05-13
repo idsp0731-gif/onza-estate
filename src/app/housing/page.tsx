@@ -113,6 +113,19 @@ export default function HousingPage() {
                 <span className="ml-4 shrink-0">→</span>
               </Link>
             </div>
+            <div className="max-w-xs mx-auto mt-4">
+              <Link
+                href="/rent-vs-buy-simulation"
+                className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
+              >
+                <div className="text-2xl mb-2">🏠</div>
+                <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">賃貸・購入 かんたん診断</h3>
+                <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                  11問で賃貸・購入どちらが合うか方向性を整理
+                </p>
+                <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
+              </Link>
+            </div>
           </div>
 
           {/* 住宅購入の主なメリット */}
@@ -190,18 +203,7 @@ export default function HousingPage() {
           </div>
 
           {/* 診断リンク */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-4">
-            <Link
-              href="/rent-vs-buy-simulation"
-              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
-            >
-              <div className="text-2xl mb-2">🏠</div>
-              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">賃貸・購入 かんたん診断</h3>
-              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
-                11問で賃貸・購入どちらが合うか方向性を整理
-              </p>
-              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-4">
             <Link
               href="/home-budget-simulation"
               className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
