@@ -98,7 +98,7 @@ export default function SalePage() {
           </div>
 
           {/* 売却は「戦略」で結果が変わります */}
-          <div className="mb-16 text-center">
+          <div className="mb-8 text-center">
             <h2 className="text-xl font-light mb-6">売却は「戦略」で結果が変わります</h2>
             <p className="text-lg font-light text-[#6B7280] mb-8 max-w-2xl mx-auto">
               同じ物件でも、条件次第で結果は大きく変わります。
@@ -115,6 +115,21 @@ export default function SalePage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* 診断カード */}
+          <div className="max-w-xs mx-auto mb-16">
+            <Link
+              href="/property-sale-simulation"
+              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
+            >
+              <div className="text-2xl mb-2">📋</div>
+              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">不動産売却方針診断</h3>
+              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                10問で売る・貸す・保有の方向性を整理
+              </p>
+              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
+            </Link>
           </div>
 
           {/* ONZA Estateの売却提案 */}
@@ -168,21 +183,6 @@ export default function SalePage() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* 診断リンク */}
-          <div className="max-w-xs mx-auto mb-10">
-            <Link
-              href="/property-sale-simulation"
-              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
-            >
-              <div className="text-2xl mb-2">📋</div>
-              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">不動産売却方針診断</h3>
-              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
-                10問で売る・貸す・保有の方向性を整理
-              </p>
-              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
-            </Link>
           </div>
 
           {/* まずは査定・ご相談から + CTA */}
