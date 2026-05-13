@@ -140,7 +140,7 @@ export default async function RentalPage() {
           </div>
 
           {/* ONZA Estateの賃貸サポート */}
-          <div className="mb-16 text-center">
+          <div className="mb-8 text-center">
             <h2 className="text-xl font-light mb-8">ONZA Estateの賃貸サポート</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white p-6 rounded-2xl shadow-sm">
@@ -158,6 +158,21 @@ export default async function RentalPage() {
             </div>
           </div>
 
+          {/* 診断カード */}
+          <div className="max-w-xs mx-auto mb-16">
+            <Link
+              href="/rent-vs-buy-simulation"
+              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
+            >
+              <div className="text-2xl mb-2">🏠</div>
+              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">賃貸・購入 かんたん診断</h3>
+              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                11問で賃貸・購入どちらが合うか方向性を整理
+              </p>
+              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
+            </Link>
+          </div>
+
           {/* 物件一覧 */}
           <div className="mb-8">
             <RentalFilter initialRentals={rentals} />
@@ -167,17 +182,6 @@ export default async function RentalPage() {
             <p className="text-sm font-light text-[#2C5F6E]">
               掲載以外の物件もご紹介可能です。お気軽にお問い合わせください。
             </p>
-          </div>
-
-          {/* 診断リンク */}
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-10">
-            <Link
-              href="/rent-vs-buy-simulation"
-              className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors flex-1"
-            >
-              <span>賃貸・購入 かんたん診断を試してみる</span>
-              <span className="ml-4 shrink-0">→</span>
-            </Link>
           </div>
 
           {/* CTA（物件一覧の下） */}
