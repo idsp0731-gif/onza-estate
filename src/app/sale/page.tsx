@@ -171,13 +171,17 @@ export default function SalePage() {
           </div>
 
           {/* 診断リンク */}
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-10">
+          <div className="max-w-xs mx-auto mb-10">
             <Link
               href="/property-sale-simulation"
-              className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors flex-1"
+              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
             >
-              <span>不動産売却方針診断を試してみる</span>
-              <span className="ml-4 shrink-0">→</span>
+              <div className="text-2xl mb-2">📋</div>
+              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">不動産売却方針診断</h3>
+              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                10問で売る・貸す・保有の方向性を整理
+              </p>
+              <span className="text-xs text-[#2C5F6E] font-light">診断する →</span>
             </Link>
           </div>
 
