@@ -241,14 +241,14 @@ function BlockRenderer({ blocks }: { blocks: any[] }) {
 
           case 'heading_2':
             return (
-              <h2 key={id} className="text-3xl md:text-4xl font-bold text-[#0d1f3c] mt-12 mb-6 border-l-4 border-[#0d1f3c] pl-4 leading-snug">
+              <h2 key={id} className="text-xl md:text-2xl font-bold text-[#0d1f3c] mt-10 mb-5 border-l-4 border-[#0d1f3c] pl-4 leading-snug">
                 <RichText items={content.rich_text} />
               </h2>
             );
 
           case 'heading_3':
             return (
-              <h3 key={id} className="text-xl md:text-2xl font-semibold text-[#0d1f3c] mt-8 mb-4 leading-snug">
+              <h3 key={id} className="text-lg md:text-xl font-semibold text-[#0d1f3c] mt-6 mb-3 leading-snug">
                 <RichText items={content.rich_text} />
               </h3>
             );
