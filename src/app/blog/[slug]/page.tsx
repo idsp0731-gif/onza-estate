@@ -129,19 +129,19 @@ export default async function BlogPostPage({ params }: Props) {
                 href="/investment"
                 className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
               >
-                不動産投資を相談する
+                不動産投資ページを見る
               </Link>
               <Link
                 href="/sale"
                 className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
               >
-                売却を相談する
+                売却ページを見る
               </Link>
               <Link
                 href="/housing"
                 className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
               >
-                住宅購入を相談する
+                住宅購入ページを見る
               </Link>
               <a
                 href="https://lin.ee/mS1QHo1"
