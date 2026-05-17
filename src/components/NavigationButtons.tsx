@@ -95,6 +95,13 @@ export default function NavigationButtons() {
             <span className="ml-4 shrink-0">→</span>
           </Link>
           <Link
+            href="/investment-articles"
+            className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
+          >
+            <span>不動産投資の記事一覧を見る</span>
+            <span className="ml-4 shrink-0">→</span>
+          </Link>
+          <Link
             href="/area/moriyama"
             className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
           >
