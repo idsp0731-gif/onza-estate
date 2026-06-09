@@ -85,6 +85,12 @@ export default async function AreaArticlePage({ params }: Props) {
             >
               住宅購入ページを見る
             </Link>
+            <Link
+              href="/rental"
+              className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+            >
+              賃貸物件をお探しの方はこちら
+            </Link>
             <a
               href="https://lin.ee/mS1QHo1"
               target="_blank"
