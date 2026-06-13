@@ -83,6 +83,12 @@ export default async function CompareArticlePage({ params }: Props) {
             >
               不動産の売却をお考えの方はこちら
             </Link>
+            <Link
+              href="/tenant"
+              className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+            >
+              テナント・事業用物件をお探しの方はこちら
+            </Link>
             <a
               href="https://lin.ee/mS1QHo1"
               target="_blank"
