@@ -16,8 +16,9 @@ type SimInput = {
   commonFee: number;
   managementFee: number;
   repairReserve: number;
-  taxMonthly: number;
   mgmtRate: number; // 賃貸管理委託料（％・賃料に対して）
+  propertyTaxAnnual: number; // 固定資産税・都市計画税（年額）
+  taxSavingAnnual: number; // 節税額（年額）
   rentStepIntervalYears: number;
   rentStepPct: number; // 符号付き（＋上昇／−下落）
   vacancyIntervalYears: number;
@@ -30,15 +31,13 @@ type SimInput = {
   acquisitionCost: number;
 };
 
-const SELL_RATE = 0.033; // 売却諸費用率（仲介手数料＋消費税の概算）
-const SELL_FIXED = 120_000; // 抵当権抹消・印紙等の概算（円）
-
 type FirstMonth = { income: number; pay: number; principal: number; interest: number; mgmtComm: number; expenses: number; cf: number };
 type YearRow = { year: number; balance: number; cumCF: number; breakeven: number };
 
 function simulate(input: SimInput) {
   const {
-    price, monthlyRent, commonFee, managementFee, repairReserve, taxMonthly, mgmtRate,
+    price, monthlyRent, commonFee, managementFee, repairReserve, mgmtRate,
+    propertyTaxAnnual, taxSavingAnnual,
     rentStepIntervalYears, rentStepPct, vacancyIntervalYears, vacancyMonths,
     downPayment, annualRateInit, termYears, rateStepIntervalYears, rateStepPct, acquisitionCost,
   } = input;
@@ -72,7 +71,7 @@ function simulate(input: SimInput) {
 
     const income = vacant ? 0 : rent + commonFee;
     const mgmtComm = vacant ? 0 : rent * (mgmtRate / 100);
-    const expenses = managementFee + repairReserve + taxMonthly + mgmtComm;
+    const expenses = managementFee + repairReserve + mgmtComm; // 固都税は月々に含めず、年1回で計上
 
     const interest = balance * (rate / 100 / 12);
     let principal = payment - interest;
@@ -83,10 +82,14 @@ function simulate(input: SimInput) {
     const cf = income - expenses - pay;
     cumCF += cf;
     if (m === 1) firstMonth = { income, pay, principal, interest, mgmtComm, expenses, cf };
+
     if (m % 12 === 0) {
+      // 年1回：節税額（＋）と固定資産税・都市計画税（−）を反映
+      cumCF += taxSavingAnnual - propertyTaxAnnual;
       const year = m / 12;
       if (milestones.includes(year)) {
-        const breakeven = (balance + SELL_FIXED - cumCF + downPayment + acquisitionCost) / (1 - SELL_RATE);
+        // 売却時諸費用は含めない（税前の目安）
+        const breakeven = balance + downPayment + acquisitionCost - cumCF;
         rows.push({ year, balance, cumCF, breakeven });
       }
     }
@@ -122,6 +125,8 @@ export default function InvestmentSimulator(props: Props) {
   const managementFee = props.managementFee || DEFAULTS.managementFee;
   const repairReserve = props.repairReserve || DEFAULTS.repairReserve;
   const priceMan = Math.round(price / 10000);
+  // 固都税（年額）デフォルト＝家賃＋共益費の1ヶ月分を100円単位で繰り上げ
+  const defaultTaxAnnual = Math.ceil((monthlyRent + commonFee) / 100) * 100;
 
   // 入力（頭金は10万円単位。初期は価格の1割を10万円単位に繰り上げ）
   const [downPaymentMan, setDownPaymentMan] = useState(Math.ceil((priceMan * 0.1) / 10) * 10);
@@ -136,7 +141,8 @@ export default function InvestmentSimulator(props: Props) {
   const [vacancyInterval, setVacancyInterval] = useState(0);
   const [vacancyMonths, setVacancyMonths] = useState(1);
   const [acqMan, setAcqMan] = useState(150); // 取得諸費用 万円
-  const [taxMonthly, setTaxMonthly] = useState(3500); // 固都税 月額 円
+  const [propertyTaxAnnual, setPropertyTaxAnnual] = useState(defaultTaxAnnual); // 固都税 年額
+  const [taxSavingAnnual, setTaxSavingAnnual] = useState(defaultTaxAnnual); // 節税額 年額（初期は固都税と同額）
 
   const rentStepPct = rentDir === 'down' ? -rentMag : rentMag;
   const occupancy = vacancyInterval > 0 ? (vacancyInterval * 12 - vacancyMonths) / (vacancyInterval * 12) : 1;
@@ -144,8 +150,8 @@ export default function InvestmentSimulator(props: Props) {
   const { firstMonth, rows } = useMemo(
     () =>
       simulate({
-        price, monthlyRent, commonFee, managementFee, repairReserve, taxMonthly,
-        mgmtRate,
+        price, monthlyRent, commonFee, managementFee, repairReserve, mgmtRate,
+        propertyTaxAnnual, taxSavingAnnual,
         rentStepIntervalYears: rentStepInterval, rentStepPct,
         vacancyIntervalYears: vacancyInterval, vacancyMonths,
         downPayment: downPaymentMan * 10000,
@@ -153,7 +159,7 @@ export default function InvestmentSimulator(props: Props) {
         rateStepIntervalYears: rateStepInterval, rateStepPct,
         acquisitionCost: acqMan * 10000,
       }),
-    [price, monthlyRent, commonFee, managementFee, repairReserve, taxMonthly, mgmtRate, rentStepInterval, rentStepPct, vacancyInterval, vacancyMonths, downPaymentMan, rate, termYears, rateStepInterval, rateStepPct, acqMan]
+    [price, monthlyRent, commonFee, managementFee, repairReserve, mgmtRate, propertyTaxAnnual, taxSavingAnnual, rentStepInterval, rentStepPct, vacancyInterval, vacancyMonths, downPaymentMan, rate, termYears, rateStepInterval, rateStepPct, acqMan]
   );
 
   const cfNegative = firstMonth.cf < 0;
@@ -278,9 +284,16 @@ export default function InvestmentSimulator(props: Props) {
               </div>
             </div>
             <div className="flex items-center justify-between">
-              <label className="font-light text-[#374151]">固定資産税・都市計画税（月額）</label>
+              <label className="font-light text-[#374151]">固定資産税・都市計画税（年額）</label>
               <div className="flex items-center gap-1">
-                <input type="number" min={0} step={500} value={taxMonthly} onChange={(e) => setTaxMonthly(Number(e.target.value))} className="w-24 border border-gray-200 rounded-lg px-2 py-1.5" />
+                <input type="number" min={0} step={1000} value={propertyTaxAnnual} onChange={(e) => setPropertyTaxAnnual(Number(e.target.value))} className="w-28 border border-gray-200 rounded-lg px-2 py-1.5" />
+                <span className="text-[#6B7280] font-light">円</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between">
+              <label className="font-light text-[#374151]">節税額（年額）</label>
+              <div className="flex items-center gap-1">
+                <input type="number" min={0} step={1000} value={taxSavingAnnual} onChange={(e) => setTaxSavingAnnual(Number(e.target.value))} className="w-28 border border-gray-200 rounded-lg px-2 py-1.5" />
                 <span className="text-[#6B7280] font-light">円</span>
               </div>
             </div>
@@ -289,18 +302,27 @@ export default function InvestmentSimulator(props: Props) {
       </div>
 
       {/* 月々の収支 */}
-      <div className="border border-gray-100 rounded-xl overflow-hidden mb-6">
+      <div className="border border-gray-100 rounded-xl overflow-hidden mb-3">
         <div className="bg-[#F5F7F6] px-4 py-2 text-sm font-normal text-[#374151]">月々の収支（初年度・入居時）</div>
         <div className="divide-y divide-gray-100 text-sm font-light">
           <Row label="家賃収入" value={`+${yen(firstMonth.income)}`} note={`賃料${monthlyRent.toLocaleString()}＋共益費${commonFee.toLocaleString()}`} />
           <Row label="ローン返済" value={`−${yen(firstMonth.pay)}`} note={`うち元本 ${yen(firstMonth.principal)}／利息 ${yen(firstMonth.interest)}`} />
-          <Row label="諸費用" value={`−${yen(firstMonth.expenses)}`} note={`管理費${managementFee.toLocaleString()}／修繕積立金${repairReserve.toLocaleString()}／賃貸管理料${Math.round(firstMonth.mgmtComm).toLocaleString()}／固都税${taxMonthly.toLocaleString()}`} />
+          <Row label="諸費用" value={`−${yen(firstMonth.expenses)}`} note={`管理費${managementFee.toLocaleString()}／修繕積立金${repairReserve.toLocaleString()}／賃貸管理料${Math.round(firstMonth.mgmtComm).toLocaleString()}`} />
           <div className="flex items-center justify-between px-4 py-3 bg-white">
             <span className="font-normal text-[#1F2937]">月キャッシュフロー</span>
             <span className={`font-normal text-lg ${cfNegative ? 'text-[#B45309]' : 'text-[#2C5F6E]'}`}>
               {cfNegative ? '−' : '+'}{yen(Math.abs(firstMonth.cf))}
             </span>
           </div>
+        </div>
+      </div>
+
+      {/* 年単位で計上する項目（損益分岐点の計算に反映） */}
+      <div className="border border-gray-100 rounded-xl overflow-hidden mb-6">
+        <div className="bg-[#F5F7F6] px-4 py-2 text-xs font-normal text-[#6B7280]">年単位で計上する項目（損益分岐点に反映）</div>
+        <div className="divide-y divide-gray-100 text-sm font-light">
+          <Row label="固定資産税・都市計画税（年額）" value={`−${yen(propertyTaxAnnual)}`} />
+          <Row label="節税額（年額）" value={`+${yen(taxSavingAnnual)}`} />
         </div>
       </div>
 
@@ -314,7 +336,7 @@ export default function InvestmentSimulator(props: Props) {
       <div className="mb-2">
         <h3 className="text-sm font-normal text-[#1F2937] mb-1">売却時の損益分岐点の推移</h3>
         <p className="text-xs text-[#9CA3AF] font-light mb-3">
-          各時点で「ここで売れば損益ゼロ」になる売却価格の目安です。賃料・空室・金利の設定を反映しています。
+          各時点で「ここで売れば損益ゼロ」になる売却価格の目安です。賃料・空室・金利・固都税・節税額を反映しています。
         </p>
       </div>
       <div className="overflow-x-auto">
@@ -344,8 +366,9 @@ export default function InvestmentSimulator(props: Props) {
       <div className="mt-6 bg-[#F0F7F9] border border-[#2C5F6E]/20 rounded-xl px-4 py-3 text-xs text-[#6B7280] font-light leading-relaxed space-y-1">
         <p>※ モデル試算です。物件価格・金利・賃料・空室・修繕・売却時期により実際の結果は変動します。</p>
         <p>※ 損益分岐点は「将来の売却価格を予測するもの」ではなく、その時点で損益がゼロになる売却価格の目安です。収益の源泉は家賃であり、長期保有を前提とした参考値です。</p>
+        <p>※ 固定資産税・都市計画税と節税額は年1回で計上します。月々の収支には含めていません。</p>
+        <p>※ 損益分岐の売却価格には、売却時の諸費用・譲渡所得税は含めていません（税前・諸費用前の目安）。</p>
         <p>※ 賃料変動・空室・金利上昇は設定したシナリオに基づく簡易計算です（変動金利の5年・125％ルールは簡略化）。</p>
-        <p>※ 売却諸費用は売却価格の約3.3％＋12万円で概算。譲渡益が出る場合の長期譲渡所得税（20.315％）は損益分岐点に含めていません（税前）。</p>
       </div>
 
       <p className="mt-5 text-sm font-light text-[#374151] leading-relaxed">
