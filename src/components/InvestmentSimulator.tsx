@@ -120,10 +120,10 @@ type Props = {
 
 export default function InvestmentSimulator(props: Props) {
   const price = props.price || DEFAULTS.price;
-  const monthlyRent = props.monthlyRent || DEFAULTS.monthlyRent;
-  const commonFee = props.commonFee ?? DEFAULTS.commonFee;
-  const managementFee = props.managementFee || DEFAULTS.managementFee;
-  const repairReserve = props.repairReserve || DEFAULTS.repairReserve;
+  const [monthlyRent, setMonthlyRent] = useState(props.monthlyRent || DEFAULTS.monthlyRent);
+  const [commonFee, setCommonFee] = useState(props.commonFee ?? DEFAULTS.commonFee);
+  const [managementFee, setManagementFee] = useState(props.managementFee || DEFAULTS.managementFee);
+  const [repairReserve, setRepairReserve] = useState(props.repairReserve || DEFAULTS.repairReserve);
   const initialPriceMan = Math.round(price / 10000);
   // 固都税（年額）デフォルト＝家賃＋共益費の1ヶ月分を100円単位で繰り上げ
   const defaultTaxAnnual = Math.ceil((monthlyRent + commonFee) / 100) * 100;
@@ -191,6 +191,22 @@ export default function InvestmentSimulator(props: Props) {
               className="w-28 border border-gray-200 rounded-lg px-2 py-1.5 text-right"
             />
             <span className="text-[#6B7280] font-light text-sm">万円</span>
+          </div>
+        </div>
+
+        {/* 家賃・共益費 */}
+        <div className="flex items-center justify-between">
+          <label className="text-sm font-light text-[#374151]">家賃（月額）</label>
+          <div className="flex items-center gap-1">
+            <input type="number" min={0} step={1000} value={monthlyRent} onChange={(e) => setMonthlyRent(Number(e.target.value))} className="w-28 border border-gray-200 rounded-lg px-2 py-1.5 text-right" />
+            <span className="text-[#6B7280] font-light text-sm">円</span>
+          </div>
+        </div>
+        <div className="flex items-center justify-between">
+          <label className="text-sm font-light text-[#374151]">共益費（月額）</label>
+          <div className="flex items-center gap-1">
+            <input type="number" min={0} step={500} value={commonFee} onChange={(e) => setCommonFee(Number(e.target.value))} className="w-28 border border-gray-200 rounded-lg px-2 py-1.5 text-right" />
+            <span className="text-[#6B7280] font-light text-sm">円</span>
           </div>
         </div>
 
@@ -297,6 +313,20 @@ export default function InvestmentSimulator(props: Props) {
         <details className="text-sm">
           <summary className="cursor-pointer text-[#2C5F6E] font-light">詳細な前提を調整する</summary>
           <div className="mt-3 space-y-3 pl-1">
+            <div className="flex items-center justify-between">
+              <label className="font-light text-[#374151]">管理費（月額）</label>
+              <div className="flex items-center gap-1">
+                <input type="number" min={0} step={500} value={managementFee} onChange={(e) => setManagementFee(Number(e.target.value))} className="w-28 border border-gray-200 rounded-lg px-2 py-1.5" />
+                <span className="text-[#6B7280] font-light">円</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between">
+              <label className="font-light text-[#374151]">修繕積立金（月額）</label>
+              <div className="flex items-center gap-1">
+                <input type="number" min={0} step={500} value={repairReserve} onChange={(e) => setRepairReserve(Number(e.target.value))} className="w-28 border border-gray-200 rounded-lg px-2 py-1.5" />
+                <span className="text-[#6B7280] font-light">円</span>
+              </div>
+            </div>
             <div className="flex items-center justify-between">
               <label className="font-light text-[#374151]">取得諸費用</label>
               <div className="flex items-center gap-1">
