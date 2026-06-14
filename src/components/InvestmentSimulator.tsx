@@ -124,12 +124,13 @@ export default function InvestmentSimulator(props: Props) {
   const commonFee = props.commonFee ?? DEFAULTS.commonFee;
   const managementFee = props.managementFee || DEFAULTS.managementFee;
   const repairReserve = props.repairReserve || DEFAULTS.repairReserve;
-  const priceMan = Math.round(price / 10000);
+  const initialPriceMan = Math.round(price / 10000);
   // 固都税（年額）デフォルト＝家賃＋共益費の1ヶ月分を100円単位で繰り上げ
   const defaultTaxAnnual = Math.ceil((monthlyRent + commonFee) / 100) * 100;
 
-  // 入力（頭金は10万円単位。初期は価格の1割を10万円単位に繰り上げ）
-  const [downPaymentMan, setDownPaymentMan] = useState(Math.ceil((priceMan * 0.1) / 10) * 10);
+  // 入力（購入価格・頭金は万円。頭金は10万円単位、初期は価格の1割を10万円単位に繰り上げ）
+  const [priceMan, setPriceMan] = useState(initialPriceMan);
+  const [downPaymentMan, setDownPaymentMan] = useState(Math.ceil((initialPriceMan * 0.1) / 10) * 10);
   const [rate, setRate] = useState(2.0);
   const [termYears, setTermYears] = useState(35);
   const [mgmtRate, setMgmtRate] = useState(5); // 賃貸管理委託料 ％
@@ -150,7 +151,7 @@ export default function InvestmentSimulator(props: Props) {
   const { firstMonth, rows } = useMemo(
     () =>
       simulate({
-        price, monthlyRent, commonFee, managementFee, repairReserve, mgmtRate,
+        price: priceMan * 10000, monthlyRent, commonFee, managementFee, repairReserve, mgmtRate,
         propertyTaxAnnual, taxSavingAnnual,
         rentStepIntervalYears: rentStepInterval, rentStepPct,
         vacancyIntervalYears: vacancyInterval, vacancyMonths,
@@ -159,7 +160,7 @@ export default function InvestmentSimulator(props: Props) {
         rateStepIntervalYears: rateStepInterval, rateStepPct,
         acquisitionCost: acqMan * 10000,
       }),
-    [price, monthlyRent, commonFee, managementFee, repairReserve, mgmtRate, propertyTaxAnnual, taxSavingAnnual, rentStepInterval, rentStepPct, vacancyInterval, vacancyMonths, downPaymentMan, rate, termYears, rateStepInterval, rateStepPct, acqMan]
+    [priceMan, monthlyRent, commonFee, managementFee, repairReserve, mgmtRate, propertyTaxAnnual, taxSavingAnnual, rentStepInterval, rentStepPct, vacancyInterval, vacancyMonths, downPaymentMan, rate, termYears, rateStepInterval, rateStepPct, acqMan]
   );
 
   const cfNegative = firstMonth.cf < 0;
@@ -173,6 +174,26 @@ export default function InvestmentSimulator(props: Props) {
 
       {/* 入力 */}
       <div className="space-y-5 mb-8">
+        {/* 購入価格 */}
+        <div className="flex items-center justify-between">
+          <label className="text-sm font-light text-[#374151]">購入価格</label>
+          <div className="flex items-center gap-1">
+            <input
+              type="number"
+              min={0}
+              step={10}
+              value={priceMan}
+              onChange={(e) => {
+                const v = Number(e.target.value);
+                setPriceMan(v);
+                if (downPaymentMan > v) setDownPaymentMan(v);
+              }}
+              className="w-28 border border-gray-200 rounded-lg px-2 py-1.5 text-right"
+            />
+            <span className="text-[#6B7280] font-light text-sm">万円</span>
+          </div>
+        </div>
+
         {/* 頭金 */}
         <div>
           <div className="flex justify-between items-baseline mb-1">
