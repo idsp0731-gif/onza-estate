@@ -38,7 +38,7 @@ function simulate(input: SimInput) {
   let cumCF = 0;
   let firstMonth = { pay: 0, interest: 0, principal: 0, cf: 0 };
   const rows: YearRow[] = [];
-  const milestones = [5, 10, 15, 20, 25, 30, 35].filter((y) => y <= termYears);
+  const milestones = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].filter((y) => y <= termYears);
 
   for (let m = 1; m <= totalMonths; m++) {
     if (stepIntervalYears > 0 && m > 1 && (m - 1) % (stepIntervalYears * 12) === 0) {
@@ -92,9 +92,10 @@ export default function InvestmentSimulator(props: Props) {
   const commonFee = props.commonFee ?? DEFAULTS.commonFee;
   const managementFee = props.managementFee || DEFAULTS.managementFee;
   const repairReserve = props.repairReserve || DEFAULTS.repairReserve;
+  const priceMan = Math.round(price / 10000);
 
   // 入力
-  const [downPaymentMan, setDownPaymentMan] = useState(0); // 万円
+  const [downPaymentMan, setDownPaymentMan] = useState(Math.round(priceMan * 0.1)); // 万円・初期は価格の1割
   const [rate, setRate] = useState(2.0);
   const [termYears, setTermYears] = useState(35);
   const [stepInterval, setStepInterval] = useState(0); // 年（0=上げない）
@@ -122,7 +123,6 @@ export default function InvestmentSimulator(props: Props) {
   );
 
   const cfNegative = firstMonth.cf < 0;
-  const priceMan = Math.round(price / 10000);
 
   return (
     <div className="bg-white rounded-2xl px-6 py-8 md:px-10 md:py-10 shadow-sm">
@@ -171,22 +171,20 @@ export default function InvestmentSimulator(props: Props) {
         </div>
 
         {/* 借入年数 */}
-        <div className="flex items-center justify-between">
-          <label className="text-sm font-light text-[#374151]">借入年数</label>
-          <div className="flex gap-2">
-            {[20, 25, 30, 35].map((y) => (
-              <button
-                key={y}
-                type="button"
-                onClick={() => setTermYears(y)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-light transition-colors ${
-                  termYears === y ? 'bg-[#2C5F6E] text-white' : 'bg-[#F5F7F6] text-[#6B7280] hover:text-[#1F2937]'
-                }`}
-              >
-                {y}年
-              </button>
-            ))}
+        <div>
+          <div className="flex justify-between items-baseline mb-1">
+            <label className="text-sm font-light text-[#374151]">借入年数</label>
+            <span className="text-sm font-normal text-[#1F2937]">{termYears}年</span>
           </div>
+          <input
+            type="range"
+            min={10}
+            max={50}
+            step={5}
+            value={termYears}
+            onChange={(e) => setTermYears(Number(e.target.value))}
+            className="w-full accent-[#2C5F6E]"
+          />
         </div>
 
         {/* 金利ステップアップ */}
@@ -276,14 +274,16 @@ export default function InvestmentSimulator(props: Props) {
             <tr className="bg-[#2C5F6E] text-white">
               <th className="px-3 py-2 font-light text-left border border-[#1a3d4a]">経過</th>
               <th className="px-3 py-2 font-light text-right border border-[#1a3d4a]">ローン残債</th>
-              <th className="px-3 py-2 font-light text-right border border-[#1a3d4a]">持ち出し累計</th>
+              <th className="px-3 py-2 font-light text-right border border-[#1a3d4a]">累計収支</th>
               <th className="px-3 py-2 font-light text-right border border-[#1a3d4a]">損益分岐の売却価格</th>
             </tr>
             {rows.map((r, i) => (
               <tr key={r.year} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F5F7F6]'}>
                 <td className="px-3 py-2 border border-gray-200 font-light">{r.year}年後</td>
                 <td className="px-3 py-2 border border-gray-200 text-right font-light">{man(r.balance)}</td>
-                <td className="px-3 py-2 border border-gray-200 text-right font-light text-[#B45309]">−{man(-r.cumCF)}</td>
+                <td className={`px-3 py-2 border border-gray-200 text-right font-light ${r.cumCF < 0 ? 'text-[#B45309]' : 'text-[#2C5F6E]'}`}>
+                  {r.cumCF < 0 ? `−${man(-r.cumCF)}` : `+${man(r.cumCF)}`}
+                </td>
                 <td className="px-3 py-2 border border-gray-200 text-right font-normal text-[#1F2937]">{man(r.breakeven)}</td>
               </tr>
             ))}
