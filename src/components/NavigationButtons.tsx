@@ -118,7 +118,18 @@ export default function NavigationButtons() {
             <span>駅・エリア比較記事を見る</span>
             <span className="ml-4 shrink-0">→</span>
           </Link>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <Link
+              href="/investment-simulation"
+              className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
+            >
+              <div className="text-2xl mb-2">📊</div>
+              <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">投資物件収支シミュレーター</h3>
+              <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
+                区分マンション投資の月々の収支と、売却時の損益分岐点を試算
+              </p>
+              <span className="text-xs text-[#2C5F6E] font-light">試算する →</span>
+            </Link>
             <Link
               href="/rent-vs-buy-simulation"
               className="flex flex-col bg-white border border-[#2C5F6E] rounded-xl p-4 hover:bg-[#2C5F6E]/5 transition-colors"
