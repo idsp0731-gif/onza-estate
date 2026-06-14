@@ -11,7 +11,7 @@ const FEATURED_SLUG = 'aqua-place-kyoto-nijojo-kita';
 export const metadata: Metadata = {
   title: '不動産投資シミュレーション｜月々の収支と損益分岐点｜ONZA Estate',
   description:
-    '頭金・変動金利・借入年数・金利上昇シナリオを動かして、区分マンション投資の月々のキャッシュフローと、売却時の損益分岐点の推移を試算できます。',
+    '頭金・変動金利・借入年数・金利上昇シナリオを動かして、投資物件の月々のキャッシュフローと、売却時の損益分岐点の推移を試算できます。',
   alternates: { canonical: 'https://www.onza-estate.com/investment-simulation' },
   openGraph: {
     title: '不動産投資シミュレーション｜月々の収支と損益分岐点｜ONZA Estate',
@@ -48,7 +48,7 @@ export default async function InvestmentSimulationPage() {
           <div className="text-center mb-8">
             <h1 className="text-2xl md:text-3xl font-light mb-3">不動産投資シミュレーション</h1>
             <p className="font-light text-[#6B7280] text-sm leading-relaxed">
-              区分マンション投資の月々のキャッシュフローと、<br className="hidden md:block" />
+              投資物件の月々のキャッシュフローと、<br className="hidden md:block" />
               売却時の損益分岐点の推移を、借入条件を動かして試算できます。
             </p>
           </div>

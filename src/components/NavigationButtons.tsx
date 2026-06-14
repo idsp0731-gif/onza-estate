@@ -126,7 +126,7 @@ export default function NavigationButtons() {
               <div className="text-2xl mb-2">📊</div>
               <h3 className="text-sm font-light text-[#0d1f3c] mb-1 leading-snug">投資物件収支シミュレーター</h3>
               <p className="text-xs text-gray-500 font-light leading-relaxed mb-3 flex-1">
-                区分マンション投資の月々の収支と、売却時の損益分岐点を試算
+                投資物件の月々の収支と、売却時の損益分岐点を試算
               </p>
               <span className="text-xs text-[#2C5F6E] font-light">試算する →</span>
             </Link>
