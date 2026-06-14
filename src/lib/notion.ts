@@ -30,6 +30,7 @@ export type InvestmentProperty = {
   builtdate: string;
   thumbnail: string;
   published: boolean;
+  slug?: string;
 };
 
 export type BlogPost = {
@@ -170,6 +171,7 @@ function parseInvestmentProperty(page: any): InvestmentProperty {
     builtdate: props['builtdate']?.rich_text?.[0]?.plain_text ?? '',
     thumbnail: props['thumbnail']?.url ?? '',
     published: props['published']?.checkbox ?? false,
+    slug: props['slug']?.rich_text?.[0]?.plain_text ?? '',
   };
 }
 
@@ -197,6 +199,20 @@ export async function getInvestmentPropertyById(id: string): Promise<InvestmentP
 
   const page = await res.json();
   return parseInvestmentProperty(page);
+}
+
+export async function getInvestmentPropertyBySlug(slug: string): Promise<InvestmentProperty | null> {
+  if (!process.env.NOTION_INVESTMENT_DB) return null;
+
+  const results = await queryDatabase(process.env.NOTION_INVESTMENT_DB, {
+    property: 'slug',
+    rich_text: { equals: slug },
+  });
+
+  if (results.length > 0) return parseInvestmentProperty(results[0]);
+
+  // 旧URL（NotionページIDを使ったパス）との後方互換
+  return getInvestmentPropertyById(slug);
 }
 
 export async function getBlogPosts(category?: string): Promise<BlogPost[]> {

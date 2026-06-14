@@ -2,24 +2,24 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getInvestmentPropertyById, getPageBlocks } from '@/lib/notion';
+import { getInvestmentPropertyBySlug, getPageBlocks } from '@/lib/notion';
 
 export const revalidate = 60;
 
-type Props = { params: Promise<{ id: string }> };
+type Props = { params: Promise<{ slug: string }> };
 
 const SITE_URL = 'https://www.onza-estate.com';
 const DEFAULT_OG_IMAGE = 'https://res.cloudinary.com/dh2xvp5xj/image/upload/v1776768001/ogp_final_9_vnvwji.jpg';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
-  const property = await getInvestmentPropertyById(id);
+  const { slug } = await params;
+  const property = await getInvestmentPropertyBySlug(slug);
   if (!property || !property.published) return {};
 
   const title = `${property.name}の投資用物件（${property.type}）`;
   const description = `${property.area}・${property.station}${property.walkMinutes > 0 ? `徒歩${property.walkMinutes}分` : ''}、${property.layout}、${property.price}${property.yield ? `、表面利回り${property.yield}` : ''}の投資用物件。ONZA EstateがFP視点でご提案します。`;
   const ogImage = property.thumbnail || DEFAULT_OG_IMAGE;
-  const url = `${SITE_URL}/investment/${id}`;
+  const url = `${SITE_URL}/investment/${slug}`;
 
   return {
     title: `${title}｜ONZA Estate`,
@@ -44,8 +44,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function InvestmentPropertyPage({ params }: Props) {
-  const { id } = await params;
-  const property = await getInvestmentPropertyById(id);
+  const { slug } = await params;
+  const property = await getInvestmentPropertyBySlug(slug);
   if (!property || !property.published) notFound();
 
   const blocks = await getPageBlocks(property.id);

@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const investmentEntries: MetadataRoute.Sitemap = investmentProperties.map((property) => ({
-    url: `${SITE_URL}/investment/${property.id}`,
+    url: `${SITE_URL}/investment/${property.slug || property.id}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.7,

@@ -161,7 +161,7 @@ export default async function InvestmentPage() {
               {properties.map((property) => (
                 <Link
                   key={property.id}
-                  href={`/investment/${property.id}`}
+                  href={`/investment/${property.slug || property.id}`}
                   className="bg-white rounded-2xl shadow-sm overflow-hidden block hover:shadow-md transition-shadow"
                 >
                   <div className="relative aspect-[4/3] bg-[#eef1ef]">
