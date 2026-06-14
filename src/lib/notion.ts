@@ -31,6 +31,11 @@ export type InvestmentProperty = {
   thumbnail: string;
   published: boolean;
   slug?: string;
+  // シミュレーション用（円・月額）。未設定なら0
+  monthlyRent?: number;
+  commonFee?: number;
+  managementFee?: number;
+  repairReserve?: number;
 };
 
 export type BlogPost = {
@@ -172,6 +177,10 @@ function parseInvestmentProperty(page: any): InvestmentProperty {
     thumbnail: props['thumbnail']?.url ?? '',
     published: props['published']?.checkbox ?? false,
     slug: props['slug']?.rich_text?.[0]?.plain_text ?? '',
+    monthlyRent: props['monthlyRent']?.number ?? 0,
+    commonFee: props['commonFee']?.number ?? 0,
+    managementFee: props['managementFee']?.number ?? 0,
+    repairReserve: props['repairReserve']?.number ?? 0,
   };
 }
 

@@ -3,8 +3,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getInvestmentPropertyBySlug, getPageBlocks } from '@/lib/notion';
+import InvestmentSimulator from '@/components/InvestmentSimulator';
 
 export const revalidate = 60;
+
+function parsePriceYen(raw: string): number {
+  const m = raw.replace(/,/g, '').match(/(\d+(?:\.\d+)?)\s*万/);
+  if (m) return Math.round(parseFloat(m[1]) * 10000);
+  const digits = raw.replace(/[^0-9]/g, '');
+  return digits ? Number(digits) : 0;
+}
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -122,6 +130,20 @@ export default async function InvestmentPropertyPage({ params }: Props) {
         {hasBody && (
           <div className="bg-white rounded-2xl px-8 py-10 md:px-12 md:py-12 shadow-sm [word-break:auto-phrase] break-words [line-break:strict]">
             <BlockRenderer blocks={blocks} />
+          </div>
+        )}
+
+        {/* 収益シミュレーション（賃料データがある物件のみ） */}
+        {(property.monthlyRent ?? 0) > 0 && (
+          <div className="mt-8">
+            <InvestmentSimulator
+              propertyName={property.name}
+              price={parsePriceYen(property.price)}
+              monthlyRent={property.monthlyRent}
+              commonFee={property.commonFee}
+              managementFee={property.managementFee}
+              repairReserve={property.repairReserve}
+            />
           </div>
         )}
 
