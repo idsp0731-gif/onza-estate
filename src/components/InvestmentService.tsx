@@ -34,10 +34,14 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
         <h3 className="text-xl font-light mb-6">おすすめ投資用物件</h3>
         <div className="grid md:grid-cols-3 gap-6 mb-4">
           {properties.slice(0, 3).map((property) => (
-            <div key={property.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <div className="relative aspect-[4/3] bg-gray-200">
+            <Link
+              key={property.id}
+              href={`/investment/${property.slug || property.id}`}
+              className="bg-white rounded-2xl shadow-sm overflow-hidden block hover:shadow-md transition-shadow"
+            >
+              <div className="relative aspect-[4/3] bg-[#eef1ef]">
                 {property.thumbnail ? (
-                  <Image src={property.thumbnail} alt={property.name} fill className="object-cover" />
+                  <Image src={property.thumbnail} alt={property.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain" />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-gray-500 text-sm">物件画像</span>
@@ -66,7 +70,7 @@ export default function InvestmentService({ initialProperties = [] }: { initialP
                   )}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
