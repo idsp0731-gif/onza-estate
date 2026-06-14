@@ -89,16 +89,19 @@ export default async function InvestmentPropertyPage({ params }: Props) {
           </h1>
         </div>
 
-        {/* サムネイル */}
+        {/* サムネイル（建物全体が見えるよう引きで表示。縦長写真でもトリミングしない） */}
         {property.thumbnail && (
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-8 shadow-sm">
-            <Image
-              src={property.thumbnail}
-              alt={property.name}
-              fill
-              className="object-cover"
-              priority
-            />
+          <div className="mb-8 flex justify-center">
+            <div className="relative w-full max-w-md h-[380px] md:h-[540px] rounded-2xl overflow-hidden shadow-sm bg-[#eef1ef]">
+              <Image
+                src={property.thumbnail}
+                alt={property.name}
+                fill
+                sizes="(max-width: 768px) 100vw, 448px"
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
         )}
 
