@@ -151,33 +151,52 @@ export async function getProperties(): Promise<Property[]> {
   });
 }
 
+function parseInvestmentProperty(page: any): InvestmentProperty {
+  const props = page.properties;
+  const stationRaw = props['station']?.rich_text?.[0]?.plain_text ?? '';
+  const { station, walkMinutes } = parseStation(stationRaw);
+
+  return {
+    id: page.id,
+    name: props['タイトル']?.title?.[0]?.plain_text ?? '',
+    area: props['area']?.select?.name ?? '',
+    price: props['price']?.rich_text?.[0]?.plain_text ?? '',
+    station,
+    walkMinutes,
+    type: props['type']?.select?.name ?? '',
+    yield: props['yield']?.rich_text?.[0]?.plain_text ?? '',
+    layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
+    size: props['size']?.rich_text?.[0]?.plain_text ?? '',
+    builtdate: props['builtdate']?.rich_text?.[0]?.plain_text ?? '',
+    thumbnail: props['thumbnail']?.url ?? '',
+    published: props['published']?.checkbox ?? false,
+  };
+}
+
 export async function getInvestmentProperties(): Promise<InvestmentProperty[]> {
   const results = await queryDatabase(process.env.NOTION_INVESTMENT_DB!, {
     property: 'published',
     checkbox: { equals: true },
   });
 
-  return results.map((page: any) => {
-    const props = page.properties;
-    const stationRaw = props['station']?.rich_text?.[0]?.plain_text ?? '';
-    const { station, walkMinutes } = parseStation(stationRaw);
+  return results.map((page: any) => parseInvestmentProperty(page));
+}
 
-    return {
-      id: page.id,
-      name: props['タイトル']?.title?.[0]?.plain_text ?? '',
-      area: props['area']?.select?.name ?? '',
-      price: props['price']?.rich_text?.[0]?.plain_text ?? '',
-      station,
-      walkMinutes,
-      type: props['type']?.select?.name ?? '',
-      yield: props['yield']?.rich_text?.[0]?.plain_text ?? '',
-      layout: props['layout']?.rich_text?.[0]?.plain_text ?? '',
-      size: props['size']?.rich_text?.[0]?.plain_text ?? '',
-      builtdate: props['builtdate']?.rich_text?.[0]?.plain_text ?? '',
-      thumbnail: props['thumbnail']?.url ?? '',
-      published: true,
-    };
+export async function getInvestmentPropertyById(id: string): Promise<InvestmentProperty | null> {
+  if (!process.env.NOTION_INVESTMENT_DB) return null;
+
+  const res = await fetch(`https://api.notion.com/v1/pages/${id}`, {
+    headers: {
+      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+      'Notion-Version': NOTION_VERSION,
+    },
+    next: { revalidate: 60 },
   });
+
+  if (!res.ok) return null;
+
+  const page = await res.json();
+  return parseInvestmentProperty(page);
 }
 
 export async function getBlogPosts(category?: string): Promise<BlogPost[]> {

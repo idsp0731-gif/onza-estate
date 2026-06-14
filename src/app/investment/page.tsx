@@ -148,7 +148,11 @@ export default async function InvestmentPage() {
             <h2 className="text-xl font-light mb-6">おすすめ投資用物件</h2>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {properties.map((property) => (
-                <div key={property.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                <Link
+                  key={property.id}
+                  href={`/investment/${property.id}`}
+                  className="bg-white rounded-2xl shadow-sm overflow-hidden block hover:shadow-md transition-shadow"
+                >
                   <div className="relative aspect-[4/3] bg-gray-200">
                     {property.thumbnail ? (
                       <Image src={property.thumbnail} alt={property.name} fill className="object-cover" />
@@ -180,7 +184,7 @@ export default async function InvestmentPage() {
                       )}
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
