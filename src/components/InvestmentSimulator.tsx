@@ -123,8 +123,8 @@ export default function InvestmentSimulator(props: Props) {
   const repairReserve = props.repairReserve || DEFAULTS.repairReserve;
   const priceMan = Math.round(price / 10000);
 
-  // 入力
-  const [downPaymentMan, setDownPaymentMan] = useState(Math.round(priceMan * 0.1)); // 万円・初期は価格の1割
+  // 入力（頭金は10万円単位。初期は価格の1割を10万円単位に繰り上げ）
+  const [downPaymentMan, setDownPaymentMan] = useState(Math.ceil((priceMan * 0.1) / 10) * 10);
   const [rate, setRate] = useState(2.0);
   const [termYears, setTermYears] = useState(35);
   const [mgmtRate, setMgmtRate] = useState(5); // 賃貸管理委託料 ％
