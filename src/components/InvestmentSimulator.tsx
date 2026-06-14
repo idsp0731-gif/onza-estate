@@ -327,7 +327,7 @@ export default function InvestmentSimulator(props: Props) {
         <div className="bg-[#F5F7F6] px-4 py-2 text-sm font-normal text-[#374151]">月々の収支（初年度・入居時）</div>
         <div className="divide-y divide-gray-100 text-sm font-light">
           <Row label="家賃収入" value={`+${yen(firstMonth.income)}`} note={`賃料${monthlyRent.toLocaleString()}＋共益費${commonFee.toLocaleString()}`} />
-          <Row label="ローン返済" value={`−${yen(firstMonth.pay)}`} note={`うち元本 ${yen(firstMonth.principal)}／利息 ${yen(firstMonth.interest)}`} />
+          <Row label="ローン返済" value={`−${yen(firstMonth.pay)}`} note={`当初の内訳：元本 ${yen(firstMonth.principal)}／利息 ${yen(firstMonth.interest)}（元利均等のため元本の割合は年々増加）`} />
           <Row label="諸費用" value={`−${yen(firstMonth.expenses)}`} note={`管理費${managementFee.toLocaleString()}／修繕積立金${repairReserve.toLocaleString()}／賃貸管理料${Math.round(firstMonth.mgmtComm).toLocaleString()}`} />
           <div className="flex items-center justify-between px-4 py-3 bg-white">
             <span className="font-normal text-[#1F2937]">月キャッシュフロー</span>
@@ -349,7 +349,7 @@ export default function InvestmentSimulator(props: Props) {
 
       {cfNegative && (
         <p className="text-xs text-[#6B7280] font-light mb-6 leading-relaxed">
-          月々はマイナスでも、その裏で毎月 <span className="text-[#2C5F6E]">{yen(firstMonth.principal)}</span> 分のローン残高（＝自己資本）が減っています。家賃という他人のお金で借入を返し、資産を積み上げていく構造です。
+          月々はマイナスでも、その裏でローン残高（＝自己資本）は着実に減っています。当初は月あたり <span className="text-[#2C5F6E]">{yen(firstMonth.principal)}</span> 分で、元利均等のため元本の割合は年々増えていきます。家賃という他人のお金で借入を返し、資産を積み上げていく構造です。
         </p>
       )}
 
