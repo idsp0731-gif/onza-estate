@@ -62,11 +62,35 @@ export default async function InvestmentSimulationPage() {
             repairReserve={property?.repairReserve}
           />
 
-          <p className="mt-6 text-center text-sm font-light">
-            <Link href="/investment" className="text-[#2C5F6E] hover:opacity-70 transition-opacity">
-              投資用物件の一覧・考え方を見る →
-            </Link>
-          </p>
+          <div className="mt-10 bg-white rounded-2xl p-8 shadow-sm text-center">
+            <p className="font-light text-[#374151] mb-6 text-sm leading-relaxed">
+              不動産投資に関するご相談は、LINEからお気軽にどうぞ。毎日7:00〜21:00、無料で対応しています。
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
+              <Link
+                href="/investment"
+                className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                不動産投資ページを見る
+              </Link>
+              <a
+                href="https://forms.gle/cFimysZM5Uv83GXA9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                投資用資料を請求する
+              </a>
+              <a
+                href="https://lin.ee/mS1QHo1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              >
+                LINEで相談する
+              </a>
+            </div>
+          </div>
         </div>
       </main>
 
