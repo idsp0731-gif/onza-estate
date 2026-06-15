@@ -1,40 +1,53 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getAreaArticles } from '@/lib/notion';
+import { getAreaArticlesBySlug, getAreaList } from '@/lib/notion';
 import Footer from '@/components/Footer';
 
 export const revalidate = 60;
 
 type AreaConfig = {
   name: string;
-  notionArea: string;
   description: string;
 };
 
+// 表示名・説明文のカスタム設定（既存エリアの体裁を維持）。
+// ここに無いエリアは Notion のエリア名から自動生成する（コード変更不要）。
 const AREA_MAP: Record<string, AreaConfig> = {
   moriyama: {
     name: '守山市',
-    notionArea: '守山',
     description: '守山市の住宅購入・賃貸・エリア特徴など、地域に特化した不動産情報をお届けします。',
   },
   kusatsu: {
     name: '草津市',
-    notionArea: '草津',
     description: '草津市の住宅購入・賃貸・エリア特徴など、地域に特化した不動産情報をお届けします。',
   },
   otsu: {
     name: '大津市',
-    notionArea: '大津',
     description: '大津市の住宅購入・賃貸・エリア特徴など、地域に特化した不動産情報をお届けします。',
   },
 };
+
+// slug に対応する表示名・説明を解決する。
+// AREA_MAP を優先し、無ければ Notion のエリア一覧から動的に生成する。
+async function resolveAreaConfig(area: string): Promise<AreaConfig | null> {
+  const mapped = AREA_MAP[area];
+  if (mapped) return mapped;
+
+  const list = await getAreaList().catch(() => []);
+  const found = list.find((a) => a.slug === area);
+  if (!found) return null;
+  return {
+    name: found.name,
+    description: `${found.name}の住宅購入・賃貸・エリア特徴など、地域に特化した不動産情報をお届けします。`,
+  };
+}
 
 type Props = { params: Promise<{ area: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { area } = await params;
-  const config = AREA_MAP[area];
+  const config = await resolveAreaConfig(area);
   if (!config) return {};
   const title = `${config.name}の不動産・住まい情報｜ONZA Estate`;
   const url = `https://www.onza-estate.com/area/${area}`;
@@ -55,10 +68,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AreaListPage({ params }: Props) {
   const { area } = await params;
-  const config = AREA_MAP[area];
+  const config = await resolveAreaConfig(area);
   if (!config) notFound();
 
-  const articles = await getAreaArticles(config.notionArea).catch(() => []);
+  const articles = await getAreaArticlesBySlug(area).catch(() => []);
 
   return (
     <div className="min-h-screen bg-[#F5F7F6] flex flex-col">

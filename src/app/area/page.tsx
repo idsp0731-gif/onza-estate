@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import Footer from '@/components/Footer';
+import { getAreaList } from '@/lib/notion';
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: 'エリア別 不動産・住まい情報｜ONZA Estate',
@@ -16,13 +19,9 @@ export const metadata: Metadata = {
   },
 };
 
-const AREAS = [
-  { slug: 'moriyama', name: '守山市', description: '守山市の不動産・住まい情報' },
-  { slug: 'kusatsu', name: '草津市', description: '草津市の不動産・住まい情報' },
-  { slug: 'otsu', name: '大津市', description: '大津市の不動産・住まい情報' },
-] as const;
+export default async function AreaIndexPage() {
+  const areas = await getAreaList().catch(() => []);
 
-export default function AreaIndexPage() {
   return (
     <div className="min-h-screen bg-[#F5F7F6] flex flex-col">
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
@@ -46,21 +45,27 @@ export default function AreaIndexPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {AREAS.map((area) => (
-              <Link
-                key={area.slug}
-                href={`/area/${area.slug}`}
-                className="bg-white rounded-2xl shadow-sm p-8 block hover:shadow-md transition-shadow text-center"
-              >
-                <h2 className="text-xl font-light text-[#1F2937] mb-2">{area.name}</h2>
-                <p className="font-light text-[#6B7280] text-sm">{area.description}</p>
-                <span className="inline-block mt-4 text-[#2C5F6E] font-light text-sm">
-                  記事を見る →
-                </span>
-              </Link>
-            ))}
-          </div>
+          {areas.length === 0 ? (
+            <p className="text-center font-light text-[#6B7280]">エリア記事がありません。</p>
+          ) : (
+            <div className="grid md:grid-cols-3 gap-6">
+              {areas.map((area) => (
+                <Link
+                  key={area.slug}
+                  href={`/area/${area.slug}`}
+                  className="bg-white rounded-2xl shadow-sm p-8 block hover:shadow-md transition-shadow text-center"
+                >
+                  <h2 className="text-xl font-light text-[#1F2937] mb-2">{area.name}</h2>
+                  <p className="font-light text-[#6B7280] text-sm">
+                    {area.name}の不動産・住まい情報
+                  </p>
+                  <span className="inline-block mt-4 text-[#2C5F6E] font-light text-sm">
+                    記事を見る（{area.count}件）→
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </main>
 

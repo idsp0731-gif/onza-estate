@@ -309,19 +309,88 @@ export type AreaArticle = {
   id: string;
   title: string;
   area: string;
+  areaSlug: string;
   slug: string;
   metadescription: string;
 };
+
+// Notion の area（日本語表示名）→ URL用slug（ローマ字）のフォールバック対応表。
+// Notion 側に areaSlug プロパティが設定されていない記事はここで補完する（守山などの既存挙動を維持）。
+const AREA_SLUG_FALLBACK: Record<string, string> = {
+  '守山': 'moriyama',
+  '草津': 'kusatsu',
+  '大津': 'otsu',
+};
+
+function readAreaName(page: any): string {
+  const props = page.properties;
+  return props['area']?.rich_text?.[0]?.plain_text ?? props['area']?.select?.name ?? '';
+}
+
+function readAreaSlug(page: any): string {
+  const props = page.properties;
+  const name = readAreaName(page);
+  return props['areaSlug']?.rich_text?.[0]?.plain_text ?? AREA_SLUG_FALLBACK[name] ?? '';
+}
 
 function parseAreaArticle(page: any): AreaArticle {
   const props = page.properties;
   return {
     id: page.id,
     title: props['title']?.title?.[0]?.plain_text ?? '',
-    area: props['area']?.rich_text?.[0]?.plain_text ?? '',
+    area: readAreaName(page),
+    areaSlug: readAreaSlug(page),
     slug: props['slug']?.rich_text?.[0]?.plain_text ?? page.id,
     metadescription: props['metadescription']?.rich_text?.[0]?.plain_text ?? '',
   };
+}
+
+export type AreaSummary = {
+  slug: string;
+  name: string;
+  count: number;
+};
+
+// エリア記事DBから、記事が存在するエリアの一覧を集約して返す。
+// 同じエリアは1つにまとめ、記事数を数える。slug が取れないエリアは除外。
+export async function getAreaList(): Promise<AreaSummary[]> {
+  if (!process.env.NOTION_AREA_DB) return [];
+
+  const allResults = await queryDatabase(
+    process.env.NOTION_AREA_DB,
+    undefined,
+    [{ timestamp: 'last_edited_time', direction: 'descending' }]
+  );
+
+  const map = new Map<string, AreaSummary>();
+  for (const page of allResults) {
+    const name = readAreaName(page);
+    const slug = readAreaSlug(page);
+    if (!name || !slug) continue;
+    const existing = map.get(slug);
+    if (existing) {
+      existing.count += 1;
+    } else {
+      map.set(slug, { slug, name, count: 1 });
+    }
+  }
+
+  return Array.from(map.values());
+}
+
+// URL用slug（ローマ字）でエリア記事を取得する。
+export async function getAreaArticlesBySlug(slug: string): Promise<AreaArticle[]> {
+  if (!process.env.NOTION_AREA_DB) return [];
+
+  const allResults = await queryDatabase(
+    process.env.NOTION_AREA_DB,
+    undefined,
+    [{ timestamp: 'last_edited_time', direction: 'descending' }]
+  );
+
+  return allResults
+    .filter((page: any) => readAreaSlug(page) === slug)
+    .map((page: any) => parseAreaArticle(page));
 }
 
 export async function getAreaArticles(area?: string): Promise<AreaArticle[]> {

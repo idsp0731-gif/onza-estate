@@ -103,11 +103,11 @@ export default function NavigationButtons() {
             <span className="ml-4 shrink-0">→</span>
           </Link>
           <Link
-            href="/area/moriyama"
+            href="/area"
             className="relative flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-lg px-4 py-3 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
           >
             <span className="absolute top-3 right-3 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">毎日更新中</span>
-            <span>守山市の不動産・住まい情報を見る</span>
+            <span>エリアから記事を探す</span>
             <span className="ml-4 shrink-0">→</span>
           </Link>
           <Link
