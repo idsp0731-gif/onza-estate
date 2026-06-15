@@ -53,11 +53,11 @@ export default async function BlogPostPage({ params }: Props) {
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-3xl mx-auto px-4 h-14 flex items-center">
           <Link
-            href="/"
+            href={post.category === '賃貸物件情報' ? '/blog?category=賃貸物件情報' : '/blog?category=市況ニュース'}
             className="text-[#2C5F6E] font-light text-sm hover:opacity-70 transition-opacity flex items-center gap-1"
           >
             <span>←</span>
-            <span>トップへ戻る</span>
+            <span>{post.category === '賃貸物件情報' ? '賃貸物件情報一覧へ戻る' : '市況ニュース一覧へ戻る'}</span>
           </Link>
         </div>
       </header>

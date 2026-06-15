@@ -21,6 +21,12 @@ export default async function InvestmentArticlesPage() {
       <StickyNav />
       <section className="bg-[#f8f7f4] py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4">
+          <div className="mb-8">
+            <Link href="/" className="text-[#2C5F6E] font-light text-sm hover:opacity-70 transition-opacity inline-flex items-center gap-1">
+              <span>←</span>
+              <span>トップへ戻る</span>
+            </Link>
+          </div>
           <h1 className="text-xl md:text-2xl lg:text-3xl font-light mb-2">不動産投資コラム</h1>
           <p className="text-sm font-light text-[#6B7280] mb-10">
             不動産投資の考え方、物件選び、資産形成について実務視点で発信しています。

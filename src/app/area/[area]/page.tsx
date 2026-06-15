@@ -77,9 +77,9 @@ export default async function AreaListPage({ params }: Props) {
     <div className="min-h-screen bg-[#F5F7F6] flex flex-col">
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-          <Link href="/" className="text-[#2C5F6E] font-light text-sm hover:opacity-70 transition-opacity flex items-center gap-1">
+          <Link href="/area" className="text-[#2C5F6E] font-light text-sm hover:opacity-70 transition-opacity flex items-center gap-1">
             <span>←</span>
-            <span>トップへ戻る</span>
+            <span>エリア選択に戻る</span>
           </Link>
           <span className="font-light text-sm text-[#1F2937]">ONZA Estate</span>
         </div>

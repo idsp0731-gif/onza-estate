@@ -40,11 +40,11 @@ export default async function CompareArticlePage({ params }: Props) {
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-3xl mx-auto px-4 h-14 flex items-center">
           <Link
-            href="/"
+            href="/compare"
             className="text-[#2C5F6E] font-light text-sm hover:opacity-70 transition-opacity flex items-center gap-1"
           >
             <span>←</span>
-            <span>トップへ戻る</span>
+            <span>比較記事一覧へ戻る</span>
           </Link>
         </div>
       </header>
