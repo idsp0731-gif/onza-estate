@@ -90,12 +90,12 @@ export default async function CompareArticlePage({ params }: Props) {
               テナント・事業用物件をお探しの方はこちら
             </Link>
           </div>
-          <div className="mt-3 max-w-2xl mx-auto">
+          <div className="mt-3 flex justify-center max-w-2xl mx-auto">
             <a
               href="https://lin.ee/mS1QHo1"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              className="flex items-center justify-center gap-2 w-full sm:w-[calc(50%-0.375rem)] bg-[#06C755] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
             >
               LINEで相談する
             </a>
