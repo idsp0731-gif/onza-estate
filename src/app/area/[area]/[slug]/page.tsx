@@ -78,38 +78,38 @@ export default async function AreaArticlePage({ params }: Props) {
           <p className="font-light text-[#374151] mb-6 text-sm leading-relaxed">
             {areaName}での住まい探しについて、お気軽にご相談ください。
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
+          <div className="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
             <Link
               href="/housing"
-              className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              className="flex items-center justify-center text-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
             >
               住宅購入ページを見る
             </Link>
             <Link
               href="/rental"
-              className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              className="flex items-center justify-center text-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
             >
               賃貸物件をお探しの方はこちら
             </Link>
             <Link
               href="/sale"
-              className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              className="flex items-center justify-center text-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
             >
               不動産の売却をお考えの方はこちら
             </Link>
             <Link
               href="/tenant"
-              className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              className="flex items-center justify-center text-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
             >
               テナント・事業用物件をお探しの方はこちら
             </Link>
           </div>
-          <div className="mt-3 flex justify-center">
+          <div className="mt-3 max-w-2xl mx-auto">
             <a
               href="https://lin.ee/mS1QHo1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
+              className="flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
             >
               LINEで相談する
             </a>
