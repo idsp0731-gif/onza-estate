@@ -64,7 +64,7 @@ export default async function CompareArticlePage({ params }: Props) {
           <p className="font-light text-[#374151] mb-6 text-sm leading-relaxed">
             住まい探しについて、お気軽にご相談ください。
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
             <Link
               href="/housing"
               className="inline-flex items-center justify-center bg-[#2C5F6E] text-white px-6 py-3 rounded-2xl font-light text-sm hover:opacity-90 transition-opacity"
@@ -89,6 +89,8 @@ export default async function CompareArticlePage({ params }: Props) {
             >
               テナント・事業用物件をお探しの方はこちら
             </Link>
+          </div>
+          <div className="mt-3 flex justify-center">
             <a
               href="https://lin.ee/mS1QHo1"
               target="_blank"
