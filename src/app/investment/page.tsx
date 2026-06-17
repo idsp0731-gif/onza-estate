@@ -201,10 +201,18 @@ export default async function InvestmentPage() {
             <div className="mb-8">
               <Link
                 href="/investment-simulation"
-                className="flex items-center justify-between border border-[#2C5F6E] text-[#2C5F6E] rounded-2xl px-6 py-4 font-light text-sm hover:bg-[#2C5F6E] hover:text-white transition-colors"
+                className="block bg-white border border-[#2C5F6E] rounded-2xl p-6 shadow-sm hover:shadow-md hover:bg-[#2C5F6E]/5 transition-all"
               >
-                <span>収益シミュレーション　月々の収支・売却時の損益分岐点を試算する</span>
-                <span className="ml-4 shrink-0">→</span>
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl shrink-0">📊</div>
+                  <div className="flex-1">
+                    <h3 className="font-light text-[#0d1f3c] text-base mb-1">収益シミュレーション</h3>
+                    <p className="text-sm font-light text-[#6B7280] leading-relaxed mb-2">
+                      月々の収支と、売却時の損益分岐点を試算できます。
+                    </p>
+                    <span className="text-sm text-[#2C5F6E] font-light">試算する →</span>
+                  </div>
+                </div>
               </Link>
             </div>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
