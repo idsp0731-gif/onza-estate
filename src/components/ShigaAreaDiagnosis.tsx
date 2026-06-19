@@ -76,11 +76,11 @@ const questions: Question[] = [
     ],
   },
   {
-    text: '住宅購入の予算は？',
+    text: '住まいのご予算は？（購入価格／賃貸は月々の家賃）',
     answers: [
-      { label: '〜3000万円', scores: { A: 1, B: 3, C: 5, D: 0, E: 4 } },
-      { label: '3000〜5000万円', scores: { A: 3, B: 5, C: 3, D: 3, E: 2 } },
-      { label: '5000万円以上', scores: { A: 5, B: 1, C: 0, D: 5, E: 0 } },
+      { label: '〜3000万円（賃貸：〜8万円）', scores: { A: 1, B: 3, C: 5, D: 0, E: 4 } },
+      { label: '3000〜5000万円（賃貸：8〜12万円）', scores: { A: 3, B: 5, C: 3, D: 3, E: 2 } },
+      { label: '5000万円以上（賃貸：12万円以上）', scores: { A: 5, B: 1, C: 0, D: 5, E: 0 } },
     ],
   },
   {
@@ -110,11 +110,11 @@ const questions: Question[] = [
     ],
   },
   {
-    text: '将来の売却はどのくらい重視しますか？',
+    text: '将来の売却・住み替えをどのくらい意識しますか？',
     answers: [
-      { label: '重視する', scores: { A: 4, B: 1, C: 0, D: 5, E: 0 } },
-      { label: '少し意識する', scores: { A: 3, B: 5, C: 2, D: 3, E: 1 } },
-      { label: '長く住むつもり', scores: { A: 0, B: 3, C: 5, D: 0, E: 5 } },
+      { label: '重視する（賃貸：数年で住み替えるかも）', scores: { A: 4, B: 1, C: 0, D: 5, E: 0 } },
+      { label: '少し意識する（賃貸：状況次第）', scores: { A: 3, B: 5, C: 2, D: 3, E: 1 } },
+      { label: '長く住むつもり（賃貸：長く住みたい）', scores: { A: 0, B: 3, C: 5, D: 0, E: 5 } },
     ],
   },
   {
@@ -346,7 +346,13 @@ export default function ShigaAreaDiagnosis() {
               href="/housing"
               className="block w-full text-center bg-[#0d1f3c] text-white font-semibold py-4 rounded-xl hover:bg-[#162d52] transition-colors"
             >
-              住宅購入ページを見る
+              購入をお考えの方はこちら（住宅購入ページ）
+            </Link>
+            <Link
+              href="/rental"
+              className="block w-full text-center bg-[#2C5F6E] text-white font-semibold py-4 rounded-xl hover:bg-[#244e5a] transition-colors"
+            >
+              賃貸でお探しの方はこちら（賃貸ページ）
             </Link>
             <a
               href="https://lin.ee/mS1QHo1"

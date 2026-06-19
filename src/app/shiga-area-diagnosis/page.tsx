@@ -17,8 +17,9 @@ export default function ShigaAreaDiagnosisPage() {
           滋賀県南部 居住エリア診断｜あなたの生活スタイルに合う街は？
         </h1>
         <p className="text-[#0d1f3c] text-sm font-light max-w-xl mx-auto leading-relaxed">
-          通勤・子育て・資産性・車利用・住宅予算などをもとに、<br className="hidden sm:block" />
-          滋賀県南部で自分に合う居住エリアを整理する診断シミュレーションです。
+          通勤・子育て・資産性・車利用・住まいのご予算などをもとに、<br className="hidden sm:block" />
+          滋賀県南部で自分に合う居住エリアを整理する診断シミュレーションです。<br className="hidden sm:block" />
+          購入・賃貸どちらをお考えの方でもご利用いただけます。
         </p>
       </div>
 
