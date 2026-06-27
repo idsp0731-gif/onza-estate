@@ -53,8 +53,11 @@ export default async function AreaIndexPage() {
                 <Link
                   key={area.slug}
                   href={`/area/${area.slug}`}
-                  className="bg-white rounded-2xl shadow-sm p-8 block hover:shadow-md transition-shadow text-center"
+                  className="relative bg-white rounded-2xl shadow-sm p-8 block hover:shadow-md transition-shadow text-center"
                 >
+                  {area.slug === 'kusatsu' && (
+                    <span className="absolute top-3 right-3 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">更新中</span>
+                  )}
                   <h2 className="text-xl font-light text-[#1F2937] mb-2">{area.name}</h2>
                   <p className="font-light text-[#6B7280] text-sm">
                     {area.name}の不動産・住まい情報
