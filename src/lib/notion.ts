@@ -522,3 +522,46 @@ export async function getInvestmentArticleBySlug(slug: string): Promise<Investme
   if (results.length === 0) return null;
   return parseInvestmentArticle(results[0]);
 }
+
+export type AkiyaArticle = {
+  id: string;
+  title: string;
+  date: string;
+  metadescription: string;
+  published: boolean;
+  slug: string;
+};
+
+function parseAkiyaArticle(page: any): AkiyaArticle {
+  const props = page.properties;
+  return {
+    id: page.id,
+    title: props['title']?.title?.[0]?.plain_text ?? '',
+    date: props['date']?.date?.start ?? '',
+    metadescription: props['metadescription']?.rich_text?.[0]?.plain_text ?? '',
+    published: props['published']?.checkbox ?? false,
+    slug: props['slug']?.rich_text?.[0]?.plain_text ?? page.id,
+  };
+}
+
+export async function getAkiyaArticles(): Promise<AkiyaArticle[]> {
+  if (!process.env.NOTION_AKIYA_ARTICLES_DB) return [];
+  const results = await queryDatabase(
+    process.env.NOTION_AKIYA_ARTICLES_DB,
+    { property: 'published', checkbox: { equals: true } },
+    [{ property: 'date', direction: 'descending' }]
+  );
+  return results.map(parseAkiyaArticle);
+}
+
+export async function getAkiyaArticleBySlug(slug: string): Promise<AkiyaArticle | null> {
+  if (!process.env.NOTION_AKIYA_ARTICLES_DB) return null;
+  const results = await queryDatabase(process.env.NOTION_AKIYA_ARTICLES_DB, {
+    and: [
+      { property: 'published', checkbox: { equals: true } },
+      { property: 'slug', rich_text: { equals: slug } },
+    ],
+  });
+  if (results.length === 0) return null;
+  return parseAkiyaArticle(results[0]);
+}
