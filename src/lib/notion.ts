@@ -532,11 +532,22 @@ export type AkiyaArticle = {
   slug: string;
 };
 
+// title 型のプロパティを名前に依存せず取得（'title'/'タイトル'/'名前' などの差異に強い）
+function readTitleText(props: any): string {
+  if (props['title']?.title?.[0]?.plain_text) return props['title'].title[0].plain_text;
+  for (const key of Object.keys(props)) {
+    if (props[key]?.type === 'title') {
+      return props[key]?.title?.[0]?.plain_text ?? '';
+    }
+  }
+  return '';
+}
+
 function parseAkiyaArticle(page: any): AkiyaArticle {
   const props = page.properties;
   return {
     id: page.id,
-    title: props['title']?.title?.[0]?.plain_text ?? '',
+    title: readTitleText(props),
     date: props['date']?.date?.start ?? '',
     metadescription: props['metadescription']?.rich_text?.[0]?.plain_text ?? '',
     published: props['published']?.checkbox ?? false,
@@ -546,22 +557,23 @@ function parseAkiyaArticle(page: any): AkiyaArticle {
 
 export async function getAkiyaArticles(): Promise<AkiyaArticle[]> {
   if (!process.env.NOTION_AKIYA_ARTICLES_DB) return [];
+  // 全件取得し、published プロパティの有無に関わらず動作するよう JS 側で絞り込む
   const results = await queryDatabase(
     process.env.NOTION_AKIYA_ARTICLES_DB,
-    { property: 'published', checkbox: { equals: true } },
-    [{ property: 'date', direction: 'descending' }]
+    undefined,
+    [{ timestamp: 'last_edited_time', direction: 'descending' }]
   );
-  return results.map(parseAkiyaArticle);
+  return results
+    .filter((page: any) => page.properties['published']?.checkbox !== false)
+    .map((page: any) => parseAkiyaArticle(page));
 }
 
 export async function getAkiyaArticleBySlug(slug: string): Promise<AkiyaArticle | null> {
   if (!process.env.NOTION_AKIYA_ARTICLES_DB) return null;
-  const results = await queryDatabase(process.env.NOTION_AKIYA_ARTICLES_DB, {
-    and: [
-      { property: 'published', checkbox: { equals: true } },
-      { property: 'slug', rich_text: { equals: slug } },
-    ],
+  const results = await queryDatabase(process.env.NOTION_AKIYA_ARTICLES_DB);
+  const found = results.find((page: any) => {
+    const s = page.properties['slug']?.rich_text?.[0]?.plain_text ?? page.id;
+    return s === slug;
   });
-  if (results.length === 0) return null;
-  return parseAkiyaArticle(results[0]);
+  return found ? parseAkiyaArticle(found) : null;
 }

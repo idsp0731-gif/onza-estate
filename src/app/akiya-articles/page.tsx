@@ -14,7 +14,12 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function AkiyaArticlesPage() {
-  const articles = await getAkiyaArticles();
+  let articles: Awaited<ReturnType<typeof getAkiyaArticles>> = [];
+  try {
+    articles = await getAkiyaArticles();
+  } catch (e) {
+    console.error('Notion akiya fetch error:', e);
+  }
 
   return (
     <div className="min-h-screen">
