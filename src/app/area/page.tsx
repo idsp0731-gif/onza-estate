@@ -55,7 +55,7 @@ export default async function AreaIndexPage() {
                   href={`/area/${area.slug}`}
                   className="relative bg-white rounded-2xl shadow-sm p-8 block hover:shadow-md transition-shadow text-center"
                 >
-                  {area.slug === 'kusatsu' && (
+                  {area.slug === 'otsu' && (
                     <span className="absolute top-3 right-3 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">毎日更新中</span>
                   )}
                   <h2 className="text-xl font-light text-[#1F2937] mb-2">{area.name}</h2>
